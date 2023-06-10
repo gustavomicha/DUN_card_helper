@@ -14,10 +14,11 @@
     
     <div id="imageContainer">
         <img id="dorsoImage" src="acciones_ciudad/dorso.png" alt="Maso">
-        <img id="randomImage" src="" alt="Random">
+        <img id="selectedImage" src="" alt="Selected Image">
     </div>
 
     <button onclick="changeRandomImage()">Carta aleatoria</button>
+    <button onclick="showImageNames()">Seleccionar carta</button>
 
     <script>
         var images = [
@@ -29,7 +30,15 @@
         function changeRandomImage() {
             var randomIndex = Math.floor(Math.random() * images.length);
             var randomImageSrc = images[randomIndex];
-            document.getElementById("randomImage").src = randomImageSrc;
+            document.getElementById("selectedImage").src = randomImageSrc;
+        }
+
+        function showImageNames() {
+            var imageNames = images.map(function(image) {
+                return image.replace('.png', '').split('/')[1];
+            });
+
+            alert(imageNames.join(', '));
         }
     </script>
 </body>
