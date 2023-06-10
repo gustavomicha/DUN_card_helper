@@ -13,14 +13,18 @@
     <h1>Hello, World!</h1>
     
     <div id="imageContainer">
-        <img id="dorsoImage" src="dorso.png" alt="Dorso Image">
-        <img id="randomImage" src="" alt="Random Image">
+        <img id="dorsoImage" src="acciones_ciudad/dorso.png" alt="Maso">
+        <img id="randomImage" src="" alt="Random">
     </div>
 
     <button onclick="changeRandomImage()">Change Image</button>
 
     <script>
-        var images = ["campamento.png", "alquimista.png", "biblioteca.png"];
+        var images = [
+            "acciones_ciudad/campamento.png",
+            "acciones_ciudad/alquimista.png",
+            "acciones_ciudad/biblioteca.png"
+        ];
 
         function changeRandomImage() {
             var randomIndex = Math.floor(Math.random() * images.length);
