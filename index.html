@@ -13,6 +13,7 @@
         h1 {
             text-align: center;
             font-size: 32px;
+            color: white;
         }
 
         #imageContainer {
@@ -71,15 +72,12 @@
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var fileList = xhr.responseText.split('\n');
                     fileList.forEach(function (file) {
-                        if (file !== 'dorso.png' && file.endsWith('.png')) {
+                        if (file !== '' && file !== 'dorso.png' && file.endsWith('.png')) {
                             var imageSrc = 'acciones_ciudad/' + file;
                             images.push(imageSrc);
 
                             var option = document.createElement("option");
-                            var imageName = file.replace('.png', '');
-                            // Encode spaces in the filename
-                            var encodedImageName = encodeURIComponent(imageName);
-                            option.text = encodedImageName;
+                            option.text = file;
                             option.value = imageSrc;
                             dropdown.add(option);
                         }
