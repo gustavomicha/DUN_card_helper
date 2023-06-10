@@ -57,24 +57,34 @@
     </select>
 
     <script>
-        var images = [
-            "acciones_ciudad/campamento.png",
-            "acciones_ciudad/alquimista.png",
-            "acciones_ciudad/biblioteca.png"
-        ];
+        var images = [];
 
         populateImageDropdown();
 
         function populateImageDropdown() {
             var dropdown = document.getElementById("imageDropdown");
 
-            images.forEach(function(image) {
-                var option = document.createElement("option");
-                var imageName = image.replace('.png', '').split('/')[1];
-                option.text = imageName;
-                option.value = image;
-                dropdown.add(option);
-            });
+            // Fetch the images dynamically from the server
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'acciones_ciudad/', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var fileList = xhr.responseText.split('\n');
+                    fileList.forEach(function (file) {
+                        if (file !== 'dorso.png' && file.endsWith('.png')) {
+                            var imageSrc = 'acciones_ciudad/' + file;
+                            images.push(imageSrc);
+
+                            var option = document.createElement("option");
+                            var imageName = file.replace('.png', '');
+                            option.text = imageName;
+                            option.value = imageSrc;
+                            dropdown.add(option);
+                        }
+                    });
+                }
+            };
+            xhr.send();
         }
 
         function changeRandomImage() {
