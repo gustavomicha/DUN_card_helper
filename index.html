@@ -77,7 +77,9 @@
 
                             var option = document.createElement("option");
                             var imageName = file.replace('.png', '');
-                            option.text = imageName;
+                            // Encode spaces in the filename
+                            var encodedImageName = encodeURIComponent(imageName);
+                            option.text = encodedImageName;
                             option.value = imageSrc;
                             dropdown.add(option);
                         }
