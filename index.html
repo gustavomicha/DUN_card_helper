@@ -86,17 +86,25 @@
 
         populateImageDropdown();
 
-        function populateImageDropdown() {
-            var dropdown = document.getElementById("imageDropdown");
+    function populateImageDropdown() {
+        var dropdown = document.getElementById("imageDropdown");
 
-            images.forEach(function(image) {
-                var option = document.createElement("option");
-                var imageName = image.replace('.png', '').split('/')[1];
-                option.text = imageName;
-                option.value = image;
-                dropdown.add(option);
-            });
-        }
+        images.forEach(function(image) {
+            var option = document.createElement("option");
+            var imageName = image.replace('.png', '').split('/')[1];
+            imageName = imageName.replace(/_/g, ' '); // Replace underscores with spaces
+            imageName = capitalizeFirstLetter(imageName); // Capitalize the first letter of each word
+            option.text = imageName;
+            option.value = image;
+            dropdown.add(option);
+        });
+    }
+
+    function capitalizeFirstLetter(string) {
+        return string.replace(/\b\w/g, function(l) {
+            return l.toUpperCase();
+        });
+    }
 
         function changeRandomImage() {
             var randomIndex = Math.floor(Math.random() * images.length);
