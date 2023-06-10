@@ -2,8 +2,31 @@
 <html>
 <head>
     <title>Hello, World!</title>
+    <style>
+        #imageContainer {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello, World!</h1>
+    
+    <div id="imageContainer">
+        <img id="dorsoImage" src="dorso.png" alt="Dorso Image">
+        <img id="randomImage" src="" alt="Random Image">
+    </div>
+
+    <button onclick="changeRandomImage()">Change Image</button>
+
+    <script>
+        var images = ["campamento.png", "alquimista.png", "biblioteca.png"];
+
+        function changeRandomImage() {
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomImageSrc = images[randomIndex];
+            document.getElementById("randomImage").src = randomImageSrc;
+        }
+    </script>
 </body>
 </html>
