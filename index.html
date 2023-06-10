@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DUN Helper (by Relhit)</title>
+    <title>DUN Helper (by Relhit) </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -13,7 +13,6 @@
         h1 {
             text-align: center;
             font-size: 32px;
-            color: white;
         }
 
         #imageContainer {
@@ -45,7 +44,7 @@
     </style>
 </head>
 <body>
-    <h1>DUN Helper</h1>
+    <h1>DUN Helper (by Relhit) 1.0</h1>
     
     <div id="imageContainer">
         <img id="dorsoImage" src="acciones_ciudad/dorso.png" alt="Maso">
@@ -58,33 +57,45 @@
     </select>
 
     <script>
-        var images = [];
+        var images = [
+            "acciones_ciudad/alquimista.png",
+            "acciones_ciudad/biblioteca.png",
+            "acciones_ciudad/campamento.png",
+            "acciones_ciudad/criadero_y_centro_de_adiestramiento.png",
+            "acciones_ciudad/embarcadero_muelle.png",
+            "acciones_ciudad/escuela_de_hechiceria.png",
+            "acciones_ciudad/escuela_de_lucha.png",
+            "acciones_ciudad/establos.png",
+            "acciones_ciudad/estancia_del_rey_o_gobernador.png",
+            "acciones_ciudad/guardias.png",
+            "acciones_ciudad/herbolario.png",
+            "acciones_ciudad/herreria_armeria.png",
+            "acciones_ciudad/hogar.png",
+            "acciones_ciudad/lugar_sagrado.png",
+            "acciones_ciudad/mercado.png",
+            "acciones_ciudad/oraculo.png",
+            "acciones_ciudad/posada.png",
+            "acciones_ciudad/prestamista.png",
+            "acciones_ciudad/prision.png",
+            "acciones_ciudad/puente.png",
+            "acciones_ciudad/sanador.png",
+            "acciones_ciudad/taberna.png",
+            "acciones_ciudad/templo.png",
+            "acciones_ciudad/tesorero.png"
+        ];
 
         populateImageDropdown();
 
         function populateImageDropdown() {
             var dropdown = document.getElementById("imageDropdown");
 
-            // Fetch the images dynamically from the server
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'acciones_ciudad/', true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var fileList = xhr.responseText.split('\n');
-                    fileList.forEach(function (file) {
-                        if (file !== '' && file !== 'dorso.png' && file.endsWith('.png')) {
-                            var imageSrc = 'acciones_ciudad/' + file;
-                            images.push(imageSrc);
-
-                            var option = document.createElement("option");
-                            option.text = file;
-                            option.value = imageSrc;
-                            dropdown.add(option);
-                        }
-                    });
-                }
-            };
-            xhr.send();
+            images.forEach(function(image) {
+                var option = document.createElement("option");
+                var imageName = image.replace('.png', '').split('/')[1];
+                option.text = imageName;
+                option.value = image;
+                dropdown.add(option);
+            });
         }
 
         function changeRandomImage() {
