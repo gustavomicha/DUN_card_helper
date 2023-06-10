@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DUN Helper (by Relhit) </title>
+    <title>DUN Helper (by Relhit)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -41,20 +41,37 @@
             font-family: Arial, sans-serif;
             font-size: 24px;
         }
+
+        #mainMenu {
+            display: block;
+        }
+
+        #deckPage {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <h1>DUN Helper (by Relhit) 1.0</h1>
-    
-    <div id="imageContainer">
-        <img id="dorsoImage" src="acciones_ciudad/dorso.png" alt="Maso">
-        <img id="selectedImage" src="" alt="Selected Image">
+    <div id="mainMenu">
+        <h1>DUN Helper (by Relhit)</h1>
+        <button onclick="showDeckPage()">Acciones de Ciudad</button>
+        <!-- Add other menu options for different decks here -->
     </div>
 
-    <button onclick="changeRandomImage()">Carta aleatoria</button>
-    <select id="imageDropdown" onchange="changeSelectedImage()">
-        <option disabled selected hidden>Seleccionar carta</option>
-    </select>
+    <div id="deckPage">
+        <h1>Acciones de Ciudad</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage" src="acciones_ciudad/dorso.png" alt="Maso">
+            <img id="selectedImage" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage()">Carta aleatoria</button>
+        <select id="imageDropdown" onchange="changeSelectedImage()">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showMainMenu()">Volver al menú principal</button>
+    </div>
 
     <script>
         var images = [
@@ -84,27 +101,25 @@
             "acciones_ciudad/tesorero.png"
         ];
 
-        populateImageDropdown();
+        function populateImageDropdown() {
+            var dropdown = document.getElementById("imageDropdown");
 
-    function populateImageDropdown() {
-        var dropdown = document.getElementById("imageDropdown");
+            images.forEach(function (image) {
+                var option = document.createElement("option");
+                var imageName = image.replace('.png', '').split('/')[1];
+                imageName = imageName.replace(/_/g, ' '); // Replace underscores with spaces
+                imageName = capitalizeFirstLetter(imageName); // Capitalize the first letter of each word
+                option.text = imageName;
+                option.value = image;
+                dropdown.add(option);
+            });
+        }
 
-        images.forEach(function(image) {
-            var option = document.createElement("option");
-            var imageName = image.replace('.png', '').split('/')[1];
-            imageName = imageName.replace(/_/g, ' '); // Replace underscores with spaces
-            imageName = capitalizeFirstLetter(imageName); // Capitalize the first letter of each word
-            option.text = imageName;
-            option.value = image;
-            dropdown.add(option);
-        });
-    }
-
-    function capitalizeFirstLetter(string) {
-        return string.replace(/\b\w/g, function(l) {
-            return l.toUpperCase();
-        });
-    }
+        function capitalizeFirstLetter(string) {
+            return string.replace(/\b\w/g, function (l) {
+                return l.toUpperCase();
+            });
+        }
 
         function changeRandomImage() {
             var randomIndex = Math.floor(Math.random() * images.length);
@@ -117,6 +132,18 @@
             var selectedImageSrc = dropdown.value;
             document.getElementById("selectedImage").src = selectedImageSrc;
         }
+
+        function showDeckPage() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("deckPage").style.display = "block";
+        }
+
+        function showMainMenu() {
+            document.getElementById("deckPage").style.display = "none";
+            document.getElementById("mainMenu").style.display = "block";
+        }
+
+        populateImageDropdown();
     </script>
 </body>
 </html>
