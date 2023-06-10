@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DUN project</title>
+    <title>DUN Helper</title>
     <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
         #imageContainer {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        #imageContainer img {
+            max-width: 50%;
+            height: auto;
+        }
+
+        button {
+            border-radius: 10px;
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
 <body>
-    <h1>DUN project</h1>
+    <h1>DUN Helper</h1>
     
     <div id="imageContainer">
         <img id="dorsoImage" src="acciones_ciudad/dorso.png" alt="Maso">
@@ -18,7 +48,9 @@
     </div>
 
     <button onclick="changeRandomImage()">Carta aleatoria</button>
-    <button onclick="showImageNames()">Seleccionar carta</button>
+    <select id="imageDropdown" onchange="changeSelectedImage()">
+        <option disabled selected hidden>Seleccionar carta</option>
+    </select>
 
     <script>
         var images = [
@@ -27,18 +59,30 @@
             "acciones_ciudad/biblioteca.png"
         ];
 
+        populateImageDropdown();
+
+        function populateImageDropdown() {
+            var dropdown = document.getElementById("imageDropdown");
+
+            images.forEach(function(image) {
+                var option = document.createElement("option");
+                var imageName = image.replace('.png', '').split('/')[1];
+                option.text = imageName;
+                option.value = image;
+                dropdown.add(option);
+            });
+        }
+
         function changeRandomImage() {
             var randomIndex = Math.floor(Math.random() * images.length);
             var randomImageSrc = images[randomIndex];
             document.getElementById("selectedImage").src = randomImageSrc;
         }
 
-        function showImageNames() {
-            var imageNames = images.map(function(image) {
-                return image.replace('.png', '').split('/')[1];
-            });
-
-            alert(imageNames.join(', '));
+        function changeSelectedImage() {
+            var dropdown = document.getElementById("imageDropdown");
+            var selectedImageSrc = dropdown.value;
+            document.getElementById("selectedImage").src = selectedImageSrc;
         }
     </script>
 </body>
