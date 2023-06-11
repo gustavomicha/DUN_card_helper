@@ -46,6 +46,10 @@
             display: block;
         }
 
+        #submenu {
+            display: none;
+        }
+
         #deckPage {
             display: none;
         }
@@ -54,15 +58,20 @@
 <body>
     <div id="mainMenu">
         <h1>DUN Helper (by Relhit)</h1>
+        <button onclick="showSubMenu()">Encuentros</button>
+    </div>
+
+    <div id="submenu">
+        <h1>Encuentros</h1>
+        <button onclick="showMainMenu()">Volver al menú principal</button>
         <button onclick="showDeckPage()">Acciones de Ciudad</button>
-        <!-- Add other menu options for different decks here -->
     </div>
 
     <div id="deckPage">
         <h1>Acciones de Ciudad</h1>
 
         <div id="imageContainer">
-            <img id="dorsoImage" src="acciones_ciudad/dorso.png" alt="Maso">
+            <img id="dorsoImage" src="encuentros/acciones_ciudad/dorso.png" alt="Maso">
             <img id="selectedImage" src="" alt="Selected Image">
         </div>
 
@@ -70,35 +79,35 @@
         <select id="imageDropdown" onchange="changeSelectedImage()">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showMainMenu()">Volver al menú principal</button>
+        <button onclick="showSubMenu()">Volver a Encuentros</button>
     </div>
 
     <script>
         var images = [
-            "acciones_ciudad/alquimista.png",
-            "acciones_ciudad/biblioteca.png",
-            "acciones_ciudad/campamento.png",
-            "acciones_ciudad/criadero_y_centro_de_adiestramiento.png",
-            "acciones_ciudad/embarcadero_muelle.png",
-            "acciones_ciudad/escuela_de_hechiceria.png",
-            "acciones_ciudad/escuela_de_lucha.png",
-            "acciones_ciudad/establos.png",
-            "acciones_ciudad/estancia_del_rey_o_gobernador.png",
-            "acciones_ciudad/guardias.png",
-            "acciones_ciudad/herbolario.png",
-            "acciones_ciudad/herreria_armeria.png",
-            "acciones_ciudad/hogar.png",
-            "acciones_ciudad/lugar_sagrado.png",
-            "acciones_ciudad/mercado.png",
-            "acciones_ciudad/oraculo.png",
-            "acciones_ciudad/posada.png",
-            "acciones_ciudad/prestamista.png",
-            "acciones_ciudad/prision.png",
-            "acciones_ciudad/puente.png",
-            "acciones_ciudad/sanador.png",
-            "acciones_ciudad/taberna.png",
-            "acciones_ciudad/templo.png",
-            "acciones_ciudad/tesorero.png"
+            "encuentros/acciones_ciudad/alquimista.png",
+            "encuentros/acciones_ciudad/biblioteca.png",
+            "encuentros/acciones_ciudad/campamento.png",
+            "encuentros/acciones_ciudad/criadero_y_centro_de_adiestramiento.png",
+            "encuentros/acciones_ciudad/embarcadero_muelle.png",
+            "encuentros/acciones_ciudad/escuela_de_hechiceria.png",
+            "encuentros/encuentros/acciones_ciudad/escuela_de_lucha.png",
+            "encuentros/acciones_ciudad/establos.png",
+            "encuentros/acciones_ciudad/estancia_del_rey_o_gobernador.png",
+            "encuentros/acciones_ciudad/guardias.png",
+            "encuentros/acciones_ciudad/herbolario.png",
+            "encuentros/acciones_ciudad/herreria_armeria.png",
+            "encuentros/acciones_ciudad/hogar.png",
+            "encuentros/acciones_ciudad/lugar_sagrado.png",
+            "encuentros/acciones_ciudad/mercado.png",
+            "encuentros/acciones_ciudad/oraculo.png",
+            "encuentros/acciones_ciudad/posada.png",
+            "encuentros/acciones_ciudad/prestamista.png",
+            "encuentros/acciones_ciudad/prision.png",
+            "encuentros/acciones_ciudad/puente.png",
+            "encuentros/acciones_ciudad/sanador.png",
+            "encuentros/acciones_ciudad/taberna.png",
+            "encuentros/acciones_ciudad/templo.png",
+            "encuentros/acciones_ciudad/tesorero.png"
         ];
 
         function populateImageDropdown() {
@@ -133,14 +142,22 @@
             document.getElementById("selectedImage").src = selectedImageSrc;
         }
 
-        function showDeckPage() {
+        function showSubMenu() {
             document.getElementById("mainMenu").style.display = "none";
-            document.getElementById("deckPage").style.display = "block";
+            document.getElementById("deckPage").style.display = "none";
+            document.getElementById("submenu").style.display = "block";
         }
 
         function showMainMenu() {
+            document.getElementById("submenu").style.display = "none";
             document.getElementById("deckPage").style.display = "none";
             document.getElementById("mainMenu").style.display = "block";
+        }
+
+        function showDeckPage() {
+            document.getElementById("submenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("deckPage").style.display = "block";
         }
 
         populateImageDropdown();
