@@ -25,7 +25,7 @@
         }
 
         #imageContainer img {
-            max-width: 25%;
+            max-width: 100%;
             height: auto;
         }
 
@@ -65,10 +65,6 @@
             display: none;
         }
 
-        .transparentImage {
-            opacity: 0.5;
-        }
-
         #mainMenu button {
             background-color: #3472ff;
         }
@@ -81,7 +77,6 @@
             height: 100vh;
             text-align: center;
         }
-
     </style>
 </head>
 <body>
@@ -95,25 +90,21 @@
         <select id="menuSelect" onchange="showDeckPage(this.value)">
             <option disabled selected hidden>Seleccionar Encuentro</option>
             <option value="acciones_ciudad">Acciones de Ciudad</option>
-
         </select>
-
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
     <div id="deckPage_acciones_ciudad" class="deckPage">
         <h1>Acciones de Ciudad</h1>
-
         <div id="imageContainer">
-            <img id="dorsoImage_acciones_ciudad" src="encuentros/acciones_ciudad/dorso.png" alt="Maso">
+            <!-- Removed the <img> tag for the dorso image -->
             <img id="selectedImage_acciones_ciudad" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('acciones_ciudad')">Carta aleatoria</button>
         <select id="imageDropdown_acciones_ciudad" onchange="changeSelectedImage('acciones_ciudad')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <script>
@@ -146,8 +137,6 @@
                 option.text = imageName;
                 option.value = image;
                 dropdown.add(option);
-                // Make the first image (dorso) transparent
-                document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
             });
         }
 
@@ -157,7 +146,6 @@
 
             var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
-            document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
         }
 
         function capitalizeFirstLetter(string) {
@@ -170,14 +158,12 @@
             var randomIndex = Math.floor(Math.random() * images[deck].length);
             var randomImageSrc = images[deck][randomIndex];
             document.getElementById(`selectedImage_${deck}`).src = randomImageSrc;
-            document.getElementById(`selectedImage_${deck}`).classList.remove('transparentImage');
         }
 
         function changeSelectedImage(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
             var selectedImageSrc = dropdown.value;
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
-            document.getElementById(`selectedImage_${deck}`).classList.remove('transparentImage');
         }
 
         function showSubMenu() {
@@ -209,7 +195,6 @@
 
             var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
-            document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
 
             clearDropdownAndImage(deck);
             populateImageDropdown(deck);
