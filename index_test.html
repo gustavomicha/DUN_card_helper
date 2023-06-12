@@ -4,6 +4,75 @@
     <title>DUN Helper (by Relhit)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        body {
+            background-color: #000000;
+            color: #d8d8d8;
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-top: 20px;
+        }
+
+        #imageContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #imageContainer img {
+            max-width: 25%;
+            height: auto;
+        }
+
+        button {
+            border-radius: 10px;
+            background-color: #e50000;
+            color: white;
+            padding: 20px 40px;
+            cursor: pointer;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        select {
+            padding: 20px;
+            border-radius: 10px;
+            font-family: "Arial", sans-serif;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        #mainMenu {
+            display: block;
+        }
+
+        #submenu {
+            display: none;
+        }
+
+        .deckPage {
+            display: none;
+        }
+
+        .transparentImage {
+            opacity: 0.5;
+        }
+
+        #mainMenu button {
+            background-color: #3472ff;
+        }
+
         .center {
             display: flex;
             flex-direction: column;
@@ -13,14 +82,6 @@
             text-align: center;
         }
 
-        #submenu,
-        .deckPage {
-            display: none;
-        }
-
-        .transparentImage {
-            opacity: 0.5;
-        }
     </style>
 </head>
 <body>
@@ -34,14 +95,13 @@
         <select id="menuSelect" onchange="showDeckPage(this.value)">
             <option disabled selected hidden>Seleccionar Encuentro</option>
             <option value="acciones_ciudad">Acciones de Ciudad</option>
-            <option value="peligro_camp">Peligro en Campaña</option>
-            <!-- <option value="(...)">Terreno: (...)</option> -->
+
         </select>
 
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
-    <div class="center deckPage" id="deckPage_acciones_ciudad">
+    <div id="deckPage_acciones_ciudad" class="deckPage">
         <h1>Acciones de Ciudad</h1>
 
         <div id="imageContainer">
@@ -56,31 +116,12 @@
         <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
     </div>
 
-    <div class="center deckPage" id="deckPage_peligro_camp">
-        <h1>Peligro en Campaña</h1>
-
-        <div id="imageContainer">
-            <img id="dorsoImage_peligro_camp" src="encuentros/peligro_camp/dorso.png" alt="Maso">
-            <img id="selectedImage_peligro_camp" src="" alt="Selected Image">
-        </div>
-
-        <button onclick="changeRandomImage('peligro_camp')">Carta aleatoria</button>
-        <select id="imageDropdown_peligro_camp" onchange="changeSelectedImage('peligro_camp')">
-            <option disabled selected hidden>Seleccionar carta</option>
-        </select>
-        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
-    </div>
-
-
     <script>
         var images = {
             acciones_ciudad: [
                 "encuentros/acciones_ciudad/alquimista.png",
                 "encuentros/acciones_ciudad/biblioteca.png",
-            ],
-            peligro_camp: [
-                "encuentros/peligro_camp/asesino.png",
-                "encuentros/peligro_camp/cazarrecompenzas.png",
+                "encuentros/acciones_ciudad/campamento.png",
             ],
         };
 
@@ -165,6 +206,10 @@
 
             var deckPageId = `deckPage_${deck}`;
             document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
 
             clearDropdownAndImage(deck);
             populateImageDropdown(deck);
