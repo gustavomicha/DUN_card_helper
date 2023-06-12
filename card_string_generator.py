@@ -1,6 +1,6 @@
 import os
 
-folder_path = "mobiliario/mobiliario_comun"#"encuentros/glaciar"
+folder_path = "mobiliario/elementos_especiales"
 
 file_paths = []
 
@@ -12,3 +12,4 @@ for root, dirs, files in os.walk(folder_path):
             file_paths.append(file_path)
 
 print(file_paths)
+

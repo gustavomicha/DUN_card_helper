@@ -18,13 +18,13 @@
             margin-top: 20px;
         }
 
-        #imageContainer {
+        .imageContainer {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        #imageContainer img {
+        .imageContainer img {
             max-width: 100%;
             height: auto;
         }
@@ -57,14 +57,22 @@
             display: block;
         }
 
-        #submenu {
+        #encuentrosSubmenu {
+            display: none;
+        }
+
+        #mobiliarioSubmenu {
+            display: none;
+        }
+
+        #itemsSubmenu {
             display: none;
         }
 
         .deckPage {
             display: none;
         }
-        
+
         #mainMenu button {
             background-color: #3472ff;
         }
@@ -82,16 +90,15 @@
 <body>
     <div class="center" id="mainMenu">
         <h1>DUN Helper (by Relhit)</h1>
-        <button onclick="showSubMenu()">Encuentros</button>
-        <button onclick="showSubMenu()">Items</button>
-        <button onclick="showSubMenu()">Hechizos</button>
+        <button onclick="showEncuentrosSubMenu()">Encuentros</button>
+        <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
+        <button onclick="showItemsSubMenu()">Items</button>
 
     </div>
 
-    <!-- ----------------- ENCUENTROS ----------------------- -->
-    <div class="center" id="submenu">
+    <div class="center" id="encuentrosSubmenu">
         <h1>Encuentros</h1>
-        <select id="menuSelect" onchange="showDeckPage(this.value)">
+        <select id="encuentrosMenuSelect" onchange="showEncuentrosDeckPage(this.value)">
             <option disabled selected hidden>Seleccionar Encuentro</option>
             <option value="acciones_ciudad">Acciones de Ciudad</option>
             <option value="peligro_camp">Peligro en Campaña</option>
@@ -102,169 +109,259 @@
             <option value="camino">Terreno: Camino</option>
             <option value="desertico">Terreno: Desértico</option>
             <option value="glaciar">Terreno: Glaciar</option>
-            <!-- <option value="(...)">Terreno: (...)</option> -->
+            <option value="llanura">Terreno: Llanura</option>
+            <option value="montanioso">Terreno: Montañoso</option>
+            <option value="pantanoso">Terreno: Pantanoso</option>
+            <option value="rio">Terreno: Río</option>
+            <option value="volcanico">Terreno: Volcánico</option>
         </select>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
+    <div class="center" id="mobiliarioSubmenu">
+        <h1>Mobiliario</h1>
+        <select id="mobiliarioMenuSelect" onchange="showMobiliarioDeckPage(this.value)">
+            <option disabled selected hidden>Seleccionar Mobiliario</option>
+            <option value="mobiliario_comun">Mobiliario Común</option>
+            <option value="elementos_especiales">Elementos Especiales</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <div class="center" id="itemsSubmenu">
+        <h1>Items</h1>
+        <select id="itemsMenuSelect" onchange="showItemsDeckPage(this.value)">
+            <option disabled selected hidden>Seleccionar Item</option>
+            <option value="armaduras">Armaduras</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <!-- DECKS ENCUENTROS  -->
     <div id="deckPage_acciones_ciudad" class="deckPage">
         <h1>Acciones de Ciudad</h1>
-        <div id="imageContainer">
+        <div class="imageContainer">
             <img id="selectedImage_acciones_ciudad" src="" alt="Selected Image">
         </div>
         <button onclick="changeRandomImage('acciones_ciudad')">Carta aleatoria</button>
         <select id="imageDropdown_acciones_ciudad" onchange="changeSelectedImage('acciones_ciudad')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_peligro_camp" class="deckPage">
         <h1>Peligro en Campaña</h1>
-
-        <div id="imageContainer">
+        <div class="imageContainer">
             <img id="selectedImage_peligro_camp" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('peligro_camp')">Carta aleatoria</button>
         <select id="imageDropdown_peligro_camp" onchange="changeSelectedImage('peligro_camp')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_castillo" class="deckPage">
-        <h1>Población: Castillo</h1>
-
-        <div id="imageContainer">
+        <h1> Población: Castillo</h1>
+        <div class="imageContainer">
             <img id="selectedImage_castillo" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('castillo')">Carta aleatoria</button>
         <select id="imageDropdown_castillo" onchange="changeSelectedImage('castillo')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_ciudad" class="deckPage">
-        <h1>Población: Ciudad</h1>
-
-        <div id="imageContainer">
+        <h1> Población: Ciudad</h1>
+        <div class="imageContainer">
             <img id="selectedImage_ciudad" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('ciudad')">Carta aleatoria</button>
         <select id="imageDropdown_ciudad" onchange="changeSelectedImage('ciudad')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_villa" class="deckPage">
-        <h1>Población: villa</h1>
-
-        <div id="imageContainer">
+        <h1> Población: Villa</h1>
+        <div class="imageContainer">
             <img id="selectedImage_villa" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('villa')">Carta aleatoria</button>
         <select id="imageDropdown_villa" onchange="changeSelectedImage('villa')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
-    </div>
-
-    <div id="deckPage_camino" class="deckPage">
-        <h1>Terreno Camino</h1>
-
-        <div id="imageContainer">
-            <img id="selectedImage_camino" src="" alt="Selected Image">
-        </div>
-
-        <button onclick="changeRandomImage('camino')">Carta aleatoria</button>
-        <select id="imageDropdown_camino" onchange="changeSelectedImage('camino')">
-            <option disabled selected hidden>Seleccionar carta</option>
-        </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_boscoso" class="deckPage">
-        <h1>Terreno: Boscoso</h1>
-
-        <div id="imageContainer">
+        <h1> Terreno: Boscoso</h1>
+        <div class="imageContainer">
             <img id="selectedImage_boscoso" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('boscoso')">Carta aleatoria</button>
         <select id="imageDropdown_boscoso" onchange="changeSelectedImage('boscoso')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_camino" class="deckPage">
-        <h1>Terreno: Camino</h1>
-
-        <div id="imageContainer">
+        <h1> Terreno: Camino</h1>
+        <div class="imageContainer">
             <img id="selectedImage_camino" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('camino')">Carta aleatoria</button>
         <select id="imageDropdown_camino" onchange="changeSelectedImage('camino')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_desertico" class="deckPage">
-        <h1>Terreno: Desertico</h1>
-
-        <div id="imageContainer">
+        <h1> Terreno: Desértico</h1>
+        <div class="imageContainer">
             <img id="selectedImage_desertico" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('desertico')">Carta aleatoria</button>
         <select id="imageDropdown_desertico" onchange="changeSelectedImage('desertico')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_glaciar" class="deckPage">
-        <h1>Terreno: Glaciar</h1>
-
-        <div id="imageContainer">
+        <h1> Terreno: Glaciar</h1>
+        <div class="imageContainer">
             <img id="selectedImage_glaciar" src="" alt="Selected Image">
         </div>
-
         <button onclick="changeRandomImage('glaciar')">Carta aleatoria</button>
-        <select id="imageDropdown_glaciar" onchange="changeSelectedImage('(...)')">
+        <select id="imageDropdown_glaciar" onchange="changeSelectedImage('glaciar')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_mar" class="deckPage">
+        <h1> Terreno: Mar</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_mar" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('mar')">Carta aleatoria</button>
+        <select id="imageDropdown_mar" onchange="changeSelectedImage('mar')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_llanura" class="deckPage">
+        <h1> Terreno: Llanura</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_llanura" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('llanura')">Carta aleatoria</button>
+        <select id="imageDropdown_llanura" onchange="changeSelectedImage('llanura')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_montanioso" class="deckPage">
+        <h1> Terreno: Montañoso</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_montanioso" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('montanioso')">Carta aleatoria</button>
+        <select id="imageDropdown_montanioso" onchange="changeSelectedImage('montanioso')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_pantanoso" class="deckPage">
+        <h1> Terreno: Pantanoso</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_pantanoso" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('pantanoso')">Carta aleatoria</button>
+        <select id="imageDropdown_pantanoso" onchange="changeSelectedImage('pantanoso')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_rio" class="deckPage">
+        <h1> Terreno: Río</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_rio" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('rio')">Carta aleatoria</button>
+        <select id="imageDropdown_rio" onchange="changeSelectedImage('rio')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_volcanico" class="deckPage">
+        <h1> Terreno: Volcánico</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_volcanico" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('volcanico')">Carta aleatoria</button>
+        <select id="imageDropdown_volcanico" onchange="changeSelectedImage('volcanico')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <!-- DECKS MOBILIARIO  -->
+    <div id="deckPage_mobiliario_comun" class="deckPage">
+        <h1>Mobiliario Común</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_mobiliario_comun" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('mobiliario_comun')">Carta aleatoria</button>
+        <select id="imageDropdown_mobiliario_comun" onchange="changeSelectedImage('mobiliario_comun')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showMobiliarioSubMenu()" style="background-color: #4a4949;">Volver a Mobiliario</button>
+    </div>
+
+    <div id="deckPage_elementos_especiales" class="deckPage">
+        <h1>Elementos Especiales</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_elementos_especiales" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('elementos_especiales')">Carta aleatoria</button>
+        <select id="imageDropdown_elementos_especiales" onchange="changeSelectedImage('elementos_especiales')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showMobiliarioSubMenu()" style="background-color: #4a4949;">Volver a Mobiliario</button>
     </div>
     
-    <!-- <div id="deckPage_(...)" class="deckPage">
-        <h1>Terreno: (...)</h1>
-
-        <div id="imageContainer">
-            <img id="selectedImage_(...)" src="" alt="Selected Image">
+    <!-- DECKS ITEMS  -->
+    <div id="deckPage_armaduras" class="deckPage">
+        <h1>Armaduras</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_armaduras" src="" alt="Selected Image">
         </div>
-
-        <button onclick="changeRandomImage('(...)')">Carta aleatoria</button>
-        <select id="imageDropdown_(...)" onchange="changeSelectedImage('(...)')">
+        <button onclick="changeRandomImage('armaduras')">Carta aleatoria</button>
+        <select id="imageDropdown_armaduras" onchange="changeSelectedImage('armaduras')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
-    </div> -->
-
-    <!-- ----------------- ITEMS ----------------------- -->
-
-    <!-- ----------------- FUNCIONES ----------------------- -->
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
 
     <script>
         var images = {
+            // ENCUENTROS
             acciones_ciudad: [
             "encuentros/acciones_ciudad/alquimista.png","encuentros/acciones_ciudad/biblioteca.png","encuentros/acciones_ciudad/campamento.png","encuentros/acciones_ciudad/criadero_y_centro_de_adiestramiento.png","encuentros/acciones_ciudad/embarcadero_muelle.png","encuentros/acciones_ciudad/escuela_de_hechiceria.png","encuentros/acciones_ciudad/escuela_de_lucha.png","encuentros/acciones_ciudad/establos.png","encuentros/acciones_ciudad/estancia_del_rey_o_gobernador.png","encuentros/acciones_ciudad/guardias.png","encuentros/acciones_ciudad/herbolario.png","encuentros/acciones_ciudad/herreria_armeria.png","encuentros/acciones_ciudad/hogar.png","encuentros/acciones_ciudad/lugar_sagrado.png","encuentros/acciones_ciudad/mercado.png","encuentros/acciones_ciudad/oraculo.png","encuentros/acciones_ciudad/posada.png","encuentros/acciones_ciudad/prestamista.png","encuentros/acciones_ciudad/prision.png","encuentros/acciones_ciudad/puente.png","encuentros/acciones_ciudad/sanador.png","encuentros/acciones_ciudad/taberna.png","encuentros/acciones_ciudad/templo.png","encuentros/acciones_ciudad/tesorero.png"
             ],
@@ -292,37 +389,77 @@
             glaciar: [
             'encuentros/glaciar/campamenot_de_viajeros.png', 'encuentros/glaciar/cuidado_se_cae.png', 'encuentros/glaciar/el_hielo_se_agrieta.png', 'encuentros/glaciar/frio_intenso.png', 'encuentros/glaciar/hay_algo_ahi_afuera.png', 'encuentros/glaciar/tormenta_helada.png'
             ],
-
+            llanura: [
+            'encuentros/llanura/aldea_calcinada.png', 'encuentros/llanura/antiguo_cementerio.png', 'encuentros/llanura/cuervo.png', 'encuentros/llanura/diluvio.png', 'encuentros/llanura/emboscada.png', 'encuentros/llanura/granka.png', 'encuentros/llanura/molino_de_agua.png', 'encuentros/llanura/molino_de_viento.png', 'encuentros/llanura/nubes_negras.png', 'encuentros/llanura/piedras_sagradas.png', 'encuentros/llanura/refugiados.png', 'encuentros/llanura/rumores.png'
+            ],
+            montanioso: [
+            'encuentros/montanioso/cadaver.png', 'encuentros/montanioso/camino_cortado.png', 'encuentros/montanioso/caverna.png', 'encuentros/montanioso/criatura_enorme.png', 'encuentros/montanioso/desprendimiento.png', 'encuentros/montanioso/emboscada_entre_las_rocas.png', 'encuentros/montanioso/estanque.png', 'encuentros/montanioso/informacion_privilegiada.png', 'encuentros/montanioso/manantial.png', 'encuentros/montanioso/monasterio.png'
+            ],
+            pantanoso: [
+            'encuentros/pantanoso/carromato.png', 'encuentros/pantanoso/depredadores_acuaticos.png', 'encuentros/pantanoso/fuegos_fatuos.png', 'encuentros/pantanoso/moradores.png', 'encuentros/pantanoso/muertos_vivientes.png', 'encuentros/pantanoso/nubes_de_insectos.png'
+            ],
+            rio: [
+            'encuentros/rio/agua_contaminada.png', 'encuentros/rio/embarcadero.png', 'encuentros/rio/enemigos.png', 'encuentros/rio/informante.png', 'encuentros/rio/mas_caudal.png', 'encuentros/rio/monstruo.png'
+            ],
+            volcanico: [
+            'encuentros/volcanico/ataque_en_terreno_baldio.png', 'encuentros/volcanico/desprendimiento.png', 'encuentros/volcanico/gas_toxico.png', 'encuentros/volcanico/hambre.png', 'encuentros/volcanico/nubes_negras.png', 'encuentros/volcanico/vapores_volcanicos.png'
+            ],
+            // MOBILIARIO
+            mobiliario_comun: [
+            'mobiliario/mobiliario_comun/alambique.png', 'mobiliario/mobiliario_comun/anforas_o_recipientes.png', 'mobiliario/mobiliario_comun/armario.png', 'mobiliario/mobiliario_comun/armeria.png', 'mobiliario/mobiliario_comun/biblioteca.png', 'mobiliario/mobiliario_comun/caballerizas.png', 'mobiliario/mobiliario_comun/cajas_y_barriles.png', 'mobiliario/mobiliario_comun/camas.png', 'mobiliario/mobiliario_comun/carreta_con_caballos.png', 'mobiliario/mobiliario_comun/chimenea.png', 'mobiliario/mobiliario_comun/cocina.png', 'mobiliario/mobiliario_comun/columnas.png', 'mobiliario/mobiliario_comun/comedor.png', 'mobiliario/mobiliario_comun/diana_de_arqueria.png', 'mobiliario/mobiliario_comun/estatuas.png', 'mobiliario/mobiliario_comun/forja.png', 'mobiliario/mobiliario_comun/fuente.png', 'mobiliario/mobiliario_comun/hoguera.png', 'mobiliario/mobiliario_comun/letrina.png', 'mobiliario/mobiliario_comun/maquinas_de_tortura.png', 'mobiliario/mobiliario_comun/mesa_de_alquimia.png', 'mobiliario/mobiliario_comun/mesa_de_especias.png', 'mobiliario/mobiliario_comun/mesa_de_hechiceria.png', 'mobiliario/mobiliario_comun/munieco_de_entrenamiento.png', 'mobiliario/mobiliario_comun/pozo.png', 'mobiliario/mobiliario_comun/rejilla.png', 'mobiliario/mobiliario_comun/trampilla.png', 'mobiliario/mobiliario_comun/trono.png', 'mobiliario/mobiliario_comun/vacia.png', 'mobiliario/mobiliario_comun/vacia_con_terreno_irregular.png'
+            ],
+            elementos_especiales: [
+            'mobiliario/elementos_especiales/alimanias_enjambre.png', 'mobiliario/elementos_especiales/alimanias_murcielagos.png', 'mobiliario/elementos_especiales/alimanias_ratas.png', 'mobiliario/elementos_especiales/alimanias_serpientes.png', 'mobiliario/elementos_especiales/altar.png', 'mobiliario/elementos_especiales/aventurero_muerto.png', 'mobiliario/elementos_especiales/bruja.png', 'mobiliario/elementos_especiales/burdel_orco.png', 'mobiliario/elementos_especiales/circulo_magico.png', 'mobiliario/elementos_especiales/cripta.png', 'mobiliario/elementos_especiales/cubo_gelatinoso.png', 'mobiliario/elementos_especiales/enredaderas.png', 'mobiliario/elementos_especiales/espejo_magico.png', 'mobiliario/elementos_especiales/estatua_especial.png', 'mobiliario/elementos_especiales/fuente_o_estanque_magico.png', 'mobiliario/elementos_especiales/gran_tesoro.png', 'mobiliario/elementos_especiales/madriguera_de_gran_criatura.png', 'mobiliario/elementos_especiales/mamiferos_peligrosos.png', 'mobiliario/elementos_especiales/mecanismos.png', 'mobiliario/elementos_especiales/merrcader_errante.png', 'mobiliario/elementos_especiales/mina.png', 'mobiliario/elementos_especiales/moho.png', 'mobiliario/elementos_especiales/morada_de_monstruo_acuatico.png', 'mobiliario/elementos_especiales/nido_de_insectos_gigantes.png', 'mobiliario/elementos_especiales/niebla_misteriosa.png', 'mobiliario/elementos_especiales/pirsion_el_civil.png', 'mobiliario/elementos_especiales/plantas_carnivoras.png', 'mobiliario/elementos_especiales/portal_de_teletransporte.png', 'mobiliario/elementos_especiales/pozo_de_lucha.png', 'mobiliario/elementos_especiales/precipicio.png', 'mobiliario/elementos_especiales/prision_hombre_de_armas.png', 'mobiliario/elementos_especiales/prision_la_dama.png', 'mobiliario/elementos_especiales/sala_de_los_enigmas.png', 'mobiliario/elementos_especiales/sala_de_los_espejos.png', 'mobiliario/elementos_especiales/seccion_inundada.png', 'mobiliario/elementos_especiales/setas.png', 'mobiliario/elementos_especiales/suelo_ardiente.png', 'mobiliario/elementos_especiales/taberna_enana.png', 'mobiliario/elementos_especiales/telaranias.png', 'mobiliario/elementos_especiales/trono_magico.png', 'mobiliario/elementos_especiales/tumba_importante.png', 'mobiliario/elementos_especiales/veta_de_cristales.png'
+            ],
+            // ITEMS
+            armaduras: [
+                "items/armaduras/armadura_completa.jpg",
+                "items/armaduras/coraza.jpg"
+            ]
         };
 
         function populateImageDropdown(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
-        
-            dropdown.innerHTML = "";
-        
+
+            dropdown.innerHTML = ""; // Clear existing options
+
+            // Add default option
             var defaultOption = document.createElement("option");
             defaultOption.disabled = true;
             defaultOption.selected = true;
             defaultOption.hidden = true;
             defaultOption.text = "Seleccionar carta";
             dropdown.add(defaultOption);
-        
+
             images[deck].forEach(function (image) {
                 var option = document.createElement("option");
                 var imageName = image.split("/").pop().replace('.png', '');
-                imageName = imageName.replace(/_/g, ' '); 
-                imageName = capitalizeFirstLetter(imageName); 
+                imageName = imageName.replace(/_/g, ' ');
+                imageName = capitalizeFirstLetter(imageName);
                 option.text = imageName;
                 option.value = image;
                 dropdown.add(option);
             });
         }
-        
-        function clearDropdownAndImage(deck) {
-            var dropdown = document.getElementById(`imageDropdown_${deck}`);
-            dropdown.selectedIndex = 0; 
 
+        function clearDropdownAndImageEncuentros(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0;
             var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function clearDropdownAndImageMobiliario(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0;
+            var selectedImageSrc = "mobiliario/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function clearDropdownAndImageItems(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0;
+            var selectedImageSrc = "items/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 
@@ -344,25 +481,58 @@
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 
-        function showSubMenu() {
+        function showEncuentrosSubMenu() {
             document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
             });
-            document.getElementById("submenu").style.display = "block";
-            document.getElementById("menuSelect").selectedIndex = 0;
+
+            document.getElementById("encuentrosSubmenu").style.display = "block";
+            document.getElementById("encuentrosMenuSelect").selectedIndex = 0;
+        }
+
+        function showMobiliarioSubMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("encuentrosSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            document.getElementById("mobiliarioSubmenu").style.display = "block";
+            document.getElementById("mobiliarioMenuSelect").selectedIndex = 0;
+        }
+
+        function showItemsSubMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("encuentrosSubmenu").style.display = "none";
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
+
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            document.getElementById("itemsSubmenu").style.display = "block";
+            document.getElementById("itemsMenuSelect").selectedIndex = 0;
         }
 
         function showMainMenu() {
-            document.getElementById("submenu").style.display = "none";
+            document.getElementById("encuentrosSubmenu").style.display = "none";
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
             });
             document.getElementById("mainMenu").style.display = "block";
         }
 
-        function showDeckPage(deck) {
-            document.getElementById("submenu").style.display = "none";
+        function showEncuentrosDeckPage(deck) {
+            document.getElementById("encuentrosSubmenu").style.display = "none";
             document.getElementById("mainMenu").style.display = "none";
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
@@ -374,7 +544,41 @@
             var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
-            clearDropdownAndImage(deck);
+            clearDropdownAndImageEncuentros(deck);
+            populateImageDropdown(deck);
+        }
+
+        function showMobiliarioDeckPage(deck) {
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "mobiliario/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImageMobiliario(deck);
+            populateImageDropdown(deck);
+        }
+        
+        function showItemsDeckPage(deck) {
+            document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "items/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImageItems(deck);
             populateImageDropdown(deck);
         }
     </script>
