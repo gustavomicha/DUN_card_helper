@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #d8d8d8;
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
             text-align: center;
             font-size: 32px;
+            margin-top: 20px;
         }
 
         #imageContainer {
@@ -22,24 +25,32 @@
         }
 
         #imageContainer img {
-            max-width: 50%;
+            max-width: 100%;
             height: auto;
         }
 
         button {
             border-radius: 10px;
-            background-color: blue;
+            background-color: #e50000;
             color: white;
             padding: 20px 40px;
             cursor: pointer;
             font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
         }
 
         select {
             padding: 20px;
             border-radius: 10px;
-            font-family: Arial, sans-serif;
+            font-family: "Arial", sans-serif;
             font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
         }
 
         #mainMenu {
@@ -53,6 +64,22 @@
         .deckPage {
             display: none;
         }
+
+        /* Estilos adicionales para el diseño de juegos de RPG medievales de fantasía */
+        #mainMenu button {
+            background-color: #3472ff;
+        }
+
+        #submenu button {
+            background-color: #e50000;
+            width: 25%;
+        }
+
+        #imageDropdown_acciones_ciudad,
+        #imageDropdown_peligro_camp {
+            background-color: #363636;
+            color: #d8d8d8;
+        }
     </style>
 </head>
 <body>
@@ -65,7 +92,15 @@
         <h1>Encuentros</h1>
         <button onclick="showDeckPage('acciones_ciudad')">Acciones de Ciudad</button>
         <button onclick="showDeckPage('peligro_camp')">Peligro en Campaña</button>
-        <button onclick="showMainMenu()">Volver al menú principal</button>
+        <button onclick="showDeckPage('castillo')">Población: Castillo</button>
+        <button onclick="showDeckPage('ciudad')">Población: Ciudad</button>
+        <button onclick="showDeckPage('villa')">Población: Villa</button>        
+        <button onclick="showDeckPage('boscoso')">Terreno: Boscoso</button>
+        <button onclick="showDeckPage('camino')">Terreno: Camino</button>
+        <button onclick="showDeckPage('desertico')">Terreno: Desértico</button>
+        <button onclick="showDeckPage('glaciar')">Terreno: Glaciar</button>
+
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
     <div id="deckPage_acciones_ciudad" class="deckPage">
@@ -80,7 +115,7 @@
         <select id="imageDropdown_acciones_ciudad" onchange="changeSelectedImage('acciones_ciudad')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()">Volver a Encuentros</button>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
     </div>
 
     <div id="deckPage_peligro_camp" class="deckPage">
@@ -95,8 +130,143 @@
         <select id="imageDropdown_peligro_camp" onchange="changeSelectedImage('peligro_camp')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()">Volver a Encuentros</button>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
     </div>
+
+    <div id="deckPage_castillo" class="deckPage">
+        <h1>Población: Castillo</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_castillo" src="encuentros/castillo/dorso.png" alt="Maso">
+            <img id="selectedImage_castillo" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('castillo')">Carta aleatoria</button>
+        <select id="imageDropdown_castillo" onchange="changeSelectedImage('castillo')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_ciudad" class="deckPage">
+        <h1>Población: Ciudad</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_ciudad" src="encuentros/ciudad/dorso.png" alt="Maso">
+            <img id="selectedImage_ciudad" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('ciudad')">Carta aleatoria</button>
+        <select id="imageDropdown_ciudad" onchange="changeSelectedImage('ciudad')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_villa" class="deckPage">
+        <h1>Población: villa</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_villa" src="encuentros/villa/dorso.png" alt="Maso">
+            <img id="selectedImage_villa" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('villa')">Carta aleatoria</button>
+        <select id="imageDropdown_villa" onchange="changeSelectedImage('villa')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_camino" class="deckPage">
+        <h1>Terreno Camino</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_camino" src="encuentros/camino/dorso.png" alt="Maso">
+            <img id="selectedImage_camino" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('camino')">Carta aleatoria</button>
+        <select id="imageDropdown_camino" onchange="changeSelectedImage('camino')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_boscoso" class="deckPage">
+        <h1>Terreno: Boscoso</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_boscoso" src="encuentros/boscoso/dorso.png" alt="Maso">
+            <img id="selectedImage_boscoso" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('boscoso')">Carta aleatoria</button>
+        <select id="imageDropdown_boscoso" onchange="changeSelectedImage('boscoso')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_camino" class="deckPage">
+        <h1>Terreno: Camino</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_camino" src="encuentros/camino/dorso.png" alt="Maso">
+            <img id="selectedImage_camino" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('camino')">Carta aleatoria</button>
+        <select id="imageDropdown_camino" onchange="changeSelectedImage('camino')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_desertico" class="deckPage">
+        <h1>Terreno: Desertico</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_desertico" src="encuentros/desertico/dorso.png" alt="Maso">
+            <img id="selectedImage_desertico" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('desertico')">Carta aleatoria</button>
+        <select id="imageDropdown_desertico" onchange="changeSelectedImage('desertico')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_glaciar" class="deckPage">
+        <h1>Terreno: Glaciar</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_glaciar" src="encuentros/glaciar/dorso.png" alt="Maso">
+            <img id="selectedImage_glaciar" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('glaciar')">Carta aleatoria</button>
+        <select id="imageDropdown_glaciar" onchange="changeSelectedImage('(...)')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+    
+    <!-- <div id="deckPage_(...)" class="deckPage">
+        <h1>Terreno: (...)</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_(...)" src="encuentros/(...)/dorso.png" alt="Maso">
+            <img id="selectedImage_(...)" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('(...)')">Carta aleatoria</button>
+        <select id="imageDropdown_(...)" onchange="changeSelectedImage('(...)')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div> -->
 
     <script>
         var images = {
@@ -137,7 +307,46 @@
                 "encuentros/peligro_camp/marcador_vacio_2.png",
                 "encuentros/peligro_camp/marcador_vacio_3.png",
                 "encuentros/peligro_camp/marcador_vacio_4.png"
-            ]
+            ],
+            castillo: [
+            "encuentros/castillo/diezmo.png", "encuentros/castillo/enfermedad.png", "encuentros/castillo/equipo_daniado.png", "encuentros/castillo/fama.png", "encuentros/castillo/guardia_herido.png", "encuentros/castillo/hijo_bastardo.png", "encuentros/castillo/incendio_de_caballerizas.png", "encuentros/castillo/infraccion.png"
+            ],
+            ciudad: [
+            "encuentros/ciudad/alquimista_amigo.png", "encuentros/ciudad/enfermedad.png", "encuentros/ciudad/equipo_daniado.png", "encuentros/ciudad/fama.png", "encuentros/ciudad/infraccion.png", "encuentros/ciudad/juglar.png", "encuentros/ciudad/ladronzuelos.png", "encuentros/ciudad/la_ciudad_es_sitiada.png", "encuentros/ciudad/rescatad_a_mi_hijo.png", "encuentros/ciudad/robo.png", "encuentros/ciudad/tendero_misterioso.png"
+            ],
+            villa:[
+            "encuentros/villa/agradecimientos.png", "encuentros/villa/equipo_daniado.png", "encuentros/villa/fidelidad_animal.png", "encuentros/villa/incursion.png", "encuentros/villa/infraccion.png", "encuentros/villa/juglar.png", "encuentros/villa/la_invitacion.png", "encuentros/villa/setas_del_frenesi.png"
+            ],
+            boscoso: [
+                "encuentros/boscoso/arboles_sagrados.png", 
+                "encuentros/boscoso/ayuda.png", 
+                "encuentros/boscoso/depredador_al_acecho.png", 
+                "encuentros/boscoso/encuentro_con_gran_criatura.png", 
+                "encuentros/boscoso/la_casa_de_la_bruja.png", 
+                "encuentros/boscoso/la_maldicion_de_las_brujas.png", 
+                "encuentros/boscoso/lobos.png", 
+                "encuentros/boscoso/perdidos.png", 
+                "encuentros/boscoso/persona_extraviada.png", 
+                "encuentros/boscoso/telaranias.png"
+            ],
+            camino: [
+            "encuentros/camino/asalto_de_bandidos.png", "encuentros/camino/bifurcacion.png",
+            "encuentros/camino/campamento.png", "encuentros/camino/carro_volcado.png",
+            "encuentros/camino/espias_enemigos.png",
+            "encuentros/camino/evento_de_territorio.png",
+            "encuentros/camino/mercado.png",
+            "encuentros/camino/posada.png",
+            "encuentros/camino/puente.png",
+            "encuentros/camino/relampago.png",
+            "encuentros/camino/rumores.png"
+            ],
+            desertico: [
+            'encuentros/desertico/arenas_movedizas.png', 'encuentros/desertico/ataque_de_escorpion.png', 'encuentros/desertico/gusano_de_arena.png', 'encuentros/desertico/hambre.png', 'encuentros/desertico/nubes_negras.png', 'encuentros/desertico/oasis.png'
+            ],
+            glaciar: [
+            'encuentros/glaciar/campamenot_de_viajeros.png', 'encuentros/glaciar/cuidado_se_cae.png', 'encuentros/glaciar/el_hielo_se_agrieta.png', 'encuentros/glaciar/frio_intenso.png', 'encuentros/glaciar/hay_algo_ahi_afuera.png', 'encuentros/glaciar/tormenta_helada.png'
+            ],
+
         };
 
         function populateImageDropdown(deck) {

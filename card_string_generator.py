@@ -1,6 +1,6 @@
 import os
 
-folder_path = "encuentros/peligro_camp"
+folder_path = "encuentros/glaciar"
 
 file_paths = []
 
