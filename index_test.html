@@ -18,13 +18,13 @@
             margin-top: 20px;
         }
 
-        #imageContainer {
+        .imageContainer {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        #imageContainer img {
+        .imageContainer img {
             max-width: 100%;
             height: auto;
         }
@@ -57,7 +57,11 @@
             display: block;
         }
 
-        #submenu {
+        #encuentrosSubmenu {
+            display: none;
+        }
+
+        #mobiliarioSubmenu {
             display: none;
         }
 
@@ -82,21 +86,31 @@
 <body>
     <div class="center" id="mainMenu">
         <h1>DUN Helper (by Relhit)</h1>
-        <button onclick="showSubMenu()">Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()">Encuentros</button>
+        <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
     </div>
 
-    <div class="center" id="submenu">
+    <div class="center" id="encuentrosSubmenu">
         <h1>Encuentros</h1>
-        <select id="menuSelect" onchange="showDeckPage(this.value)">
+        <select id="encuentrosMenuSelect" onchange="showEncuentrosDeckPage(this.value)">
             <option disabled selected hidden>Seleccionar Encuentro</option>
             <option value="acciones_ciudad">Acciones de Ciudad</option>
         </select>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
+    <div class="center" id="mobiliarioSubmenu">
+        <h1>Mobiliario</h1>
+        <select id="mobiliarioMenuSelect" onchange="showMobiliarioDeckPage(this.value)">
+            <option disabled selected hidden>Seleccionar Mobiliario</option>
+            <option value="mobiliario_comun">Mobiliario Común</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
     <div id="deckPage_acciones_ciudad" class="deckPage">
         <h1>Acciones de Ciudad</h1>
-        <div id="imageContainer">
+        <div class="imageContainer">
             <!-- Removed the <img> tag for the dorso image -->
             <img id="selectedImage_acciones_ciudad" src="" alt="Selected Image">
         </div>
@@ -104,7 +118,20 @@
         <select id="imageDropdown_acciones_ciudad" onchange="changeSelectedImage('acciones_ciudad')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
-        <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_mobiliario_comun" class="deckPage">
+        <h1>Mobiliario Común</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_mobiliario_comun" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('mobiliario_comun')">Carta aleatoria</button>
+        <select id="imageDropdown_mobiliario_comun" onchange="changeSelectedImage('mobiliario_comun')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showMobiliarioSubMenu()" style="background-color: #4a4949;">Volver a Mobiliario</button>
     </div>
 
     <script>
@@ -113,6 +140,10 @@
                 "encuentros/acciones_ciudad/alquimista.png",
                 "encuentros/acciones_ciudad/biblioteca.png",
                 "encuentros/acciones_ciudad/campamento.png",
+            ],
+            mobiliario_comun: [
+                "mobiliario/mobiliario_comun/alambique.png",
+                'mobiliario/mobiliario_comun/anforas_o_recipientes.png'
             ],
         };
 
@@ -143,8 +174,8 @@
         function clearDropdownAndImage(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
             dropdown.selectedIndex = 0; // Reset the selected index to the default option
-
-            var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+        
+            var selectedImageSrc = `${decks[deck].folder}/${deck}/dorso.png`;
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 
@@ -166,25 +197,35 @@
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 
-        function showSubMenu() {
+        function showEncuentrosSubMenu() {
             document.getElementById("mainMenu").style.display = "none";
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
             });
-            document.getElementById("submenu").style.display = "block";
-            document.getElementById("menuSelect").selectedIndex = 0;
+            document.getElementById("encuentrosSubmenu").style.display = "block";
+            document.getElementById("encuentrosMenuSelect").selectedIndex = 0;
+        }
+
+        function showMobiliarioSubMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+            document.getElementById("mobiliarioSubmenu").style.display = "block";
+            document.getElementById("mobiliarioMenuSelect").selectedIndex = 0;
         }
 
         function showMainMenu() {
-            document.getElementById("submenu").style.display = "none";
+            document.getElementById("encuentrosSubmenu").style.display = "none";
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
             });
             document.getElementById("mainMenu").style.display = "block";
         }
 
-        function showDeckPage(deck) {
-            document.getElementById("submenu").style.display = "none";
+        function showEncuentrosDeckPage(deck) {
+            document.getElementById("encuentrosSubmenu").style.display = "none";
             document.getElementById("mainMenu").style.display = "none";
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
@@ -194,6 +235,23 @@
             document.getElementById(deckPageId).style.display = "block";
 
             var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImage(deck);
+            populateImageDropdown(deck);
+        }
+
+        function showMobiliarioDeckPage(deck) {
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "mobiliario/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
             clearDropdownAndImage(deck);
