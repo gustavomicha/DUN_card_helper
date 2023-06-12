@@ -78,15 +78,24 @@
             width: 25%;
         }
 
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
-    <div id="mainMenu">
+    <div class="center" id="mainMenu">
         <h1>DUN Helper (by Relhit)</h1>
         <button onclick="showSubMenu()">Encuentros</button>
     </div>
 
-    <div id="submenu">
+    <div class="center" id="submenu">
         <h1>Encuentros</h1>
         <select id="menuSelect" onchange="showDeckPage(this.value)">
             <option disabled selected hidden>Seleccionar Encuentro</option>
@@ -377,6 +386,14 @@
             });
         }
         
+        function clearDropdownAndImage(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0; // Reset the selected index to the default option
+
+            var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
+        }
 
         function capitalizeFirstLetter(string) {
             return string.replace(/\b\w/g, function (l) {
@@ -404,6 +421,7 @@
                 page.style.display = "none";
             });
             document.getElementById("submenu").style.display = "block";
+            document.getElementById("menuSelect").selectedIndex = 0;
         }
 
         function showMainMenu() {
@@ -428,6 +446,7 @@
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
             document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
 
+            clearDropdownAndImage(deck);
             populateImageDropdown(deck);
         }
     </script>
