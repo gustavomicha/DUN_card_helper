@@ -75,14 +75,9 @@
 
         #submenu button {
             background-color: #e50000;
-            width: 50%;
+            width: 25%;
         }
 
-        #imageDropdown_acciones_ciudad,
-        #imageDropdown_peligro_camp {
-            background-color: #363636;
-            color: #d8d8d8;
-        }
     </style>
 </head>
 <body>
@@ -93,16 +88,19 @@
 
     <div id="submenu">
         <h1>Encuentros</h1>
-        <button onclick="showDeckPage('acciones_ciudad')">Acciones de Ciudad</button>
-        <button onclick="showDeckPage('peligro_camp')">Peligro en Campaña</button>
-        <button onclick="showDeckPage('castillo')">Población: Castillo</button>
-        <button onclick="showDeckPage('ciudad')">Población: Ciudad</button>
-        <button onclick="showDeckPage('villa')">Población: Villa</button>        
-        <button onclick="showDeckPage('boscoso')">Terreno: Boscoso</button>
-        <button onclick="showDeckPage('camino')">Terreno: Camino</button>
-        <button onclick="showDeckPage('desertico')">Terreno: Desértico</button>
-        <button onclick="showDeckPage('desertico')">Terreno: Desértico</button>
-        <button onclick="showDeckPage('glaciar')">Terreno: Glaciar</button>
+        <select id="menuSelect" onchange="showDeckPage(this.value)">
+            <option disabled selected hidden>Seleccionar Encuentro</option>
+            <option value="acciones_ciudad">Acciones de Ciudad</option>
+            <option value="peligro_camp">Peligro en Campaña</option>
+            <option value="castillo">Población: Castillo</option>
+            <option value="ciudad">Población: Ciudad</option>
+            <option value="villa">Población: Villa</option>
+            <option value="boscoso">Terreno: Boscoso</option>
+            <option value="camino">Terreno: Camino</option>
+            <option value="desertico">Terreno: Desértico</option>
+            <option value="glaciar">Terreno: Glaciar</option>
+            <!-- <option value="(...)">Terreno: (...)</option> -->
+        </select>
 
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
@@ -375,9 +373,7 @@
                 option.value = image;
                 dropdown.add(option);
                 // Make the first image (dorso) transparent
-                if (index === 0) {
-                    document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
-                }
+                document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
             });
         }
         
