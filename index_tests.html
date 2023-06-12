@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DUN Helper (by Relhit)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #mainMenu {
+            display: block;
+        }
+
+        #submenu {
+            display: none;
+        }
+
+        .deckPage {
+            display: none;
+        }
+
+        .transparentImage {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainMenu">
+        <h1>DUN Helper (by Relhit)</h1>
+        <button onclick="showSubMenu()">Encuentros</button>
+    </div>
+
+    <div id="submenu">
+        <h1>Encuentros</h1>
+        <button onclick="showDeckPage('acciones_ciudad')">Acciones de Ciudad</button>
+        <button onclick="showDeckPage('peligro_camp')">Peligro en Campaña</button>
+
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <div id="deckPage_acciones_ciudad" class="deckPage">
+        <h1>Acciones de Ciudad</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_acciones_ciudad" src="encuentros/acciones_ciudad/dorso.png" alt="Maso">
+            <img id="selectedImage_acciones_ciudad" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('acciones_ciudad')">Carta aleatoria</button>
+        <select id="imageDropdown_acciones_ciudad" onchange="changeSelectedImage('acciones_ciudad')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    <div id="deckPage_peligro_camp" class="deckPage">
+        <h1>Peligro en Campaña</h1>
+
+        <div id="imageContainer">
+            <img id="dorsoImage_peligro_camp" src="encuentros/peligro_camp/dorso.png" alt="Maso">
+            <img id="selectedImage_peligro_camp" src="" alt="Selected Image">
+        </div>
+
+        <button onclick="changeRandomImage('peligro_camp')">Carta aleatoria</button>
+        <select id="imageDropdown_peligro_camp" onchange="changeSelectedImage('peligro_camp')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showSubMenu()" style="background-color: #e50000;">Volver a Encuentros</button>
+    </div>
+
+    
+    <script>
+        var images = {
+            acciones_ciudad: [
+                "encuentros/acciones_ciudad/alquimista.png",
+                "encuentros/acciones_ciudad/biblioteca.png",
+            ],
+            peligro_camp: [
+                "encuentros/peligro_camp/asesino.png",
+                "encuentros/peligro_camp/cazarrecompenzas.png",
+            ],
+    
+        };
+
+        function populateImageDropdown(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+        
+            dropdown.innerHTML = ""; // Clear existing options
+        
+            // Add default option
+            var defaultOption = document.createElement("option");
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            defaultOption.hidden = true;
+            defaultOption.text = "Seleccionar carta";
+            dropdown.add(defaultOption);
+        
+            images[deck].forEach(function (image, index) {
+                var option = document.createElement("option");
+                var imageName = image.split("/").pop().replace('.png', '');
+                imageName = imageName.replace(/_/g, ' '); // Replace underscores with spaces
+                imageName = capitalizeFirstLetter(imageName); // Capitalize the first letter of each word
+                option.text = imageName;
+                option.value = image;
+                dropdown.add(option);
+                // Make the first image (dorso) transparent
+                if (index === 0) {
+                    document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
+                }
+            });
+        }
+        
+
+        function capitalizeFirstLetter(string) {
+            return string.replace(/\b\w/g, function (l) {
+                return l.toUpperCase();
+            });
+        }
+
+        function changeRandomImage(deck) {
+            var randomIndex = Math.floor(Math.random() * images[deck].length);
+            var randomImageSrc = images[deck][randomIndex];
+            document.getElementById(`selectedImage_${deck}`).src = randomImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.remove('transparentImage');
+        }
+
+        function changeSelectedImage(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            var selectedImageSrc = dropdown.value;
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.remove('transparentImage');
+        }
+
+        function showSubMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+            document.getElementById("submenu").style.display = "block";
+        }
+
+        function showMainMenu() {
+            document.getElementById("submenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+            document.getElementById("mainMenu").style.display = "block";
+        }
+
+        function showDeckPage(deck) {
+            document.getElementById("submenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
+
+            populateImageDropdown(deck);
+        }
+    </script>
+</body>
+</html>

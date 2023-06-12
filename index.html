@@ -65,14 +65,17 @@
             display: none;
         }
 
-        /* Estilos adicionales para el diseño de juegos de RPG medievales de fantasía */
+        .transparentImage {
+            opacity: 0.5;
+        }
+        
         #mainMenu button {
             background-color: #3472ff;
         }
 
         #submenu button {
             background-color: #e50000;
-            width: 25%;
+            width: 50%;
         }
 
         #imageDropdown_acciones_ciudad,
@@ -97,6 +100,7 @@
         <button onclick="showDeckPage('villa')">Población: Villa</button>        
         <button onclick="showDeckPage('boscoso')">Terreno: Boscoso</button>
         <button onclick="showDeckPage('camino')">Terreno: Camino</button>
+        <button onclick="showDeckPage('desertico')">Terreno: Desértico</button>
         <button onclick="showDeckPage('desertico')">Terreno: Desértico</button>
         <button onclick="showDeckPage('glaciar')">Terreno: Glaciar</button>
 
@@ -370,6 +374,10 @@
                 option.text = imageName;
                 option.value = image;
                 dropdown.add(option);
+                // Make the first image (dorso) transparent
+                if (index === 0) {
+                    document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
+                }
             });
         }
         
@@ -384,12 +392,14 @@
             var randomIndex = Math.floor(Math.random() * images[deck].length);
             var randomImageSrc = images[deck][randomIndex];
             document.getElementById(`selectedImage_${deck}`).src = randomImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.remove('transparentImage');
         }
 
         function changeSelectedImage(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
             var selectedImageSrc = dropdown.value;
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.remove('transparentImage');
         }
 
         function showSubMenu() {
@@ -417,6 +427,10 @@
 
             var deckPageId = `deckPage_${deck}`;
             document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            document.getElementById(`selectedImage_${deck}`).classList.add('transparentImage');
 
             populateImageDropdown(deck);
         }
