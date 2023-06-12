@@ -65,6 +65,10 @@
             display: none;
         }
 
+        #itemsSubmenu {
+            display: none;
+        }
+
         .deckPage {
             display: none;
         }
@@ -88,6 +92,8 @@
         <h1>DUN Helper (by Relhit)</h1>
         <button onclick="showEncuentrosSubMenu()">Encuentros</button>
         <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
+        <button onclick="showItemsSubMenu()">Items</button>
+
     </div>
 
     <div class="center" id="encuentrosSubmenu">
@@ -108,6 +114,16 @@
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
+    <div class="center" id="itemsSubmenu">
+        <h1>Items</h1>
+        <select id="itemsMenuSelect" onchange="showItemsDeckPage(this.value)">
+            <option disabled selected hidden>Seleccionar Item</option>
+            <option value="armaduras">Armaduras</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <!-- DECKS ENCUENTROS  -->
     <div id="deckPage_acciones_ciudad" class="deckPage">
         <h1>Acciones de Ciudad</h1>
         <div class="imageContainer">
@@ -121,6 +137,7 @@
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
+    <!-- DECKS MOBILIARIO  -->
     <div id="deckPage_mobiliario_comun" class="deckPage">
         <h1>Mobiliario Común</h1>
         <div class="imageContainer">
@@ -133,18 +150,39 @@
         </select>
         <button onclick="showMobiliarioSubMenu()" style="background-color: #4a4949;">Volver a Mobiliario</button>
     </div>
+    
+    <!-- DECKS ITEMS  -->
+    <div id="deckPage_armaduras" class="deckPage">
+        <h1>Armaduras</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_armaduras" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('armaduras')">Carta aleatoria</button>
+        <select id="imageDropdown_armaduras" onchange="changeSelectedImage('armaduras')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
 
     <script>
         var images = {
+            // ENCUENTROS
             acciones_ciudad: [
                 "encuentros/acciones_ciudad/alquimista.png",
                 "encuentros/acciones_ciudad/biblioteca.png",
                 "encuentros/acciones_ciudad/campamento.png",
             ],
+            // MOBILIARIO
             mobiliario_comun: [
                 "mobiliario/mobiliario_comun/alambique.png",
                 'mobiliario/mobiliario_comun/anforas_o_recipientes.png'
             ],
+            // ITEMS
+            armaduras: [
+                "items/armaduras/armadura_completa.jpg",
+                "items/armaduras/coraza.jpg"
+            ]
         };
 
         function populateImageDropdown(deck) {
@@ -163,8 +201,8 @@
             images[deck].forEach(function (image) {
                 var option = document.createElement("option");
                 var imageName = image.split("/").pop().replace('.png', '');
-                imageName = imageName.replace(/_/g, ' '); // Replace underscores with spaces
-                imageName = capitalizeFirstLetter(imageName); // Capitalize the first letter of each word
+                imageName = imageName.replace(/_/g, ' ');
+                imageName = capitalizeFirstLetter(imageName);
                 option.text = imageName;
                 option.value = image;
                 dropdown.add(option);
@@ -173,7 +211,7 @@
 
         function clearDropdownAndImage(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
-            dropdown.selectedIndex = 0; // Reset the selected index to the default option
+            dropdown.selectedIndex = 0;
         
             var selectedImageSrc = `${decks[deck].folder}/${deck}/dorso.png`;
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
@@ -199,25 +237,48 @@
 
         function showEncuentrosSubMenu() {
             document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
             });
+
             document.getElementById("encuentrosSubmenu").style.display = "block";
             document.getElementById("encuentrosMenuSelect").selectedIndex = 0;
         }
 
         function showMobiliarioSubMenu() {
             document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("encuentrosSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
             });
+
             document.getElementById("mobiliarioSubmenu").style.display = "block";
             document.getElementById("mobiliarioMenuSelect").selectedIndex = 0;
+        }
+
+        function showItemsSubMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("encuentrosSubmenu").style.display = "none";
+            document.getElementById("mobiliarioSubmenu").style.display = "none";
+
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            document.getElementById("itemsSubmenu").style.display = "block";
+            document.getElementById("itemsMenuSelect").selectedIndex = 0;
         }
 
         function showMainMenu() {
             document.getElementById("encuentrosSubmenu").style.display = "none";
             document.getElementById("mobiliarioSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
             });
@@ -252,6 +313,23 @@
             document.getElementById(deckPageId).style.display = "block";
 
             var selectedImageSrc = "mobiliario/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImage(deck);
+            populateImageDropdown(deck);
+        }
+        
+        function showItemsDeckPage(deck) {
+            document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "items/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
             clearDropdownAndImage(deck);
