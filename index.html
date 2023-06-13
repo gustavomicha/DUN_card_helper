@@ -90,6 +90,18 @@
             height: 100vh;
             text-align: center;
         }
+
+        #infoButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4a4949;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -476,6 +488,8 @@
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
     </div>
 
+    <button id="infoButton" onclick="openInfoWindow()">?</button>
+
     <script>
         var images = {
             // ENCUENTROS
@@ -554,6 +568,8 @@
             'items/tesoro/1.png','items/tesoro/2.png','items/tesoro/3.png','items/tesoro/4.png','items/tesoro/5.png','items/tesoro/6.png','items/tesoro/7.png','items/tesoro/8.png','items/tesoro/9.png','items/tesoro/10.png'
             ],
         };
+
+        var infoWindow = null;
 
         function populateImageDropdown(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
@@ -724,6 +740,17 @@
             clearDropdownAndImageItems(deck);
             populateImageDropdown(deck);
         }
+
+        function openInfoWindow() {
+            // Check if the info window is already open
+            if (infoWindow && !infoWindow.closed) {
+                infoWindow.focus(); // If open, focus on the existing window
+            } else {
+                // If not open, open a new window with the specified text
+                infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
+            }
+        }
+
     </script>
 </body>
 </html>

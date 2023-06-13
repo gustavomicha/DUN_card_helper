@@ -77,6 +77,19 @@
             height: 100vh;
             text-align: center;
         }
+
+        #infoButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4a4949;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -110,6 +123,8 @@
         </select>
         <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
+
+    <button id="infoButton" onclick="openInfoWindow()">?</button>
 
     <script>
         var images = {
@@ -208,6 +223,19 @@
             clearDropdownAndImage(deck);
             populateImageDropdown(deck);
         }
+
+        var infoWindow = null;
+
+        function openInfoWindow() {
+            // Check if the info window is already open
+            if (infoWindow && !infoWindow.closed) {
+                infoWindow.focus(); // If open, focus on the existing window
+            } else {
+                // If not open, open a new window with the specified text
+                infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
+            }
+        }
+
     </script>
 </body>
 </html>
