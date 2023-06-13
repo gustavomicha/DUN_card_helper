@@ -1,6 +1,6 @@
 import os
 
-folder_path = "mobiliario/elementos_especiales"
+folder_path = "items/armaduras"
 
 file_paths = []
 

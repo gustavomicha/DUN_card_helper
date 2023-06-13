@@ -413,9 +413,7 @@
             ],
             // ITEMS
             armaduras: [
-                "items/armaduras/armadura_completa.jpg",
-                "items/armaduras/coraza.jpg"
-            ]
+            'items/armaduras/armadura_completa.jpg', 'items/armaduras/armadura_de_cuero_(1).jpg', 'items/armaduras/armadura_de_cuero_(2).jpg', 'items/armaduras/armadura_de_cuero_(3).jpg', 'items/armaduras/armadura_de_cuero_(4).jpg', 'items/armaduras/armadura_de_cuero_(5).jpg', 'items/armaduras/armadura_de_escamas.jpg', 'items/armaduras/armadura_de_larnil.jpg', 'items/armaduras/armadura_elfica.jpg', 'items/armaduras/armadura_superior.jpg', 'items/armaduras/armadura_tachonada_(1).jpg', 'items/armaduras/armadura_tachonada_(2).jpg', 'items/armaduras/coraza_(1).jpg', 'items/armaduras/coraza_(2).jpg', 'items/armaduras/cota_de_malla_(1).jpg', 'items/armaduras/cota_de_malla_(2).jpg', 'items/armaduras/lorica_sementata.jpg', 'items/armaduras/yoroi.jpg'            ],
         };
 
         function populateImageDropdown(deck) {
@@ -470,9 +468,15 @@
         }
 
         function changeRandomImage(deck) {
-            var randomIndex = Math.floor(Math.random() * images[deck].length);
-            var randomImageSrc = images[deck][randomIndex];
-            document.getElementById(`selectedImage_${deck}`).src = randomImageSrc;
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            var validOptions = Array.from(dropdown.options).filter(option => !option.disabled);
+            
+            if (validOptions.length > 0) {
+                var randomIndex = Math.floor(Math.random() * validOptions.length);
+                dropdown.selectedIndex = Array.from(dropdown.options).indexOf(validOptions[randomIndex]);
+                var selectedImageSrc = dropdown.value;
+                document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            }
         }
 
         function changeSelectedImage(deck) {
