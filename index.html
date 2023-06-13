@@ -138,6 +138,14 @@
         <select id="itemsMenuSelect" onchange="showItemsDeckPage(this.value)">
             <option disabled selected hidden>Seleccionar Item</option>
             <option value="armaduras">Armaduras</option>
+            <option value="cuerpo_a_cuerpo">Cuerpo a cuerpo</option>
+            <option value="distancia_y_arrojadizas">Distancia y Arrojadizas</option>
+            <option value="escudos">Escudos</option>
+            <option value="objetos_comunes">Objetos Comunes</option>
+            <option value="objetos_especiales">Objetos Especiales</option>
+            <option value="objetos_magicos">Objetos Magicos</option>
+            <option value="reliquias">Reliquias</option>
+            <option value="tesoro">Tesoro</option>
         </select>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
@@ -364,6 +372,110 @@
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
     </div>
 
+    <div id="deckPage_cuerpo_a_cuerpo" class="deckPage">
+        <h1>Cuerpo a Cuerpo</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_cuerpo_a_cuerpo" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('cuerpo_a_cuerpo')">Carta aleatoria</button>
+        <select id="imageDropdown_cuerpo_a_cuerpo" onchange="changeSelectedImage('cuerpo_a_cuerpo')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
+    <div id="deckPage_distancia_y_arrojadizas" class="deckPage">
+        <h1>Distancia y Arrojadizas</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_distancia_y_arrojadizas" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('distancia_y_arrojadizas')">Carta aleatoria</button>
+        <select id="imageDropdown_distancia_y_arrojadizas" onchange="changeSelectedImage('distancia_y_arrojadizas')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
+    <div id="deckPage_escudos" class="deckPage">
+        <h1>Escudos</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_escudos" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('escudos')">Carta aleatoria</button>
+        <select id="imageDropdown_escudos" onchange="changeSelectedImage('escudos')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
+    <div id="deckPage_objetos_comunes" class="deckPage">
+        <h1>Objetos Comunes</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_objetos_comunes" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('objetos_comunes')">Carta aleatoria</button>
+        <select id="imageDropdown_objetos_comunes" onchange="changeSelectedImage('objetos_comunes')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
+    <div id="deckPage_objetos_especiales" class="deckPage">
+        <h1>Objetos Especiales</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_objetos_especiales" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('objetos_especiales')">Carta aleatoria</button>
+        <select id="imageDropdown_objetos_especiales" onchange="changeSelectedImage('objetos_especiales')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
+    <div id="deckPage_objetos_magicos" class="deckPage">
+        <h1>Objetos Magicos</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_objetos_magicos" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('objetos_magicos')">Carta aleatoria</button>
+        <select id="imageDropdown_objetos_magicos" onchange="changeSelectedImage('objetos_magicos')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
+    <div id="deckPage_reliquias" class="deckPage">
+        <h1>Reliquias</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_reliquias" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('reliquias')">Carta aleatoria</button>
+        <select id="imageDropdown_reliquias" onchange="changeSelectedImage('reliquias')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
+    <div id="deckPage_tesoro" class="deckPage">
+        <h1>Tesoro</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_tesoro" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('tesoro')">Carta aleatoria</button>
+        <select id="imageDropdown_tesoro" onchange="changeSelectedImage('tesoro')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+    </div>
+
     <script>
         var images = {
             // ENCUENTROS
@@ -418,7 +530,29 @@
             ],
             // ITEMS
             armaduras: [
-            'items/armaduras/armadura_completa.jpg', 'items/armaduras/armadura_de_cuero_(1).jpg', 'items/armaduras/armadura_de_cuero_(2).jpg', 'items/armaduras/armadura_de_cuero_(3).jpg', 'items/armaduras/armadura_de_cuero_(4).jpg', 'items/armaduras/armadura_de_cuero_(5).jpg', 'items/armaduras/armadura_de_escamas.jpg', 'items/armaduras/armadura_de_larnil.jpg', 'items/armaduras/armadura_elfica.jpg', 'items/armaduras/armadura_superior.jpg', 'items/armaduras/armadura_tachonada_(1).jpg', 'items/armaduras/armadura_tachonada_(2).jpg', 'items/armaduras/coraza_(1).jpg', 'items/armaduras/coraza_(2).jpg', 'items/armaduras/cota_de_malla_(1).jpg', 'items/armaduras/cota_de_malla_(2).jpg', 'items/armaduras/lorica_sementata.jpg', 'items/armaduras/yoroi.jpg'            ],
+            'items/armaduras/armadura_completa.jpg', 'items/armaduras/armadura_de_cuero_(1).jpg', 'items/armaduras/armadura_de_cuero_(2).jpg', 'items/armaduras/armadura_de_cuero_(3).jpg', 'items/armaduras/armadura_de_cuero_(4).jpg', 'items/armaduras/armadura_de_cuero_(5).jpg', 'items/armaduras/armadura_de_escamas.jpg', 'items/armaduras/armadura_de_larnil.jpg', 'items/armaduras/armadura_elfica.jpg', 'items/armaduras/armadura_superior.jpg', 'items/armaduras/armadura_tachonada_(6).jpg', 'items/armaduras/armadura_tachonada_(7).jpg', 'items/armaduras/coraza_(13).jpg', 'items/armaduras/coraza_(14).jpg', 'items/armaduras/cota_de_malla_(10).jpg', 'items/armaduras/cota_de_malla_(11).jpg', 'items/armaduras/lorica_sementata.jpg', 'items/armaduras/yoroi.jpg'
+            ],
+            cuerpo_a_cuerpo: [
+            'items/cuerpo_a_cuerpo/alabarda.jpg', 'items/cuerpo_a_cuerpo/arma_rudimentaria.jpg', 'items/cuerpo_a_cuerpo/baston_(3).jpg', 'items/cuerpo_a_cuerpo/baston_(4).jpg', 'items/cuerpo_a_cuerpo/cimitarra_(5).jpg', 'items/cuerpo_a_cuerpo/cimitarra_(6).jpg', 'items/cuerpo_a_cuerpo/colmillos.jpg', 'items/cuerpo_a_cuerpo/cuernos.jpg', 'items/cuerpo_a_cuerpo/daga_(10).jpg', 'items/cuerpo_a_cuerpo/daga_(11).jpg', 'items/cuerpo_a_cuerpo/daga_(12).jpg', 'items/cuerpo_a_cuerpo/daga_(13).jpg', 'items/cuerpo_a_cuerpo/daga_(9).jpg', 'items/cuerpo_a_cuerpo/desarmado.jpg', 'items/cuerpo_a_cuerpo/espada_ancha_(15).jpg', 'items/cuerpo_a_cuerpo/espada_ancha_(16).jpg', 'items/cuerpo_a_cuerpo/espada_ancha_(17).jpg', 'items/cuerpo_a_cuerpo/espada_ancha_(18).jpg', 'items/cuerpo_a_cuerpo/espada_ancha_bastarda_(19).jpg', 'items/cuerpo_a_cuerpo/espada_ancha_bastarda_(20).jpg', 'items/cuerpo_a_cuerpo/espada_corta_(21).jpg', 'items/cuerpo_a_cuerpo/espada_corta_(22).jpg', 'items/cuerpo_a_cuerpo/espada_dentada.jpg', 'items/cuerpo_a_cuerpo/espada_elfica_(23).jpg', 'items/cuerpo_a_cuerpo/espada_elfica_(24).jpg', 'items/cuerpo_a_cuerpo/espada_falcata.jpg', 'items/cuerpo_a_cuerpo/espada_fausal.jpg', 'items/cuerpo_a_cuerpo/espada_khopesh.jpg', 'items/cuerpo_a_cuerpo/espada_mandoble.jpg', 'items/cuerpo_a_cuerpo/espada_ropera.jpg', 'items/cuerpo_a_cuerpo/falx.jpg', 'items/cuerpo_a_cuerpo/garras.jpg', 'items/cuerpo_a_cuerpo/garrote.jpg', 'items/cuerpo_a_cuerpo/gran_falx.jpg', 'items/cuerpo_a_cuerpo/gran_mangual.jpg', 'items/cuerpo_a_cuerpo/gran_martillo.jpg', 'items/cuerpo_a_cuerpo/guadaña.jpg', 'items/cuerpo_a_cuerpo/hacha_(30).jpg', 'items/cuerpo_a_cuerpo/hacha_(31).jpg', 'items/cuerpo_a_cuerpo/hacha_(32).jpg', 'items/cuerpo_a_cuerpo/hacha_arrojadiza_(33).jpg', 'items/cuerpo_a_cuerpo/hacha_arrojadiza_(34).jpg', 'items/cuerpo_a_cuerpo/hacha_de_batalla.jpg', 'items/cuerpo_a_cuerpo/hacha_de_doble_filo.jpg', 'items/cuerpo_a_cuerpo/herramienta.jpg', 'items/cuerpo_a_cuerpo/katana_(38).jpg', 'items/cuerpo_a_cuerpo/katana_(39).jpg', 'items/cuerpo_a_cuerpo/katar_(40).jpg', 'items/cuerpo_a_cuerpo/katar_(41).jpg', 'items/cuerpo_a_cuerpo/kusarigama.jpg', 'items/cuerpo_a_cuerpo/lanza_(42).jpg', 'items/cuerpo_a_cuerpo/lanza_(43).jpg', 'items/cuerpo_a_cuerpo/lanza_(44).jpg', 'items/cuerpo_a_cuerpo/lanza_de_caballeria.jpg', 'items/cuerpo_a_cuerpo/latigo.jpg', 'items/cuerpo_a_cuerpo/lucero_del_alba.jpg', 'items/cuerpo_a_cuerpo/macuahutil.jpg', 'items/cuerpo_a_cuerpo/mangual.jpg', 'items/cuerpo_a_cuerpo/martillo_de_guerra.jpg', 'items/cuerpo_a_cuerpo/maza_(50).jpg', 'items/cuerpo_a_cuerpo/maza_(51).jpg', 'items/cuerpo_a_cuerpo/puño_de_hierro.jpg', 'items/cuerpo_a_cuerpo/sable.jpg', 'items/cuerpo_a_cuerpo/tijera_de_gladiador.jpg', 'items/cuerpo_a_cuerpo/tridente.jpg'            ],
+            distancia_y_arrojadizas: [
+            'items/distancia_y_arrojadizas/arcabuz_(1).jpg', 'items/distancia_y_arrojadizas/arcabuz_(2).jpg', 'items/distancia_y_arrojadizas/arco_compuesto_(3).jpg', 'items/distancia_y_arrojadizas/arco_compuesto_(4).jpg', 'items/distancia_y_arrojadizas/arco_corto_(5).jpg', 'items/distancia_y_arrojadizas/arco_corto_(6).jpg', 'items/distancia_y_arrojadizas/arco_corto_(7).jpg', 'items/distancia_y_arrojadizas/arco_corto_(8).jpg', 'items/distancia_y_arrojadizas/arco_elfico.jpg', 'items/distancia_y_arrojadizas/arco_largo_(10).jpg', 'items/distancia_y_arrojadizas/arco_largo_(11).jpg', 'items/distancia_y_arrojadizas/ballesta_(12).jpg', 'items/distancia_y_arrojadizas/ballesta_(13).jpg', 'items/distancia_y_arrojadizas/ballesta_de_repeticion.jpg', 'items/distancia_y_arrojadizas/cerbatana.jpg', 'items/distancia_y_arrojadizas/honda_(16).jpg', 'items/distancia_y_arrojadizas/honda_(17).jpg', 'items/distancia_y_arrojadizas/honda_con_proyectiles.jpg', 'items/distancia_y_arrojadizas/jabalina_(19).jpg', 'items/distancia_y_arrojadizas/jabalina_(20).jpg', 'items/distancia_y_arrojadizas/jabalina_(21).jpg', 'items/distancia_y_arrojadizas/jabalina_pesada_(25).jpg', 'items/distancia_y_arrojadizas/jabalina_pesada_(26).jpg', 'items/distancia_y_arrojadizas/pistola_(22).jpg', 'items/distancia_y_arrojadizas/pistola_(23).jpg', 'items/distancia_y_arrojadizas/pistola_ballesta.jpg', 'items/distancia_y_arrojadizas/red.jpg', 'items/distancia_y_arrojadizas/shuriken_(28).jpg', 'items/distancia_y_arrojadizas/shuriken_(29).jpg', 'items/distancia_y_arrojadizas/shuriken_(30).jpg'            ],
+            escudos: [
+            'items/escudos/escudo_(2).jpg', 'items/escudos/escudo_(3).jpg', 'items/escudos/escudo_(4).jpg', 'items/escudos/escudo_elfico.jpg', 'items/escudos/escudo_enano.jpg', 'items/escudos/escudo_tosco.jpg', 'items/escudos/gran_escudo_(10).jpg', 'items/escudos/gran_escudo_(9).jpg', 'items/escudos/rodela_(5).jpg', 'items/escudos/rodela_(6).jpg'
+            ],
+            objetos_comunes: [
+            'items/objetos_comunes/antidoto_(32).jpg', 'items/objetos_comunes/antidoto_(33).jpg', 'items/objetos_comunes/antorchas_(1).jpg', 'items/objetos_comunes/antorchas_(2).jpg', 'items/objetos_comunes/antorchas_(3).jpg', 'items/objetos_comunes/antorchas_(4).jpg', 'items/objetos_comunes/cerveza_suprema_(11).jpg', 'items/objetos_comunes/cerveza_suprema_(12).jpg', 'items/objetos_comunes/cerveza_suprema_(13).jpg', 'items/objetos_comunes/cuerdas_(5).jpg', 'items/objetos_comunes/cuerdas_(6).jpg', 'items/objetos_comunes/cuerdas_(7).jpg', 'items/objetos_comunes/cuerdas_(8).jpg', 'items/objetos_comunes/flechas_incendiarias_(30).jpg', 'items/objetos_comunes/flechas_incendiarias_(31).jpg', 'items/objetos_comunes/ganzuas_(14).jpg', 'items/objetos_comunes/ganzuas_(15).jpg', 'items/objetos_comunes/hidromiel_vigorosa_(34).jpg', 'items/objetos_comunes/hidromiel_vigorosa_(35).jpg', 'items/objetos_comunes/hidromiel_vigorosa_(36).jpg', 'items/objetos_comunes/hierbas_curativas_(16).jpg', 'items/objetos_comunes/hierbas_curativas_(17).jpg', 'items/objetos_comunes/hierbas_curativas_(18).jpg', 'items/objetos_comunes/hierbas_curativas_(19).jpg', 'items/objetos_comunes/insecto_chillon_(41).jpg', 'items/objetos_comunes/insecto_chillon_(42).jpg', 'items/objetos_comunes/instrumento_musical_(10).jpg', 'items/objetos_comunes/instrumento_musical_(9).jpg', 'items/objetos_comunes/linterna_(37).jpg', 'items/objetos_comunes/linterna_(38).jpg', 'items/objetos_comunes/matarratas_(20).jpg', 'items/objetos_comunes/matarratas_(21).jpg', 'items/objetos_comunes/pajaro_chillon_(39).jpg', 'items/objetos_comunes/pajaro_chillon_(40).jpg', 'items/objetos_comunes/paquete_de_proviciones_(24).jpg', 'items/objetos_comunes/paquete_de_proviciones_(25).jpg', 'items/objetos_comunes/paquete_de_proviciones_(26).jpg', 'items/objetos_comunes/paquete_de_proviciones_(27).jpg', 'items/objetos_comunes/paquete_de_proviciones_(28).jpg', 'items/objetos_comunes/paquete_de_proviciones_(29).jpg', 'items/objetos_comunes/piquetas_(22).jpg', 'items/objetos_comunes/piquetas_(23).jpg', 'items/objetos_comunes/raiz_de_madragora_(49).jpg', 'items/objetos_comunes/raiz_de_madragora_(50).jpg', 'items/objetos_comunes/ristra_de_ajos_(47).jpg', 'items/objetos_comunes/ristra_de_ajos_(48).jpg', 'items/objetos_comunes/setas_del_frenesi_(43).jpg', 'items/objetos_comunes/setas_del_frenesi_(44).jpg', 'items/objetos_comunes/setas_del_frenesi_(45).jpg', 'items/objetos_comunes/setas_del_frenesi_(46).jpg'
+            ],
+            objetos_especiales: [
+            'items/objetos_especiales/agua_bendita_(1).jpg', 'items/objetos_especiales/agua_bendita_(2).jpg', 'items/objetos_especiales/bilis_de_dragon_(31).jpg', 'items/objetos_especiales/bilis_de_dragon_(32).jpg', 'items/objetos_especiales/componentes_para_magia_(3).jpg', 'items/objetos_especiales/componentes_para_magia_(4).jpg', 'items/objetos_especiales/componentes_para_magia_(5).jpg', 'items/objetos_especiales/fuego_griego_(15).jpg', 'items/objetos_especiales/fuego_griego_(16).jpg', 'items/objetos_especiales/pergamino_de_hechiceria_(26).jpg', 'items/objetos_especiales/pergamino_de_hechiceria_(27).jpg', 'items/objetos_especiales/pocima_de_curacion_(10).jpg', 'items/objetos_especiales/pocima_de_curacion_(11).jpg', 'items/objetos_especiales/pocima_de_curacion_(6).jpg', 'items/objetos_especiales/pocima_de_curacion_(7).jpg', 'items/objetos_especiales/pocima_de_curacion_(8).jpg', 'items/objetos_especiales/pocima_de_curacion_(9).jpg', 'items/objetos_especiales/pocima_de_destreza_(12).jpg', 'items/objetos_especiales/pocima_de_destreza_(13).jpg', 'items/objetos_especiales/pocima_de_destreza_(14).jpg', 'items/objetos_especiales/pocima_de_fuerza_(17).jpg', 'items/objetos_especiales/pocima_de_fuerza_(18).jpg', 'items/objetos_especiales/pocima_de_fuerza_(19).jpg', 'items/objetos_especiales/pocima_de_heroes_(19).jpg', 'items/objetos_especiales/pocima_de_heroes_(20).jpg', 'items/objetos_especiales/pocima_de_heroes_(21).jpg', 'items/objetos_especiales/pocima_de_mana_(23).jpg', 'items/objetos_especiales/pocima_de_mana_(24).jpg', 'items/objetos_especiales/pocima_de_mana_(25).jpg', 'items/objetos_especiales/pocima_de_veneno_(28).jpg', 'items/objetos_especiales/pocima_de_veneno_(29).jpg', 'items/objetos_especiales/pocima_de_veneno_(30).jpg'
+            ],
+            objetos_magicos: [
+            'items/objetos_magicos/amuleto_de_deteccion.jpg', 'items/objetos_magicos/amuleto_de_la_riqueza.jpg', 'items/objetos_magicos/amuleto_guardian.jpg', 'items/objetos_magicos/amuleto_purificador.jpg', 'items/objetos_magicos/anillo_del_sol.jpg', 'items/objetos_magicos/anillo_de_forzudos.jpg', 'items/objetos_magicos/anillo_de_la_venganza.jpg', 'items/objetos_magicos/arco_corto_de_doc.jpg', 'items/objetos_magicos/arco_corto_de_la_rapidez.jpg', 'items/objetos_magicos/arco_corto_de_poder.jpg', 'items/objetos_magicos/arco_corto_de_presicion.jpg', 'items/objetos_magicos/arco_largo_de_poder.jpg', 'items/objetos_magicos/arco_largo_de_presicion.jpg', 'items/objetos_magicos/armadura_de_la_ingravidez.jpg', 'items/objetos_magicos/armadura_ultraligera.jpg', 'items/objetos_magicos/baston_luminoso.jpg', 'items/objetos_magicos/bolsa_engullidora.jpg', 'items/objetos_magicos/botas_de_agilidad.jpg', 'items/objetos_magicos/botas_de_velocidad.jpg', 'items/objetos_magicos/brazas_sensoriales.jpg', 'items/objetos_magicos/camisola_de_la_opacidad.jpg', 'items/objetos_magicos/capa_de_invisibilidad.jpg', 'items/objetos_magicos/capa_mistica.jpg', 'items/objetos_magicos/cuerda_inteligente.jpg', 'items/objetos_magicos/cuerno_del_coraje.jpg', 'items/objetos_magicos/daga_ceremoneal.jpg', 'items/objetos_magicos/daga_voladora.jpg', 'items/objetos_magicos/escudo_de_dragon.jpg', 'items/objetos_magicos/escudo_maligno.jpg', 'items/objetos_magicos/escudo_radiante.jpg', 'items/objetos_magicos/escudo_rechazahechizos.jpg', 'items/objetos_magicos/espada_ancha_del_averno.jpg', 'items/objetos_magicos/espada_ancha_de_agilidad.jpg', 'items/objetos_magicos/espada_ancha_de_la_cautela.jpg', 'items/objetos_magicos/espada_ancha_de_poder.jpg', 'items/objetos_magicos/espada_ancha_exterminadora.jpg', 'items/objetos_magicos/espada_bastarda_de_poder.jpg', 'items/objetos_magicos/espada_bastarda_formidable.jpg', 'items/objetos_magicos/espada_bastarda_mataorcos.jpg', 'items/objetos_magicos/espada_corta_delatora.jpg', 'items/objetos_magicos/espada_de_filo_negro.jpg', 'items/objetos_magicos/flauta_estridente.jpg', 'items/objetos_magicos/flecha_de_plata.jpg', 'items/objetos_magicos/flecha_negra.jpg', 'items/objetos_magicos/gema_defensiva.jpg', 'items/objetos_magicos/gema_de_valor_(25).jpg', 'items/objetos_magicos/gema_de_valor_(26).jpg', 'items/objetos_magicos/gema_de_valor_(27).jpg', 'items/objetos_magicos/gema_de_velocidad.jpg', 'items/objetos_magicos/gema_sanadora.jpg', 'items/objetos_magicos/gran_escudo_atrapaflehcas.jpg', 'items/objetos_magicos/gran_martillo_de_la_furia.jpg', 'items/objetos_magicos/grebas_de_la_gacela.jpg', 'items/objetos_magicos/guanteletes_de_bronce.jpg', 'items/objetos_magicos/hacha_de_agilidad.jpg', 'items/objetos_magicos/hacha_de_batalla_de_la_furia.jpg', 'items/objetos_magicos/hacha_de_batalla_exterminaorcos.jpg', 'items/objetos_magicos/hacha_de_poder.jpg', 'items/objetos_magicos/hacha_voladora_arrojadiza.jpg', 'items/objetos_magicos/idolo_del_cuervo.jpg', 'items/objetos_magicos/jabalina_voladora.jpg', 'items/objetos_magicos/lanza_de_poder.jpg', 'items/objetos_magicos/lanza_voladora.jpg', 'items/objetos_magicos/libro_de_los_muertos.jpg', 'items/objetos_magicos/maza_de_agilidad.jpg', 'items/objetos_magicos/maza_de_poder.jpg', 'items/objetos_magicos/navaja_gimnz.jpg', 'items/objetos_magicos/sombrero_de_wery.jpg', 'items/objetos_magicos/talisman_de_fuerza.jpg', 'items/objetos_magicos/varita_de_minotauro.jpg', 'items/objetos_magicos/varita_de_plata.jpg', 'items/objetos_magicos/varita_ignea.jpg', 'items/objetos_magicos/varita_traviesa.jpg', 'items/objetos_magicos/yelmo_clarividente_de_Ilicitus.jpg', 'items/objetos_magicos/yelmo_del_dragon.jpg', 'items/objetos_magicos/yelmo_de_heroes.jpg', 'items/objetos_magicos/yelmo_de_la_bestia.jpg', 'items/objetos_magicos/yelmo_de_la_diosa.jpg', 'items/objetos_magicos/yelmo_de_sheix.jpg', 'items/objetos_magicos/yelmo_rojo.jpg'
+            ],
+            reliquias: [
+            'items/reliquias/amuleto_del_destino.jpg', 'items/reliquias/anillo_demoniaco.jpg', 'items/reliquias/anillo_de_avatarin.jpg', 'items/reliquias/anillo_de_invisibilidad.jpg', 'items/reliquias/arco_largo_de_la_fatalidad.jpg', 'items/reliquias/armadura_del_atardecer.jpg', 'items/reliquias/armadura_del_sol.jpg', 'items/reliquias/armadura_demoniaca.jpg', 'items/reliquias/armadura_de_dragon.jpg', 'items/reliquias/baston_de_la_sabiduria.jpg', 'items/reliquias/escudo_diamantino.jpg', 'items/reliquias/espada_ancha_matademonios.jpg', 'items/reliquias/espada_ancha_matadragones.jpg', 'items/reliquias/espada_ancha_runica.jpg', 'items/reliquias/espada_ignea_bonzorg.jpg', 'items/reliquias/gema_explosiva.jpg', 'items/reliquias/gran_martillo_fojafosos.jpg', 'items/reliquias/grimorio_ancestral.jpg', 'items/reliquias/haca_de_batalla_tamelly.jpg', 'items/reliquias/hacha_de_batlla_devora_armaduras.jpg', 'items/reliquias/lanza_de_dioses.jpg', 'items/reliquias/libro_de_los_elementos.jpg', 'items/reliquias/mascara_del_submundo.jpg', 'items/reliquias/sangre_de_unicornio.jpg', 'items/reliquias/yelmo_desviaflechas.jpg'            ],
+            tesoro: [
+            'items/tesoro/1.png','items/tesoro/2.png','items/tesoro/3.png','items/tesoro/4.png','items/tesoro/5.png','items/tesoro/6.png','items/tesoro/7.png','items/tesoro/8.png','items/tesoro/9.png','items/tesoro/10.png'
+            ],
         };
 
         function populateImageDropdown(deck) {
