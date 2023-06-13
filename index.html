@@ -436,7 +436,7 @@
 
             images[deck].forEach(function (image) {
                 var option = document.createElement("option");
-                var imageName = image.split("/").pop().replace('.png', '');
+                var imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
                 imageName = imageName.replace(/_/g, ' ');
                 imageName = capitalizeFirstLetter(imageName);
                 option.text = imageName;
