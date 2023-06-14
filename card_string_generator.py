@@ -1,6 +1,6 @@
 import os
 
-folder_path = "items/distancia_y_arrojadizas"
+folder_path = "hechizos"#"items/distancia_y_arrojadizas"
 
 file_paths = []
 

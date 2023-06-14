@@ -96,8 +96,7 @@
     <div class="center" id="mainMenu">
         <h1>DUN Helper (by Relhit)</h1>
         <button onclick="showSubMenu()">Encuentros</button>
-        <button onclick="showSubMenu()">Items</button>
-        <button onclick="showSubMenu()">Hechizos</button>
+        <button onclick="openHechizosPage()">Hechizos</button>
 
     </div>
 
@@ -124,6 +123,11 @@
         <button onclick="showSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
     </div>
 
+    <div id="hechizosPage" class="center" style="display: none;">
+        <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+    
     <button id="infoButton" onclick="openInfoWindow()">?</button>
 
     <script>
@@ -235,6 +239,20 @@
                 infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
             }
         }
+
+      //  function openHechizosPage() {
+      //      window.open('hechizos.html', '_blank');
+      //  }
+
+      function openHechizosPage() {
+        document.getElementById('mainMenu').style.display = 'none';
+        document.getElementById('submenu').style.display = 'none';
+        document.getElementById('deckPage_acciones_ciudad').style.display = 'none';
+        document.getElementById('infoButton').style.display = 'none';
+
+        document.getElementById('hechizosFrame').src = 'hechizos.html';
+        document.getElementById('hechizosPage').style.display = 'block';
+    }
 
     </script>
 </body>

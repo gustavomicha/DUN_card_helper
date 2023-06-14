@@ -110,6 +110,7 @@
         <button onclick="showEncuentrosSubMenu()">Encuentros</button>
         <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
         <button onclick="showItemsSubMenu()">Items</button>
+        <button onclick="openHechizosPage()">Hechizos</button>
 
     </div>
 
@@ -488,6 +489,11 @@
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
     </div>
 
+    <div id="hechizosPage" class="center" style="display: none;">
+        <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
     <button id="infoButton" onclick="openInfoWindow()">?</button>
 
     <script>
@@ -739,6 +745,16 @@
 
             clearDropdownAndImageItems(deck);
             populateImageDropdown(deck);
+        }
+
+        function openHechizosPage() {
+            document.getElementById('mainMenu').style.display = 'none';
+            document.getElementById('encuentrosSubmenu').style.display = 'none';
+            document.getElementById('mobiliarioSubmenu').style.display = 'none';
+            document.getElementById('itemsSubmenu').style.display = 'none';
+            document.getElementById('infoButton').style.display = 'none';
+            document.getElementById('hechizosFrame').src = 'hechizos.html';
+            document.getElementById('hechizosPage').style.display = 'block';
         }
 
         function openInfoWindow() {
