@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DUN Helper (beta version)</title>
+    <title>DUN Helper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @font-face {
+            font-family: 'Macondo';
+            src: url('misc/Macondo-Regular.ttf') format('truetype');
+          }
+
         body {
             background-color: #000000;
             color: #d8d8d8;
-            font-family: "Arial", sans-serif;
+            font-family: "Macondo", "Arial", sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -44,12 +49,14 @@
             display: block;
             margin: 0 auto;
             margin-top: 20px;
+            width: 50%;
+            max-width: 400px;
         }
 
         select {
             padding: 20px;
             border-radius: 10px;
-            font-family: "Arial", sans-serif;
+            font-family: "Macondo", sans-serif;
             font-size: 24px;
             display: block;
             margin: 0 auto;
@@ -80,6 +87,8 @@
 
         #mainMenu button {
             background-color: #3472ff;
+            width: 50%;
+            max-width: 300px;
         }
 
         .center {
@@ -98,9 +107,16 @@
             background-color: #4a4949;
             color: white;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 26px;
             border: none;
             cursor: pointer;
+            width: auto;
+            max-width: none;
+            border-radius: 50%;
+        }
+
+        h1, button, option {
+            font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
         }
     </style>
 
@@ -115,7 +131,7 @@
 </head>
 <body>
     <div class="center" id="mainMenu">
-        <h1>DUN Helper (beta version) <span class="subtitle">by Relhit</span></h1>
+        <h1>DUN Helper <span class="subtitle">Beta version</span></h1>
         <button onclick="showEncuentrosSubMenu()">Encuentros</button>
         <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
         <button onclick="showItemsSubMenu()">Items</button>
@@ -196,6 +212,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_castillo" class="deckPage">
@@ -208,6 +226,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_ciudad" class="deckPage">
@@ -220,6 +240,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_villa" class="deckPage">
@@ -232,6 +254,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_boscoso" class="deckPage">
@@ -244,6 +268,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_camino" class="deckPage">
@@ -256,6 +282,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_desertico" class="deckPage">
@@ -268,6 +296,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_glaciar" class="deckPage">
@@ -280,6 +310,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_mar" class="deckPage">
@@ -292,6 +324,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_llanura" class="deckPage">
@@ -304,6 +338,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_montanioso" class="deckPage">
@@ -316,6 +352,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_pantanoso" class="deckPage">
@@ -328,6 +366,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_rio" class="deckPage">
@@ -340,6 +380,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <div id="deckPage_volcanico" class="deckPage">
@@ -352,6 +394,8 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+
     </div>
 
     <!-- DECKS MOBILIARIO  -->
@@ -366,6 +410,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showMobiliarioSubMenu()" style="background-color: #4a4949;">Volver a Mobiliario</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
     <div id="deckPage_elementos_especiales" class="deckPage">
@@ -379,6 +424,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showMobiliarioSubMenu()" style="background-color: #4a4949;">Volver a Mobiliario</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
     
     <!-- DECKS ITEMS  -->
@@ -393,7 +439,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_cuerpo_a_cuerpo" class="deckPage">
         <h1>Cuerpo a Cuerpo</h1>
@@ -406,7 +452,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_distancia_y_arrojadizas" class="deckPage">
         <h1>Distancia y Arrojadizas</h1>
@@ -419,7 +465,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_escudos" class="deckPage">
         <h1>Escudos</h1>
@@ -432,7 +478,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_objetos_comunes" class="deckPage">
         <h1>Objetos Comunes</h1>
@@ -445,7 +491,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_objetos_especiales" class="deckPage">
         <h1>Objetos Especiales</h1>
@@ -458,7 +504,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_objetos_magicos" class="deckPage">
         <h1>Objetos Magicos</h1>
@@ -471,7 +517,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_reliquias" class="deckPage">
         <h1>Reliquias</h1>
@@ -484,7 +530,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="deckPage_tesoro" class="deckPage">
         <h1>Tesoro</h1>
@@ -497,7 +543,7 @@
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
-    </div>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
     <div id="hechizosPage" class="center" style="display: none;">
         <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>

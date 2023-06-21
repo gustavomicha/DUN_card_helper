@@ -4,10 +4,15 @@
     <title>Hechizos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @font-face {
+            font-family: 'Macondo';
+            src: url('misc/Macondo-Regular.ttf') format('truetype');
+        }
+
         body {
             background-color: #000000;
             color: #d8d8d8;
-            font-family: "Arial", sans-serif;
+            font-family: "Macondo", sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -85,6 +90,10 @@
             display: block;
             margin: 0 auto;
             margin-bottom: 20px;
+        }
+
+        h1, button, select, option {
+            font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
         }
     </style>
 </head>
