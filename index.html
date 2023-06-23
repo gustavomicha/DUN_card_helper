@@ -85,7 +85,7 @@
 
         #mobiliarioSubmenu {
             display: none;
-            background-image: url("misc/back_furniture.png");
+            background-image: url("misc/back_furniture.jpg");
             background-position: center;
             background-size: 80% auto;
             opacity: 0.8;
@@ -137,6 +137,18 @@
 
         h1, button, option {
             font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
+        }
+
+        @media (min-width: 800px) and (min-height: 600px) {
+            #itemsSubmenu {
+                background-size: 30% auto;
+            }
+            #mobiliarioSubmenu{
+                background-size: 400px auto;
+            }
+            #encuentrosSubmenu{
+                background-size: 400px auto;
+            }
         }
     </style>
 

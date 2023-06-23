@@ -57,14 +57,37 @@
             text-align: center;
             font-size: 24px;
             flex-basis: calc(100% / 6);
+            padding: 5px 10px;
+
         }
 
         .counter button {
-            background-color: #ce0aed;
+            background-color: #131213;
             color: white;
             padding: 5px 10px;
             border: none;
             cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .counter button.plus {
+            background-color: #888888;
+        }
+        .counter button.minus {
+            background-color: #444444;
+        }
+    
+        .counter span {
+            background-color: #ce0aed;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%; /* Added border-radius for circular shape */
+            width: 30px; /* Set a fixed width */
+            height: 30px; /* Set a fixed height */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
         }
 
         select {
@@ -94,6 +117,46 @@
         h1, button, select, option {
             font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
         }
+
+        @media (max-width: 767px) {
+          
+            .counter {
+                font-size: 15px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                overflow-x: auto;
+                
+              }
+
+              .counter span {
+                background-color: #ce0aed;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 50%; /* Added border-radius for circular shape */
+                width: 10px; /* Set a fixed width */
+                height: 10px; /* Set a fixed height */
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 6px;
+            }
+            .counter button {
+                background-color: #131213;
+                color: white;
+                padding: 5px 10px;
+                border: none;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                width: 5px;
+                height: 5px; 
+                padding: 10px;
+            }
+          }
     </style>
 </head>
 <body>
@@ -126,34 +189,34 @@
 
         <div class="counterContainer">
             <div class="counter">
-                <button onclick="decreaseCounter(1)">-</button>
+                <button onclick="decreaseCounter(1)" class="minus">-</button>
                 <span id="counter1">0</span>
-                <button onclick="increaseCounter(1)">+</button>
+                <button onclick="increaseCounter(1)" class="plus">+</button>
             </div>
             <div class="counter">
-                <button onclick="decreaseCounter(2)">-</button>
+                <button onclick="decreaseCounter(2)" class="minus">-</button>
                 <span id="counter2">0</span>
-                <button onclick="increaseCounter(2)">+</button>
+                <button onclick="increaseCounter(2)" class="plus">+</button>
             </div>
             <div class="counter">
-                <button onclick="decreaseCounter(3)">-</button>
+                <button onclick="decreaseCounter(3)" class="minus">-</button>
                 <span id="counter3">0</span>
-                <button onclick="increaseCounter(3)">+</button>
+                <button onclick="increaseCounter(3)" class="plus">+</button>
             </div>
             <div class="counter">
-                <button onclick="decreaseCounter(4)">-</button>
+                <button onclick="decreaseCounter(4)" class="minus">-</button>
                 <span id="counter4">0</span>
-                <button onclick="increaseCounter(4)">+</button>
+                <button onclick="increaseCounter(4)" class="plus">+</button>
             </div>
             <div class="counter">
-                <button onclick="decreaseCounter(5)">-</button>
+                <button onclick="decreaseCounter(5)" class="minus">-</button>
                 <span id="counter5">0</span>
-                <button onclick="increaseCounter(5)">+</button>
+                <button onclick="increaseCounter(5)" class="plus">+</button>
             </div>
             <div class="counter">
-                <button onclick="decreaseCounter(6)">-</button>
+                <button onclick="decreaseCounter(6)" class="minus">-</button>
                 <span id="counter6">0</span>
-                <button onclick="increaseCounter(6)">+</button>
+                <button onclick="increaseCounter(6)" class="plus">+</button>
             </div>
         </div>
 
@@ -191,7 +254,7 @@
     
         function resetCounters() {
             for (var i = 0; i < counters.length; i++) {
-                counters[i] = 0;a
+                counters[i] = 0;
                 updateCounterDisplay(i + 1);
             }
         }
