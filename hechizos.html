@@ -24,7 +24,6 @@
         }
 
         #mainContainer {
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -200,7 +199,12 @@
         function goToMainMenu() {
             window.parent.location.href = "index.html";
         }
+        
+        window.addEventListener("load", function() {
+            var defaultImageSrc = "hechizos/fondo_default.png";
+            document.getElementById("selectedImage").src = defaultImageSrc;
+        });
     </script>
-    
+
 </body>
 </html>
