@@ -139,9 +139,13 @@
             font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
         }
 
-        @media (min-width: 800px) and (min-height: 600px) {
+        @media (max-width: 600px) and (min-height: 600px) {
+            button {
+                width: 100%;
+            }
+
             #itemsSubmenu {
-                background-size: 30% auto;
+                background-size: 400px auto;
             }
             #mobiliarioSubmenu{
                 background-size: 400px auto;
@@ -740,6 +744,7 @@
             document.getElementById("mainMenu").style.display = "none";
             document.getElementById("mobiliarioSubmenu").style.display = "none";
             document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("infoButton").style.visibility = "hidden";
 
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
@@ -753,6 +758,7 @@
             document.getElementById("mainMenu").style.display = "none";
             document.getElementById("encuentrosSubmenu").style.display = "none";
             document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("infoButton").style.visibility = "hidden";
 
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
@@ -766,6 +772,7 @@
             document.getElementById("mainMenu").style.display = "none";
             document.getElementById("encuentrosSubmenu").style.display = "none";
             document.getElementById("mobiliarioSubmenu").style.display = "none";
+            document.getElementById("infoButton").style.visibility = "hidden";
 
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
@@ -784,6 +791,7 @@
                 page.style.display = "none";
             });
             document.getElementById("mainMenu").style.display = "block";
+            document.getElementById("infoButton").style.visibility = "visible";
         }
 
         function showEncuentrosDeckPage(deck) {
