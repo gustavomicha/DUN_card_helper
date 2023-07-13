@@ -180,13 +180,9 @@
         <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
     </div>
 
-    <!-- <button id="languageButton" onclick="openEnglishPage()" 
-        style="font-style: italic;">
-        ENG</button> -->
-
-    <button id="languageButton" onclick="openEnglishPage()" style="background: none; border: none; padding: 0;">
-        <img src="misc/ENG.png" alt="English Flag" style="width: 40px; height: 40px;">
-        <p style="color: white; margin-top: 5px;">ENG</p>
+    <button id="languageButton" onclick="openEnglishPage()" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center;">
+        <img src="misc/ESP.png" alt="Spanish Flag" style="width: 40px; height: 40px;">
+        <p style="color: white; margin-top: 5px; font-size: 14px; text-align: center; width: 40px;">Switch<br>to ENG</p>
     </button>
 
     <button id="infoButton" onclick="openInfoWindow()">?</button>
@@ -194,7 +190,7 @@
     <script>
         var images = {
             acciones_ciudad: [
-                "encuentros/acciones_ciudad/alquimista.png", "encuentros/acciones_ciudad/biblioteca.png"
+                "ESP/hechizos/acciones_ciudad/alquimista.png", "ESP/hechizos/acciones_ciudad/biblioteca.png"
             ],
         };
 
@@ -226,7 +222,7 @@
         function clearDropdownAndImageEncuentros(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
             dropdown.selectedIndex = 0;
-            var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            var selectedImageSrc = "ESP/hechizos/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 
@@ -285,7 +281,7 @@
             var deckPageId = `deckPage_${deck}`;
             document.getElementById(deckPageId).style.display = "block";
 
-            var selectedImageSrc = "encuentros/" + deck + "/dorso.png";
+            var selectedImageSrc = "ESP/hechizos/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
             clearDropdownAndImageEncuentros(deck);
