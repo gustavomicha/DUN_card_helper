@@ -153,6 +153,13 @@
             font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
         }
 
+        @media (min-width: 601px) {
+            /* Media query for desktop screens */
+            .imageContainer img {
+                max-width: 25%; /* Reduce the size to 50% */
+            }
+        }
+        
         @media (max-width: 600px) and (min-height: 600px) {
             button {
                 width: 100%;

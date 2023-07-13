@@ -144,6 +144,14 @@
                 background-size: 400px auto;
             }
         }
+
+        @media (min-width: 601px) {
+            /* Media query for desktop screens */
+            .imageContainer img {
+                max-width: 25%; /* Reduce the size to 50% */
+            }
+        }
+        
     </style>
 
 </head>
@@ -190,7 +198,7 @@
     <script>
         var images = {
             acciones_ciudad: [
-                "ESP/hechizos/acciones_ciudad/alquimista.png", "ESP/hechizos/acciones_ciudad/biblioteca.png"
+                "ESP/encuentros/acciones_ciudad/alquimista.png", "ESP/encuentros/acciones_ciudad/biblioteca.png"
             ],
         };
 
@@ -222,7 +230,7 @@
         function clearDropdownAndImageEncuentros(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
             dropdown.selectedIndex = 0;
-            var selectedImageSrc = "ESP/hechizos/" + deck + "/dorso.png";
+            var selectedImageSrc = "ESP/encuentros/" + deck + "/dorso.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 

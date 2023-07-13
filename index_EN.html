@@ -74,9 +74,9 @@
             background-repeat: no-repeat;
         }
 
-        #encountersSubmenu {
+        #eventsSubmenu {
             display: none;
-            background-image: url("misc/back_encounters.png");
+            background-image: url("misc/back_events.png");
             background-position: center;
             background-size: 80% auto;
             opacity: 0.8;
@@ -153,6 +153,13 @@
             font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
         }
 
+        @media (min-width: 601px) {
+            /* Media query for desktop screens */
+            .imageContainer img {
+                max-width: 25%; /* Reduce the size to 50% */
+            }
+        }
+
         @media (max-width: 600px) and (min-height: 600px) {
             button {
                 width: 100%;
@@ -168,7 +175,7 @@
                 background-position: center bottom;
                 background-attachment: fixed;
             }
-            #encountersSubmenu{
+            #eventsSubmenu{
                 background-size: 400px auto;
                 background-position: center bottom;
                 background-attachment: fixed;
@@ -195,16 +202,16 @@
         <h1>DUN Helper (ENG)<span class="subtitle">fanmade, v1.0</span></h1>
         <button onclick="showItemsSubMenu()">Items</button>
         <!-- <button onclick="showCompanionsSubMenu()">Companions (TBD)</button> -->
-        <button onclick="showEncountersSubMenu()">Encounters (TBD)</button>
+        <button onclick="showEventsSubMenu()">Events (TBD)</button>
         <button onclick="showfurnitureSubMenu()">Furniture (TBD)</button>
         <button onclick="openHechizosPage()">Spells (TBD)</button>
 
     </div>
 
-    <div class="center" id="encountersSubmenu">
-        <h1>Encounters</h1>
-        <select id="encountersMenuSelect" onchange="showEncountersDeckPage(this.value)">
-            <option disabled selected hidden>Select Encounter</option>
+    <div class="center" id="eventsSubmenu">
+        <h1>Events</h1>
+        <select id="eventsMenuSelect" onchange="showEventsDeckPage(this.value)">
+            <option disabled selected hidden>Select Event</option>
             <option value="city_actions">City Actions</option>
             <!-- <option value="peligro_camp">Peligro en Campaña</option>
             <option value="castillo">Población: Castillo</option> -->
@@ -249,7 +256,7 @@
         <select id="imageDropdown_city_actions" onchange="changeSelectedImage('city_actions')">
             <option disabled selected hidden>Select card</option>
         </select>
-        <button onclick="showEncountersSubMenu()" style="background-color: #4a4949;">Back to Encounters</button>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
     </div> -->
 
 
@@ -439,7 +446,7 @@
             'ENG/items/relics/amulet_of_destiny.jpg', 'ENG/items/relics/ancestral_grimoire.jpg', 'ENG/items/relics/armor-piercing_battleaxe.jpg', 'ENG/items/relics/armor_of_sunset.jpg', 'ENG/items/relics/arrow-repulsing_helm.jpg', 'ENG/items/relics/back.png', 'ENG/items/relics/bonzorg_flaming_sword.jpg', 'ENG/items/relics/book_of_elements.jpg', 'ENG/items/relics/demonic_armor.jpg', 'ENG/items/relics/demonic_ring.jpg', 'ENG/items/relics/demon_slayer-broadsword.jpg', 'ENG/items/relics/diamond_shield.jpg', 'ENG/items/relics/dragonscale_armor.jpg', 'ENG/items/relics/dragon_slayer_broadsword.jpg', 'ENG/items/relics/earth-shattering_warhammer.jpg', 'ENG/items/relics/explosive_gemstone.jpg', 'ENG/items/relics/fatality_longbow.jpg', 'ENG/items/relics/invisibility_ring.jpg', 'ENG/items/relics/mask_from_the_underworld.jpg', 'ENG/items/relics/ring_of_avatarin.jpg', 'ENG/items/relics/runic_broadsword.jpg', 'ENG/items/relics/solar_armor.jpg', 'ENG/items/relics/spear_of_the_gods.jpg', 'ENG/items/relics/staff_of_wisdom.jpg', 'ENG/items/relics/tanelly_battleaxe.jpg', 'ENG/items/relics/unicorn_blood.jpg',
             ],
             treasure: [
-            
+            'ENG/items/treasure/01.jpg','ENG/items/treasure/02.jpg','ENG/items/treasure/03.jpg','ENG/items/treasure/04.jpg','ENG/items/treasure/05.jpg','ENG/items/treasure/06.jpg','ENG/items/treasure/07.jpg','ENG/items/treasure/08.jpg','ENG/items/treasure/09.jpg','ENG/items/treasure/10.jpg'
             ],
         };
 
@@ -469,10 +476,10 @@
             });
         }
 
-        function clearDropdownAndImageEncounters(deck) {
+        function clearDropdownAndImageEvents(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
             dropdown.selectedIndex = 0;
-            var selectedImageSrc = "ENG/encounters/" + deck + "/back.png";
+            var selectedImageSrc = "ENG/events/" + deck + "/back.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 
@@ -514,7 +521,7 @@
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
         }
 
-        function showEncountersSubMenu() {
+        function showEventsSubMenu() {
             // document.getElementById("mainMenu").style.display = "none";
             // document.getElementById("furnitureSubmenu").style.display = "none";
             // document.getElementById("itemsSubmenu").style.display = "none";
@@ -524,14 +531,14 @@
             //     page.style.display = "none";
             // });
 
-            // document.getElementById("encountersSubmenu").style.display = "block";
-            // document.getElementById("encountersMenuSelect").selectedIndex = 0;
+            // document.getElementById("eventsSubmenu").style.display = "block";
+            // document.getElementById("eventsMenuSelect").selectedIndex = 0;
             // document.getElementById("languageButton").style.display = "none";
         }
 
         function showFurnitureSubMenu() {
             // document.getElementById("mainMenu").style.display = "none";
-            // document.getElementById("encountersSubmenu").style.display = "none";
+            // document.getElementById("eventsSubmenu").style.display = "none";
             // document.getElementById("itemsSubmenu").style.display = "none";
             // document.getElementById("infoButton").style.visibility = "hidden";
             // document.getElementById("languageButton").style.display = "none";
@@ -546,7 +553,7 @@
 
         function showItemsSubMenu() {
             document.getElementById("mainMenu").style.display = "none";
-            document.getElementById("encountersSubmenu").style.display = "none";
+            document.getElementById("eventsSubmenu").style.display = "none";
             document.getElementById("furnitureSubmenu").style.display = "none";
             document.getElementById("infoButton").style.visibility = "hidden";
             document.getElementById("languageButton").style.display = "none";
@@ -561,7 +568,7 @@
         }
 
         function showMainMenu() {
-            document.getElementById("encountersSubmenu").style.display = "none";
+            document.getElementById("eventsSubmenu").style.display = "none";
             document.getElementById("furnitureSubmenu").style.display = "none";
             document.getElementById("itemsSubmenu").style.display = "none";
 
@@ -574,8 +581,8 @@
 
         }
 
-        function showEncountersDeckPage(deck) {
-            document.getElementById("encountersSubmenu").style.display = "none";
+        function showEventsDeckPage(deck) {
+            document.getElementById("eventsSubmenu").style.display = "none";
             document.getElementById("mainMenu").style.display = "none";
             document.querySelectorAll('.deckPage').forEach(function (page) {
                 page.style.display = "none";
@@ -584,10 +591,10 @@
             var deckPageId = `deckPage_${deck}`;
             document.getElementById(deckPageId).style.display = "block";
 
-            var selectedImageSrc = "ENG/encounters/" + deck + "/back.png";
+            var selectedImageSrc = "ENG/events/" + deck + "/back.png";
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
-            clearDropdownAndImageEncounters(deck);
+            clearDropdownAndImageEvents(deck);
             populateImageDropdown(deck);
         }
 
@@ -627,7 +634,7 @@
 
         function openHechizosPage() {
             // document.getElementById('mainMenu').style.display = 'none';
-            // document.getElementById('encountersSubmenu').style.display = 'none';
+            // document.getElementById('eventsSubmenu').style.display = 'none';
             // document.getElementById('furnitureSubmenu').style.display = 'none';
             // document.getElementById('itemsSubmenu').style.display = 'none';
             // document.getElementById('infoButton').style.display = 'none';
