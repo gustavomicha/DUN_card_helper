@@ -76,7 +76,7 @@
 
         #encuentrosSubmenu {
             display: none;
-            background-image: url("misc/back_encounters.png");
+            background-image: url("misc/back_events.png");
             background-position: center;
             background-size: 80% auto;
             opacity: 0.8;
@@ -159,7 +159,7 @@
                 max-width: 25%; /* Reduce the size to 50% */
             }
         }
-        
+
         @media (max-width: 600px) and (min-height: 600px) {
             button {
                 width: 100%;
@@ -200,7 +200,7 @@
 <body>
     <div class="center" id="mainMenu">
         <h1>DUN Helper <span class="subtitle">(fanmade) v1.0</span></h1>
-        <button onclick="showEncuentrosSubMenu()">Encuentros</button>
+        <button onclick="showEncuentrosSubMenu()">Eventos</button>
         <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
         <button onclick="showItemsSubMenu()">Items</button>
         <button onclick="openHechizosPage()">Hechizos</button>
@@ -210,8 +210,8 @@
     <div class="center" id="encuentrosSubmenu">
         <h1>Encuentros</h1>
         <select id="encuentrosMenuSelect" onchange="showEncuentrosDeckPage(this.value)">
-            <option disabled selected hidden>Seleccionar Encuentro</option>
-            <option value="acciones_ciudad">Acciones de Ciudad</option>
+            <option disabled selected hidden>Seleccionar Eventos</option>
+            <option value="lugares_y_servicios">Lugares y Servicios</option>
             <option value="peligro_camp">Peligro en Campaña</option>
             <option value="castillo">Población: Castillo</option>
             <option value="ciudad">Población: Ciudad</option>
@@ -258,13 +258,13 @@
     </div>
 
     <!-- DECKS ENCUENTROS  -->
-    <div id="deckPage_acciones_ciudad" class="deckPage">
-        <h1>Acciones de Ciudad</h1>
+    <div id="deckPage_lugares_y_servicios" class="deckPage">
+        <h1>Lugares y Servicios</h1>
         <div class="imageContainer">
-            <img id="selectedImage_acciones_ciudad" src="" alt="Selected Image">
+            <img id="selectedImage_lugares_y_servicios" src="" alt="Selected Image">
         </div>
-        <button onclick="changeRandomImage('acciones_ciudad')">Carta aleatoria</button>
-        <select id="imageDropdown_acciones_ciudad" onchange="changeSelectedImage('acciones_ciudad')">
+        <button onclick="changeRandomImage('lugares_y_servicios')">Carta aleatoria</button>
+        <select id="imageDropdown_lugares_y_servicios" onchange="changeSelectedImage('lugares_y_servicios')">
             <option disabled selected hidden>Seleccionar carta</option>
         </select>
         <button onclick="showEncuentrosSubMenu()" style="background-color: #4a4949;">Volver a Encuentros</button>
@@ -628,8 +628,8 @@
     <script>
         var images = {
             // ENCUENTROS
-            acciones_ciudad: [
-            "ESP/encuentros/acciones_ciudad/alquimista.png","ESP/encuentros/acciones_ciudad/biblioteca.png","ESP/encuentros/acciones_ciudad/campamento.png","ESP/encuentros/acciones_ciudad/criadero_y_centro_de_adiestramiento.png","ESP/encuentros/acciones_ciudad/embarcadero_muelle.png","ESP/encuentros/acciones_ciudad/escuela_de_hechiceria.png","ESP/encuentros/acciones_ciudad/escuela_de_lucha.png","ESP/encuentros/acciones_ciudad/establos.png","ESP/encuentros/acciones_ciudad/estancia_del_rey_o_gobernador.png","ESP/encuentros/acciones_ciudad/guardias.png","ESP/encuentros/acciones_ciudad/herbolario.png","ESP/encuentros/acciones_ciudad/herreria_armeria.png","ESP/encuentros/acciones_ciudad/hogar.png","ESP/encuentros/acciones_ciudad/lugar_sagrado.png","ESP/encuentros/acciones_ciudad/mercado.png","ESP/encuentros/acciones_ciudad/oraculo.png","ESP/encuentros/acciones_ciudad/posada.png","ESP/encuentros/acciones_ciudad/prestamista.png","ESP/encuentros/acciones_ciudad/prision.png","ESP/encuentros/acciones_ciudad/puente.png","ESP/encuentros/acciones_ciudad/sanador.png","ESP/encuentros/acciones_ciudad/taberna.png","ESP/encuentros/acciones_ciudad/templo.png","ESP/encuentros/acciones_ciudad/tesorero.png"
+            lugares_y_servicios: [
+            "ESP/encuentros/lugares_y_servicios/alquimista.png","ESP/encuentros/lugares_y_servicios/biblioteca.png","ESP/encuentros/lugares_y_servicios/campamento.png","ESP/encuentros/lugares_y_servicios/criadero_y_centro_de_adiestramiento.png","ESP/encuentros/lugares_y_servicios/embarcadero_muelle.png","ESP/encuentros/lugares_y_servicios/escuela_de_hechiceria.png","ESP/encuentros/lugares_y_servicios/escuela_de_lucha.png","ESP/encuentros/lugares_y_servicios/establos.png","ESP/encuentros/lugares_y_servicios/estancia_del_rey_o_gobernador.png","ESP/encuentros/lugares_y_servicios/guardias.png","ESP/encuentros/lugares_y_servicios/herbolario.png","ESP/encuentros/lugares_y_servicios/herreria_armeria.png","ESP/encuentros/lugares_y_servicios/hogar.png","ESP/encuentros/lugares_y_servicios/lugar_sagrado.png","ESP/encuentros/lugares_y_servicios/mercado.png","ESP/encuentros/lugares_y_servicios/oraculo.png","ESP/encuentros/lugares_y_servicios/posada.png","ESP/encuentros/lugares_y_servicios/prestamista.png","ESP/encuentros/lugares_y_servicios/prision.png","ESP/encuentros/lugares_y_servicios/puente.png","ESP/encuentros/lugares_y_servicios/sanador.png","ESP/encuentros/lugares_y_servicios/taberna.png","ESP/encuentros/lugares_y_servicios/templo.png","ESP/encuentros/lugares_y_servicios/tesorero.png"
             ],
             peligro_camp: [
             "ESP/encuentros/peligro_camp/asesino.png","ESP/encuentros/peligro_camp/cazarrecompenzas.png","ESP/encuentros/peligro_camp/espia.png","ESP/encuentros/peligro_camp/hechicero_errante.png","ESP/encuentros/peligro_camp/ladron.png","ESP/encuentros/peligro_camp/maldicion.png","ESP/encuentros/peligro_camp/marcador_vacio_1.png","ESP/encuentros/peligro_camp/marcador_vacio_2.png","ESP/encuentros/peligro_camp/marcador_vacio_3.png","ESP/encuentros/peligro_camp/marcador_vacio_4.png"

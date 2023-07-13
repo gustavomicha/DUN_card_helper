@@ -202,7 +202,7 @@
         <h1>DUN Helper (ENG)<span class="subtitle">fanmade, v1.0</span></h1>
         <button onclick="showItemsSubMenu()">Items</button>
         <!-- <button onclick="showCompanionsSubMenu()">Companions (TBD)</button> -->
-        <button onclick="showEventsSubMenu()">Events (TBD)</button>
+        <button onclick="showEventsSubMenu()">Events</button>
         <button onclick="showfurnitureSubMenu()">Furniture (TBD)</button>
         <button onclick="openHechizosPage()">Spells (TBD)</button>
 
@@ -212,7 +212,23 @@
         <h1>Events</h1>
         <select id="eventsMenuSelect" onchange="showEventsDeckPage(this.value)">
             <option disabled selected hidden>Select Event</option>
-            <option value="city_actions">City Actions</option>
+            <option value="places_and_services">Places and Services</option>
+            <option value="danger_campaing">Danger in Campaign</option>
+            
+            <option value="castle">Settlement: Castle</option>
+            <option value="city">Settlement: City</option>
+            <option value="village">Settlement: Village</option>
+
+            <option value="desert">Terrain: Desert</option>
+            <option value="forest">Terrain: Forest</option>
+            <option value="glacier">Terrain: Glacier</option>
+            <option value="mountain">Terrain: Mountain</option>
+            <option value="plains">Terrain: Plains</option>
+            <option value="river">Terrain: River</option>
+            <option value="road">Terrain: Road</option>
+            <option value="sea">Terrain: Sea</option>
+            <option value="swamp">Terrain: Swamp</option>
+            <option value="volcanic">Terrain: Volcanic</option>
             <!-- <option value="peligro_camp">Peligro en Campaña</option>
             <option value="castillo">Población: Castillo</option> -->
         </select>
@@ -247,19 +263,174 @@
     </div>
 
     <!-- DECKS ENCOUNTERS  -->
-    <!-- <div id="deckPage_city_actions" class="deckPage">
-        <h1>Acciones de Ciudad</h1>
+    <div id="deckPage_places_and_services" class="deckPage">
+        <h1>Places and Services</h1>
         <div class="imageContainer">
-            <img id="selectedImage_city_actions" src="" alt="Selected Image">
+            <img id="selectedImage_places_and_services" src="" alt="Selected Image">
         </div>
-        <button onclick="changeRandomImage('city_actions')">Random card</button>
-        <select id="imageDropdown_city_actions" onchange="changeSelectedImage('city_actions')">
+        <button onclick="changeRandomImage('places_and_services')">Random card</button>
+        <select id="imageDropdown_places_and_services" onchange="changeSelectedImage('places_and_services')">
             <option disabled selected hidden>Select card</option>
         </select>
         <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
-    </div> -->
+    </div>
 
+    <div id="deckPage_castle" class="deckPage">
+        <h1>Settlement: Castle</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_castle" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('castle')">Random card</button>
+        <select id="imageDropdown_castle" onchange="changeSelectedImage('castle')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
 
+    <div id="deckPage_city" class="deckPage">
+        <h1>Settlement: City</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_city" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('city')">Random card</button>
+        <select id="imageDropdown_city" onchange="changeSelectedImage('city')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_village" class="deckPage">
+        <h1>Settlement: Village</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_village" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('village')">Random card</button>
+        <select id="imageDropdown_village" onchange="changeSelectedImage('village')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_desert" class="deckPage">
+        <h1>Event: Desert</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_desert" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('desert')">Random card</button>
+        <select id="imageDropdown_desert" onchange="changeSelectedImage('desert')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_forest" class="deckPage">
+        <h1>Event: Forest</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_forest" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('forest')">Random card</button>
+        <select id="imageDropdown_forest" onchange="changeSelectedImage('forest')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_glacier" class="deckPage">
+        <h1>Event: Glacier</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_glacier" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('glacier')">Random card</button>
+        <select id="imageDropdown_glacier" onchange="changeSelectedImage('glacier')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_mountain" class="deckPage">
+        <h1>Event: Mountain</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_mountain" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('mountain')">Random card</button>
+        <select id="imageDropdown_mountain" onchange="changeSelectedImage('mountain')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_plains" class="deckPage">
+        <h1>Event: Plains</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_plains" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('plains')">Random card</button>
+        <select id="imageDropdown_plains" onchange="changeSelectedImage('plains')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_river" class="deckPage">
+        <h1>Event: River</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_river" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('river')">Random card</button>
+        <select id="imageDropdown_river" onchange="changeSelectedImage('river')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_road" class="deckPage">
+        <h1>Event: Road</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_road" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('road')">Random card</button>
+        <select id="imageDropdown_road" onchange="changeSelectedImage('road')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_sea" class="deckPage">
+        <h1>Event: Sea</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_sea" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('sea')">Random card</button>
+        <select id="imageDropdown_sea" onchange="changeSelectedImage('sea')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_swamp" class="deckPage">
+        <h1>Event: Swamp</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_swamp" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('swamp')">Random card</button>
+        <select id="imageDropdown_swamp" onchange="changeSelectedImage('swamp')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_volcanic" class="deckPage">
+        <h1>Event: Volcanic</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_volcanic" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('volcanic')">Random card</button>
+        <select id="imageDropdown_volcanic" onchange="changeSelectedImage('volcanic')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
     <!-- DECKS FURNITURE  -->
     <div id="deckPage_common_furniture" class="deckPage">
         <h1>Common Furniture</h1>
@@ -411,9 +582,52 @@
 
     <script>
         var images = {
-            // ENCOUNTERS
-            
-            // MOBILIARIO
+            // EVENTS
+            places_and_services: [
+            'ENG/events/places_and_services/alchemist.jpg', 'ENG/events/places_and_services/blacksmith_armory.jpg', 'ENG/events/places_and_services/bridge.jpg', 'ENG/events/places_and_services/camp.jpg', 'ENG/events/places_and_services/combat_school.jpg', 'ENG/events/places_and_services/guards.jpg', 'ENG/events/places_and_services/herbalist.jpg', 'ENG/events/places_and_services/home.jpg', 'ENG/events/places_and_services/inn.jpg', 'ENG/events/places_and_services/kennel_and_breeding_groud.jpg', 'ENG/events/places_and_services/kings_or_governers_quarters.jpg', 'ENG/events/places_and_services/lender.jpg', 'ENG/events/places_and_services/library.jpg', 'ENG/events/places_and_services/market.jpg', 'ENG/events/places_and_services/oracle.jpg', 'ENG/events/places_and_services/physician.jpg', 'ENG/events/places_and_services/pier_dock.jpg', 'ENG/events/places_and_services/prison.jpg', 'ENG/events/places_and_services/sacred_place.jpg', 'ENG/events/places_and_services/school_of_magic.jpg', 'ENG/events/places_and_services/stables.jpg', 'ENG/events/places_and_services/tavern.jpg', 'ENG/events/places_and_services/temple.jpg', 'ENG/events/places_and_services/treasurer.jpg'
+            ],
+            danger_campaign: [
+            'ENG/events/danger_campaign/Assassin.jpg', 'ENG/events/danger_campaign/Bounty_Hunter.jpg', 'ENG/events/danger_campaign/Curse.jpg', 'ENG/events/danger_campaign/empty_maker_1.jpg', 'ENG/events/danger_campaign/empty_maker_2.jpg', 'ENG/events/danger_campaign/empty_maker_3.jpg', 'ENG/events/danger_campaign/empty_maker_4.jpg', 'ENG/events/danger_campaign/Spy.jpg', 'ENG/events/danger_campaign/Thief.jpg', 'ENG/events/danger_campaign/Wandering_sorcerer.jpg'
+            ],
+            city: [
+            'ENG/events/city/a_mysterious_shopkeeper.jpg', 'ENG/events/city/damaged_gear.jpg', 'ENG/events/city/disease.jpg', 'ENG/events/city/friendly_alchemist.jpg', 'ENG/events/city/good_reputation.jpg', 'ENG/events/city/infraction.jpg', 'ENG/events/city/minstrel.jpg', 'ENG/events/city/rescue_him.jpg', 'ENG/events/city/scroungers.jpg', 'ENG/events/city/theft.jpg', 'ENG/events/city/tithe.jpg', 'ENG/events/city/town_under_siege.jpg'
+            ],
+            castle: [
+            'ENG/events/castle/damaged_gear.jpg', 'ENG/events/castle/disease.jpg', 'ENG/events/castle/fire_at_the_stables.jpg', 'ENG/events/castle/good_reputation.jpg', 'ENG/events/castle/infration.jpg', 'ENG/events/castle/tithe.jpg', 'ENG/events/castle/unexpected_offspring.jpg', 'ENG/events/castle/wounded_guard.jpg'
+            ],
+            village: [
+            'ENG/events/village/animal_loyalty.jpg', 'ENG/events/village/damaged_gear.jpg', 'ENG/events/village/frenzy_mushrooms.jpg', 'ENG/events/village/gratitude.jpg', 'ENG/events/village/incursion.jpg', 'ENG/events/village/infraction.jpg', 'ENG/events/village/minstrel.jpg', 'ENG/events/village/the_invitation.jpg'
+            ],
+            desert: [
+            'ENG/events/desert/dark_clouds.jpg', 'ENG/events/desert/hunger.jpg', 'ENG/events/desert/oasis.jpg', 'ENG/events/desert/quicksand.jpg', 'ENG/events/desert/sandworm.jpg', 'ENG/events/desert/scorpion_attack.jpg'
+            ],
+            forest: [
+            'ENG/events/forest/forest.png', 'ENG/events/forest/help.jpg', 'ENG/events/forest/large_creature_spotted.jpg', 'ENG/events/forest/lost.jpg', 'ENG/events/forest/lurking_predator.jpg', 'ENG/events/forest/missing_person.jpg', 'ENG/events/forest/sacred_trees.jpg', 'ENG/events/forest/spiderwebs.jpg', 'ENG/events/forest/the_witches_curse.jpg', 'ENG/events/forest/witch_hut.jpg', 'ENG/events/forest/wolves.jpg'
+            ],
+            glacier: ['ENG/events/glacier/intense_cold.jpg', 'ENG/events/glacier/its_collapsing.jpg', 'ENG/events/glacier/snowstorm.jpg', 'ENG/events/glacier/theres_something_out_there.jpg', 'ENG/events/glacier/the_ice_is_cracking.jpg', 'ENG/events/glacier/travellers_camp.jpg'
+            ],
+            mountain: [
+            'ENG/events/mountain/ambush_in_the_rocks.jpg', 'ENG/events/mountain/cavern.jpg', 'ENG/events/mountain/corpse.jpg', 'ENG/events/mountain/huge_creature.jpg', 'ENG/events/mountain/landslide.jpg', 'ENG/events/mountain/monastery.jpg', 'ENG/events/mountain/privileged_information.jpg', 'ENG/events/mountain/spring.jpg', 'ENG/events/mountain/the_path_is_cut.jpg', 'ENG/events/mountain/the_pond_of_dreams_and_nightmares.jpg'
+            ],
+            plains: [
+            'ENG/events/plains/ambush.jpg', 'ENG/events/plains/ancient_graveyard.jpg', 'ENG/events/plains/crow.jpg', 'ENG/events/plains/dark_clouds.jpg', 'ENG/events/plains/deluge.jpg', 'ENG/events/plains/farm.jpg', 'ENG/events/plains/refuges.jpg', 'ENG/events/plains/rumors.jpg', 'ENG/events/plains/sacred_stones.jpg', 'ENG/events/plains/scorched_village.jpg', 'ENG/events/plains/water_mill.jpg', 'ENG/events/plains/windmill.jpg'
+            ],
+            river: [
+            'ENG/events/river/ambush_in_the_river.jpg', 'ENG/events/river/increased_river_flow.jpg', 'ENG/events/river/informer.jpg', 'ENG/events/river/pier.jpg', 'ENG/events/river/poisoned_water.jpg', 'ENG/events/river/river_monster.jpg'
+            ],
+            road: [
+            'ENG/events/road/area_event.jpg', 'ENG/events/road/bandit_attack.jpg', 'ENG/events/road/bridge.jpg', 'ENG/events/road/camp.jpg', 'ENG/events/road/enemy_spies.jpg', 'ENG/events/road/inn.jpg', 'ENG/events/road/lightning.jpg', 'ENG/events/road/market.jpg', 'ENG/events/road/overturned_cart.jpg', 'ENG/events/road/road_fork.jpg', 'ENG/events/road/rumors.jpg'
+            ],
+            sea: [
+            'ENG/events/sea/disease.jpg', 'ENG/events/sea/favorable_winds.jpg', 'ENG/events/sea/good_captain.jpg', 'ENG/events/sea/its_a_fin.jpg', 'ENG/events/sea/ocean_colossus.jpg', 'ENG/events/sea/pirates.jpg', 'ENG/events/sea/strong_currents.jpg', 'ENG/events/sea/tempest.jpg'
+            ],
+            swamp: [
+            'ENG/events/swamp/.DS_Store', 'ENG/events/swamp/aquatic_predators.jpg', 'ENG/events/swamp/cart.jpg', 'ENG/events/swamp/cloud_of_insects_(52).jpg', 'ENG/events/swamp/cloud_of_insects_(53).jpg', 'ENG/events/swamp/swamp_dwellers.jpg', 'ENG/events/swamp/walking_dead.jpg', 'ENG/events/swamp/will_o_the_wisps.jpg'
+            ],
+            volcanic: [
+            'ENG/events/volcanic/attack_in_the_wastelands.jpg', 'ENG/events/volcanic/black_clouds.jpg', 'ENG/events/volcanic/hunger.jpg', 'ENG/events/volcanic/landslide.jpg', 'ENG/events/volcanic/toxic_gas.jpg', 'ENG/events/volcanic/volcanic_fumes.jpg'
+            ],
+            // FURNITURE
             common_furniture: [
             'ENG/furniture/common_furniture/...',
             ],
@@ -422,28 +636,28 @@
             ],
             // ITEMS
             armor: [
-            'ENG/items/armor/back.png', 'ENG/items/armor/breastplate_(13).jpg', 'ENG/items/armor/breastplate_(14).jpg', 'ENG/items/armor/chainmail_(10).jpg', 'ENG/items/armor/chainmail_(11).jpg', 'ENG/items/armor/elven_armor.jpg', 'ENG/items/armor/full_armor.jpg', 'ENG/items/armor/larnil_armor.jpg', 'ENG/items/armor/leather_armor_(1).jpg', 'ENG/items/armor/leather_armor_(2).jpg', 'ENG/items/armor/leather_armor_(3).jpg', 'ENG/items/armor/leather_armor_(4).jpg', 'ENG/items/armor/leather_armor_(5).jpg', 'ENG/items/armor/lorica_segmentata.jpg', 'ENG/items/armor/scale_armor.jpg', 'ENG/items/armor/studded_armor_(6).jpg', 'ENG/items/armor/studded_armor_(7).jpg', 'ENG/items/armor/superior_armor.jpg', 'ENG/items/armor/yoroi.jpg'
+            'ENG/items/armor/breastplate_(13).jpg', 'ENG/items/armor/breastplate_(14).jpg', 'ENG/items/armor/chainmail_(10).jpg', 'ENG/items/armor/chainmail_(11).jpg', 'ENG/items/armor/elven_armor.jpg', 'ENG/items/armor/full_armor.jpg', 'ENG/items/armor/larnil_armor.jpg', 'ENG/items/armor/leather_armor_(1).jpg', 'ENG/items/armor/leather_armor_(2).jpg', 'ENG/items/armor/leather_armor_(3).jpg', 'ENG/items/armor/leather_armor_(4).jpg', 'ENG/items/armor/leather_armor_(5).jpg', 'ENG/items/armor/lorica_segmentata.jpg', 'ENG/items/armor/scale_armor.jpg', 'ENG/items/armor/studded_armor_(6).jpg', 'ENG/items/armor/studded_armor_(7).jpg', 'ENG/items/armor/superior_armor.jpg', 'ENG/items/armor/yoroi.jpg'
             ],
             melee: [
-            'ENG/items/melee/axe_(30).jpg', 'ENG/items/melee/axe_(31).jpg', 'ENG/items/melee/axe_(32).jpg', 'ENG/items/melee/back.png', 'ENG/items/melee/bastard_sword_(19).jpg', 'ENG/items/melee/bastard_sword_(20).jpg', 'ENG/items/melee/battleaxe.jpg', 'ENG/items/melee/broadsword_(15).jpg', 'ENG/items/melee/broadsword_(16).jpg', 'ENG/items/melee/broadsword_(17).jpg', 'ENG/items/melee/broadsword_(18).jpg', 'ENG/items/melee/club.jpg', 'ENG/items/melee/dagger_(10).jpg', 'ENG/items/melee/dagger_(11).jpg', 'ENG/items/melee/dagger_(12).jpg', 'ENG/items/melee/dagger_(13).jpg', 'ENG/items/melee/dagger_(9).jpg', 'ENG/items/melee/double-headed_axe.jpg', 'ENG/items/melee/elven_sword_(23).jpg', 'ENG/items/melee/elven_sword_(24).jpg', 'ENG/items/melee/falcata_sword.jpg', 'ENG/items/melee/falx.jpg', 'ENG/items/melee/fangs.jpg', 'ENG/items/melee/fausal_sword.jpg', 'ENG/items/melee/flail.jpg', 'ENG/items/melee/gladiator_scissors.jpg', 'ENG/items/melee/greatsword.jpg', 'ENG/items/melee/great_falx.jpg', 'ENG/items/melee/great_flail.jpg', 'ENG/items/melee/halberd.jpg', 'ENG/items/melee/hammer.jpg', 'ENG/items/melee/horns.jpg', 'ENG/items/melee/improvised_weapon.jpg', 'ENG/items/melee/iron_fist.jpg', 'ENG/items/melee/katana_(38).jpg', 'ENG/items/melee/katana_(39).jpg', 'ENG/items/melee/katar_(40).jpg', 'ENG/items/melee/katar_(41).jpg', 'ENG/items/melee/kopesh_sword.jpg', 'ENG/items/melee/kusarigama.jpg', 'ENG/items/melee/lance_(42).jpg', 'ENG/items/melee/lance_(43).jpg', 'ENG/items/melee/lance_(44).jpg', 'ENG/items/melee/mace_(50).jpg', 'ENG/items/melee/mace_(51).jpg', 'ENG/items/melee/macuahuitl.jpg', 'ENG/items/melee/morningstar.jpg', 'ENG/items/melee/rapier.jpg', 'ENG/items/melee/saber.jpg', 'ENG/items/melee/scimitar_(5).jpg', 'ENG/items/melee/scimitar_(6).jpg', 'ENG/items/melee/scythe.jpg', 'ENG/items/melee/serrated_sword.jpg', 'ENG/items/melee/short_sword_(21).jpg', 'ENG/items/melee/short_sword_(22).jpg', 'ENG/items/melee/spear.jpg', 'ENG/items/melee/staff_(3).jpg', 'ENG/items/melee/staff_(4).jpg', 'ENG/items/melee/throwing_axe_(33).jpg', 'ENG/items/melee/throwing_axe_(34).jpg', 'ENG/items/melee/tool.jpg', 'ENG/items/melee/trident.jpg', 'ENG/items/melee/unarmed.jpg', 'ENG/items/melee/warhammer.jpg', 'ENG/items/melee/whip.jpg'
+            'ENG/items/melee/axe_(30).jpg', 'ENG/items/melee/axe_(31).jpg', 'ENG/items/melee/axe_(32).jpg', 'ENG/items/melee/bastard_sword_(19).jpg', 'ENG/items/melee/bastard_sword_(20).jpg', 'ENG/items/melee/battleaxe.jpg', 'ENG/items/melee/broadsword_(15).jpg', 'ENG/items/melee/broadsword_(16).jpg', 'ENG/items/melee/broadsword_(17).jpg', 'ENG/items/melee/broadsword_(18).jpg', 'ENG/items/melee/club.jpg', 'ENG/items/melee/dagger_(10).jpg', 'ENG/items/melee/dagger_(11).jpg', 'ENG/items/melee/dagger_(12).jpg', 'ENG/items/melee/dagger_(13).jpg', 'ENG/items/melee/dagger_(9).jpg', 'ENG/items/melee/double-headed_axe.jpg', 'ENG/items/melee/elven_sword_(23).jpg', 'ENG/items/melee/elven_sword_(24).jpg', 'ENG/items/melee/falcata_sword.jpg', 'ENG/items/melee/falx.jpg', 'ENG/items/melee/fangs.jpg', 'ENG/items/melee/fausal_sword.jpg', 'ENG/items/melee/flail.jpg', 'ENG/items/melee/gladiator_scissors.jpg', 'ENG/items/melee/greatsword.jpg', 'ENG/items/melee/great_falx.jpg', 'ENG/items/melee/great_flail.jpg', 'ENG/items/melee/halberd.jpg', 'ENG/items/melee/hammer.jpg', 'ENG/items/melee/horns.jpg', 'ENG/items/melee/improvised_weapon.jpg', 'ENG/items/melee/iron_fist.jpg', 'ENG/items/melee/katana_(38).jpg', 'ENG/items/melee/katana_(39).jpg', 'ENG/items/melee/katar_(40).jpg', 'ENG/items/melee/katar_(41).jpg', 'ENG/items/melee/kopesh_sword.jpg', 'ENG/items/melee/kusarigama.jpg', 'ENG/items/melee/lance_(42).jpg', 'ENG/items/melee/lance_(43).jpg', 'ENG/items/melee/lance_(44).jpg', 'ENG/items/melee/mace_(50).jpg', 'ENG/items/melee/mace_(51).jpg', 'ENG/items/melee/macuahuitl.jpg', 'ENG/items/melee/morningstar.jpg', 'ENG/items/melee/rapier.jpg', 'ENG/items/melee/saber.jpg', 'ENG/items/melee/scimitar_(5).jpg', 'ENG/items/melee/scimitar_(6).jpg', 'ENG/items/melee/scythe.jpg', 'ENG/items/melee/serrated_sword.jpg', 'ENG/items/melee/short_sword_(21).jpg', 'ENG/items/melee/short_sword_(22).jpg', 'ENG/items/melee/spear.jpg', 'ENG/items/melee/staff_(3).jpg', 'ENG/items/melee/staff_(4).jpg', 'ENG/items/melee/throwing_axe_(33).jpg', 'ENG/items/melee/throwing_axe_(34).jpg', 'ENG/items/melee/tool.jpg', 'ENG/items/melee/trident.jpg', 'ENG/items/melee/unarmed.jpg', 'ENG/items/melee/warhammer.jpg', 'ENG/items/melee/whip.jpg'
             ],
             range: [
-            'ENG/items/range/arquebus_(1).jpg', 'ENG/items/range/arquebus_(2).jpg', 'ENG/items/range/back.png', 'ENG/items/range/blowgun.jpg', 'ENG/items/range/composite_bow_(3).jpg', 'ENG/items/range/composite_bow_(4).jpg', 'ENG/items/range/crossbow_(12).jpg', 'ENG/items/range/crossbow_(13).jpg', 'ENG/items/range/crossbow_pistol.jpg', 'ENG/items/range/elven_bow.jpg', 'ENG/items/range/handgun_(22).jpg', 'ENG/items/range/handgun_(23).jpg', 'ENG/items/range/heavy_javelin_(25).jpg', 'ENG/items/range/heavy_javelin_(26).jpg', 'ENG/items/range/javelin_(19).jpg', 'ENG/items/range/javelin_(20).jpg', 'ENG/items/range/javelin_(21).jpg', 'ENG/items/range/longbow_(10).jpg', 'ENG/items/range/longbow_(11).jpg', 'ENG/items/range/net.jpg', 'ENG/items/range/repeating_crossbow.jpg', 'ENG/items/range/short_bow_(5).jpg', 'ENG/items/range/short_bow_(6).jpg', 'ENG/items/range/short_bow_(7).jpg', 'ENG/items/range/short_bow_(8).jpg', 'ENG/items/range/shuriken_(28).jpg', 'ENG/items/range/shuriken_(29).jpg', 'ENG/items/range/shuriken_(30).jpg', 'ENG/items/range/sling_(16).jpg', 'ENG/items/range/sling_(17).jpg', 'ENG/items/range/sling_with_lead_projectiles.jpg'
+            'ENG/items/range/arquebus_(1).jpg', 'ENG/items/range/arquebus_(2).jpg', 'ENG/items/range/blowgun.jpg', 'ENG/items/range/composite_bow_(3).jpg', 'ENG/items/range/composite_bow_(4).jpg', 'ENG/items/range/crossbow_(12).jpg', 'ENG/items/range/crossbow_(13).jpg', 'ENG/items/range/crossbow_pistol.jpg', 'ENG/items/range/elven_bow.jpg', 'ENG/items/range/handgun_(22).jpg', 'ENG/items/range/handgun_(23).jpg', 'ENG/items/range/heavy_javelin_(25).jpg', 'ENG/items/range/heavy_javelin_(26).jpg', 'ENG/items/range/javelin_(19).jpg', 'ENG/items/range/javelin_(20).jpg', 'ENG/items/range/javelin_(21).jpg', 'ENG/items/range/longbow_(10).jpg', 'ENG/items/range/longbow_(11).jpg', 'ENG/items/range/net.jpg', 'ENG/items/range/repeating_crossbow.jpg', 'ENG/items/range/short_bow_(5).jpg', 'ENG/items/range/short_bow_(6).jpg', 'ENG/items/range/short_bow_(7).jpg', 'ENG/items/range/short_bow_(8).jpg', 'ENG/items/range/shuriken_(28).jpg', 'ENG/items/range/shuriken_(29).jpg', 'ENG/items/range/shuriken_(30).jpg', 'ENG/items/range/sling_(16).jpg', 'ENG/items/range/sling_(17).jpg', 'ENG/items/range/sling_with_lead_projectiles.jpg'
             ],
             shields: [
-            'ENG/items/shields/back.png', 'ENG/items/shields/buckler_(5).jpg', 'ENG/items/shields/buckler_(6).jpg', 'ENG/items/shields/dwarf_steel_shield.jpg', 'ENG/items/shields/elven_shield.jpg', 'ENG/items/shields/great_shield_(10).jpg', 'ENG/items/shields/great_shield_(9).jpg', 'ENG/items/shields/improvised_shield.jpg', 'ENG/items/shields/shield_(2).jpg', 'ENG/items/shields/shield_(3).jpg', 'ENG/items/shields/shield_(4).jpg',
+            'ENG/items/shields/buckler_(5).jpg', 'ENG/items/shields/buckler_(6).jpg', 'ENG/items/shields/dwarf_steel_shield.jpg', 'ENG/items/shields/elven_shield.jpg', 'ENG/items/shields/great_shield_(10).jpg', 'ENG/items/shields/great_shield_(9).jpg', 'ENG/items/shields/improvised_shield.jpg', 'ENG/items/shields/shield_(2).jpg', 'ENG/items/shields/shield_(3).jpg', 'ENG/items/shields/shield_(4).jpg',
             ],
             common_objects: [
-            'ENG/items/common_objects/antidote_(32).jpg', 'ENG/items/common_objects/antidote_(33).jpg', 'ENG/items/common_objects/back.png', 'ENG/items/common_objects/healing_herbs_(16).jpg', 'ENG/items/common_objects/healing_herbs_(17).jpg', 'ENG/items/common_objects/healing_herbs_(18).jpg', 'ENG/items/common_objects/healing_herbs_(19).jpg', 'ENG/items/common_objects/incendiary_arrows_(30).jpg', 'ENG/items/common_objects/incendiary_arrows_(31).jpg', 'ENG/items/common_objects/lantern_(37).jpg', 'ENG/items/common_objects/lantern_(38).jpg', 'ENG/items/common_objects/mandrake_root_(49).jpg', 'ENG/items/common_objects/mandrake_root_(50).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(43).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(44).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(45).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(46).jpg', 'ENG/items/common_objects/musical_instrument_(10).jpg', 'ENG/items/common_objects/musical_instrument_(9).jpg', 'ENG/items/common_objects/pack_of_provisions_(24).jpg', 'ENG/items/common_objects/pack_of_provisions_(25).jpg', 'ENG/items/common_objects/pack_of_provisions_(26).jpg', 'ENG/items/common_objects/pack_of_provisions_(27).jpg', 'ENG/items/common_objects/pack_of_provisions_(28).jpg', 'ENG/items/common_objects/pack_of_provisions_(29).jpg', 'ENG/items/common_objects/pickaxes_(22).jpg', 'ENG/items/common_objects/pickaxes_(23).jpg', 'ENG/items/common_objects/picklocks_(14).jpg', 'ENG/items/common_objects/picklocks_(15).jpg', 'ENG/items/common_objects/rat_poison_(20).jpg', 'ENG/items/common_objects/rat_poison_(21).jpg', 'ENG/items/common_objects/rope_(5).jpg', 'ENG/items/common_objects/rope_(6).jpg', 'ENG/items/common_objects/rope_(7).jpg', 'ENG/items/common_objects/rope_(8).jpg', 'ENG/items/common_objects/squeaky_bird_(41).jpg', 'ENG/items/common_objects/squeaky_bird_(42).jpg', 'ENG/items/common_objects/squeaky_bug_(41).jpg', 'ENG/items/common_objects/squeaky_bug_(42).jpg', 'ENG/items/common_objects/string_of_garlic_and_crucifix_(47).jpg', 'ENG/items/common_objects/string_of_garlic_and_crucifix_(48).jpg', 'ENG/items/common_objects/supreme_beer_(11).jpg', 'ENG/items/common_objects/supreme_beer_(12).jpg', 'ENG/items/common_objects/supreme_beer_(13).jpg', 'ENG/items/common_objects/torch_(1).jpg', 'ENG/items/common_objects/torch_(2).jpg', 'ENG/items/common_objects/torch_(3).jpg', 'ENG/items/common_objects/torch_(4).jpg', 'ENG/items/common_objects/vigorous_mead_(34).jpg', 'ENG/items/common_objects/vigorous_mead_(35).jpg', 'ENG/items/common_objects/vigorous_mead_(36).jpg'
+            'ENG/items/common_objects/antidote_(32).jpg', 'ENG/items/common_objects/antidote_(33).jpg', 'ENG/items/common_objects/healing_herbs_(16).jpg', 'ENG/items/common_objects/healing_herbs_(17).jpg', 'ENG/items/common_objects/healing_herbs_(18).jpg', 'ENG/items/common_objects/healing_herbs_(19).jpg', 'ENG/items/common_objects/incendiary_arrows_(30).jpg', 'ENG/items/common_objects/incendiary_arrows_(31).jpg', 'ENG/items/common_objects/lantern_(37).jpg', 'ENG/items/common_objects/lantern_(38).jpg', 'ENG/items/common_objects/mandrake_root_(49).jpg', 'ENG/items/common_objects/mandrake_root_(50).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(43).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(44).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(45).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(46).jpg', 'ENG/items/common_objects/musical_instrument_(10).jpg', 'ENG/items/common_objects/musical_instrument_(9).jpg', 'ENG/items/common_objects/pack_of_provisions_(24).jpg', 'ENG/items/common_objects/pack_of_provisions_(25).jpg', 'ENG/items/common_objects/pack_of_provisions_(26).jpg', 'ENG/items/common_objects/pack_of_provisions_(27).jpg', 'ENG/items/common_objects/pack_of_provisions_(28).jpg', 'ENG/items/common_objects/pack_of_provisions_(29).jpg', 'ENG/items/common_objects/pickaxes_(22).jpg', 'ENG/items/common_objects/pickaxes_(23).jpg', 'ENG/items/common_objects/picklocks_(14).jpg', 'ENG/items/common_objects/picklocks_(15).jpg', 'ENG/items/common_objects/rat_poison_(20).jpg', 'ENG/items/common_objects/rat_poison_(21).jpg', 'ENG/items/common_objects/rope_(5).jpg', 'ENG/items/common_objects/rope_(6).jpg', 'ENG/items/common_objects/rope_(7).jpg', 'ENG/items/common_objects/rope_(8).jpg', 'ENG/items/common_objects/squeaky_bird_(41).jpg', 'ENG/items/common_objects/squeaky_bird_(42).jpg', 'ENG/items/common_objects/squeaky_bug_(41).jpg', 'ENG/items/common_objects/squeaky_bug_(42).jpg', 'ENG/items/common_objects/string_of_garlic_and_crucifix_(47).jpg', 'ENG/items/common_objects/string_of_garlic_and_crucifix_(48).jpg', 'ENG/items/common_objects/supreme_beer_(11).jpg', 'ENG/items/common_objects/supreme_beer_(12).jpg', 'ENG/items/common_objects/supreme_beer_(13).jpg', 'ENG/items/common_objects/torch_(1).jpg', 'ENG/items/common_objects/torch_(2).jpg', 'ENG/items/common_objects/torch_(3).jpg', 'ENG/items/common_objects/torch_(4).jpg', 'ENG/items/common_objects/vigorous_mead_(34).jpg', 'ENG/items/common_objects/vigorous_mead_(35).jpg', 'ENG/items/common_objects/vigorous_mead_(36).jpg'
             ],
             special_objects: [
-            'ENG/items/special_objects/back.png', 'ENG/items/special_objects/components_for_magic_(3).jpg', 'ENG/items/special_objects/components_for_magic_(4).jpg', 'ENG/items/special_objects/components_for_magic_(5).jpg', 'ENG/items/special_objects/dexterity_potion_(12).jpg', 'ENG/items/special_objects/dexterity_potion_(13).jpg', 'ENG/items/special_objects/dexterity_potion_(14).jpg', 'ENG/items/special_objects/dragon_bile_(31).jpg', 'ENG/items/special_objects/dragon_bile_(32).jpg', 'ENG/items/special_objects/greek_fire_(15).jpg', 'ENG/items/special_objects/greek_fire_(16).jpg', 'ENG/items/special_objects/healing_potion_(10).jpg', 'ENG/items/special_objects/healing_potion_(11).jpg', 'ENG/items/special_objects/healing_potion_(6).jpg', 'ENG/items/special_objects/healing_potion_(7).jpg', 'ENG/items/special_objects/healing_potion_(8).jpg', 'ENG/items/special_objects/healing_potion_(9).jpg', 'ENG/items/special_objects/heroic_potion_(19).jpg', 'ENG/items/special_objects/heroic_potion_(20).jpg', 'ENG/items/special_objects/heroic_potion_(21).jpg', 'ENG/items/special_objects/holy_water_(1).jpg', 'ENG/items/special_objects/holy_water_(2).jpg', 'ENG/items/special_objects/magic_scroll_(26).jpg', 'ENG/items/special_objects/magic_scroll_(27).jpg', 'ENG/items/special_objects/mana_potion_(23).jpg', 'ENG/items/special_objects/mana_potion_(24).jpg', 'ENG/items/special_objects/mana_potion_(25).jpg', 'ENG/items/special_objects/poison_flask_(28).jpg', 'ENG/items/special_objects/poison_flask_(29).jpg', 'ENG/items/special_objects/poison_flask_(30).jpg', 'ENG/items/special_objects/strength_potion_(17).jpg', 'ENG/items/special_objects/strength_potion_(18).jpg', 'ENG/items/special_objects/strength_potion_(19).jpg'
+            'ENG/items/special_objects/components_for_magic_(3).jpg', 'ENG/items/special_objects/components_for_magic_(4).jpg', 'ENG/items/special_objects/components_for_magic_(5).jpg', 'ENG/items/special_objects/dexterity_potion_(12).jpg', 'ENG/items/special_objects/dexterity_potion_(13).jpg', 'ENG/items/special_objects/dexterity_potion_(14).jpg', 'ENG/items/special_objects/dragon_bile_(31).jpg', 'ENG/items/special_objects/dragon_bile_(32).jpg', 'ENG/items/special_objects/greek_fire_(15).jpg', 'ENG/items/special_objects/greek_fire_(16).jpg', 'ENG/items/special_objects/healing_potion_(10).jpg', 'ENG/items/special_objects/healing_potion_(11).jpg', 'ENG/items/special_objects/healing_potion_(6).jpg', 'ENG/items/special_objects/healing_potion_(7).jpg', 'ENG/items/special_objects/healing_potion_(8).jpg', 'ENG/items/special_objects/healing_potion_(9).jpg', 'ENG/items/special_objects/heroic_potion_(19).jpg', 'ENG/items/special_objects/heroic_potion_(20).jpg', 'ENG/items/special_objects/heroic_potion_(21).jpg', 'ENG/items/special_objects/holy_water_(1).jpg', 'ENG/items/special_objects/holy_water_(2).jpg', 'ENG/items/special_objects/magic_scroll_(26).jpg', 'ENG/items/special_objects/magic_scroll_(27).jpg', 'ENG/items/special_objects/mana_potion_(23).jpg', 'ENG/items/special_objects/mana_potion_(24).jpg', 'ENG/items/special_objects/mana_potion_(25).jpg', 'ENG/items/special_objects/poison_flask_(28).jpg', 'ENG/items/special_objects/poison_flask_(29).jpg', 'ENG/items/special_objects/poison_flask_(30).jpg', 'ENG/items/special_objects/strength_potion_(17).jpg', 'ENG/items/special_objects/strength_potion_(18).jpg', 'ENG/items/special_objects/strength_potion_(19).jpg'
             ],
             magic_objects: [
-            'ENG/items/magic_objects/accuracy_longbow.jpg', 'ENG/items/magic_objects/accuracy_short_bow.jpg', 'ENG/items/magic_objects/agility_axe.jpg', 'ENG/items/magic_objects/agility_boots.jpg', 'ENG/items/magic_objects/agility_broadsword.jpg', 'ENG/items/magic_objects/agility_mace.jpg', 'ENG/items/magic_objects/amulet_of_wealth.jpg', 'ENG/items/magic_objects/arrow-catching_greatshield.jpg', 'ENG/items/magic_objects/back.png', 'ENG/items/magic_objects/black-edged_sword.jpg', 'ENG/items/magic_objects/black_arrow.jpg', 'ENG/items/magic_objects/blinding_shield.jpg', 'ENG/items/magic_objects/book_of_the_dead.jpg', 'ENG/items/magic_objects/broadsword_from_the_underworld.jpg', 'ENG/items/magic_objects/bronze_gauntlets.jpg', 'ENG/items/magic_objects/camisole_of_opacity.jpg', 'ENG/items/magic_objects/ceremonial_dagger.jpg', 'ENG/items/magic_objects/courage_gemstone_(25).jpg', 'ENG/items/magic_objects/courage_gemstone_(26).jpg', 'ENG/items/magic_objects/courage_gemstone_(27).jpg', 'ENG/items/magic_objects/crow_idol.jpg', 'ENG/items/magic_objects/doc_short_bow.jpg', 'ENG/items/magic_objects/dragon_helm.jpg', 'ENG/items/magic_objects/dragon_shield.jpg', 'ENG/items/magic_objects/evil_shield.jpg', 'ENG/items/magic_objects/exterminating_broadsword.jpg', 'ENG/items/magic_objects/fire_wand.jpg', 'ENG/items/magic_objects/flying-javelin.jpg', 'ENG/items/magic_objects/flying_dagger.jpg', 'ENG/items/magic_objects/flying_throwing_axe.jpg', 'ENG/items/magic_objects/gazelle_greaves.jpg', 'ENG/items/magic_objects/gemstone_of_defense.jpg', 'ENG/items/magic_objects/gimnz_switchblade.jpg', 'ENG/items/magic_objects/guardian_amulet.jpg', 'ENG/items/magic_objects/healing_gemstone.jpg', 'ENG/items/magic_objects/helm_of_forsight_ilicitus.jpg', 'ENG/items/magic_objects/helm_of_the_beast.jpg', 'ENG/items/magic_objects/helm_of_the_goddess.jpg', 'ENG/items/magic_objects/heroic_helm.jpg', 'ENG/items/magic_objects/horn_of_courage.jpg', 'ENG/items/magic_objects/ingravity_armor.jpg', 'ENG/items/magic_objects/invisibility_cloak.jpg', 'ENG/items/magic_objects/loud_flute.jpg', 'ENG/items/magic_objects/minotaurs_wand.jpg', 'ENG/items/magic_objects/naughtly_wand.jpg', 'ENG/items/magic_objects/orc-detecting_short_sword.jpg', 'ENG/items/magic_objects/orc_slayer_sword.jpg', 'ENG/items/magic_objects/power_axe.jpg', 'ENG/items/magic_objects/power_bastard_sword.jpg', 'ENG/items/magic_objects/power_broadsword.jpg', 'ENG/items/magic_objects/power_longbow.jpg', 'ENG/items/magic_objects/power_mace.jpg', 'ENG/items/magic_objects/power_short_bow.jpg', 'ENG/items/magic_objects/power_spear.jpg', 'ENG/items/magic_objects/purifying_amulet.jpg', 'ENG/items/magic_objects/rage_battleaxe.jpg', 'ENG/items/magic_objects/rage_warhammer.jpg', 'ENG/items/magic_objects/red_helm.jpg', 'ENG/items/magic_objects/ring_of_revenge.jpg', 'ENG/items/magic_objects/sense-enhancing_amulet.jpg', 'ENG/items/magic_objects/sense-enhancing_armbands.jpg', 'ENG/items/magic_objects/shining_staff.jpg', 'ENG/items/magic_objects/silver_arrow.jpg', 'ENG/items/magic_objects/silver_wand.jpg', 'ENG/items/magic_objects/smart_rope.jpg', 'ENG/items/magic_objects/solar_ring.jpg', 'ENG/items/magic_objects/speed_boots.jpg', 'ENG/items/magic_objects/speed_gemstone.jpg', 'ENG/items/magic_objects/spell-blocking_shield.jpg', 'ENG/items/magic_objects/swallowing_bag.jpg', 'ENG/items/magic_objects/swift_short_bow.jpg', 'ENG/items/magic_objects/sword_of_caution.jpg', 'ENG/items/magic_objects/talisman_of_strength.jpg', 'ENG/items/magic_objects/ultra_light_armor.jpg', 'ENG/items/magic_objects/werty_hat.jpg'
+            'ENG/items/magic_objects/accuracy_longbow.jpg', 'ENG/items/magic_objects/accuracy_short_bow.jpg', 'ENG/items/magic_objects/agility_axe.jpg', 'ENG/items/magic_objects/agility_boots.jpg', 'ENG/items/magic_objects/agility_broadsword.jpg', 'ENG/items/magic_objects/agility_mace.jpg', 'ENG/items/magic_objects/amulet_of_wealth.jpg', 'ENG/items/magic_objects/arrow-catching_greatshield.jpg', 'ENG/items/magic_objects/black-edged_sword.jpg', 'ENG/items/magic_objects/black_arrow.jpg', 'ENG/items/magic_objects/blinding_shield.jpg', 'ENG/items/magic_objects/book_of_the_dead.jpg', 'ENG/items/magic_objects/broadsword_from_the_underworld.jpg', 'ENG/items/magic_objects/bronze_gauntlets.jpg', 'ENG/items/magic_objects/camisole_of_opacity.jpg', 'ENG/items/magic_objects/ceremonial_dagger.jpg', 'ENG/items/magic_objects/courage_gemstone_(25).jpg', 'ENG/items/magic_objects/courage_gemstone_(26).jpg', 'ENG/items/magic_objects/courage_gemstone_(27).jpg', 'ENG/items/magic_objects/crow_idol.jpg', 'ENG/items/magic_objects/doc_short_bow.jpg', 'ENG/items/magic_objects/dragon_helm.jpg', 'ENG/items/magic_objects/dragon_shield.jpg', 'ENG/items/magic_objects/evil_shield.jpg', 'ENG/items/magic_objects/exterminating_broadsword.jpg', 'ENG/items/magic_objects/fire_wand.jpg', 'ENG/items/magic_objects/flying-javelin.jpg', 'ENG/items/magic_objects/flying_dagger.jpg', 'ENG/items/magic_objects/flying_throwing_axe.jpg', 'ENG/items/magic_objects/gazelle_greaves.jpg', 'ENG/items/magic_objects/gemstone_of_defense.jpg', 'ENG/items/magic_objects/gimnz_switchblade.jpg', 'ENG/items/magic_objects/guardian_amulet.jpg', 'ENG/items/magic_objects/healing_gemstone.jpg', 'ENG/items/magic_objects/helm_of_forsight_ilicitus.jpg', 'ENG/items/magic_objects/helm_of_the_beast.jpg', 'ENG/items/magic_objects/helm_of_the_goddess.jpg', 'ENG/items/magic_objects/heroic_helm.jpg', 'ENG/items/magic_objects/horn_of_courage.jpg', 'ENG/items/magic_objects/ingravity_armor.jpg', 'ENG/items/magic_objects/invisibility_cloak.jpg', 'ENG/items/magic_objects/loud_flute.jpg', 'ENG/items/magic_objects/minotaurs_wand.jpg', 'ENG/items/magic_objects/naughtly_wand.jpg', 'ENG/items/magic_objects/orc-detecting_short_sword.jpg', 'ENG/items/magic_objects/orc_slayer_sword.jpg', 'ENG/items/magic_objects/power_axe.jpg', 'ENG/items/magic_objects/power_bastard_sword.jpg', 'ENG/items/magic_objects/power_broadsword.jpg', 'ENG/items/magic_objects/power_longbow.jpg', 'ENG/items/magic_objects/power_mace.jpg', 'ENG/items/magic_objects/power_short_bow.jpg', 'ENG/items/magic_objects/power_spear.jpg', 'ENG/items/magic_objects/purifying_amulet.jpg', 'ENG/items/magic_objects/rage_battleaxe.jpg', 'ENG/items/magic_objects/rage_warhammer.jpg', 'ENG/items/magic_objects/red_helm.jpg', 'ENG/items/magic_objects/ring_of_revenge.jpg', 'ENG/items/magic_objects/sense-enhancing_amulet.jpg', 'ENG/items/magic_objects/sense-enhancing_armbands.jpg', 'ENG/items/magic_objects/shining_staff.jpg', 'ENG/items/magic_objects/silver_arrow.jpg', 'ENG/items/magic_objects/silver_wand.jpg', 'ENG/items/magic_objects/smart_rope.jpg', 'ENG/items/magic_objects/solar_ring.jpg', 'ENG/items/magic_objects/speed_boots.jpg', 'ENG/items/magic_objects/speed_gemstone.jpg', 'ENG/items/magic_objects/spell-blocking_shield.jpg', 'ENG/items/magic_objects/swallowing_bag.jpg', 'ENG/items/magic_objects/swift_short_bow.jpg', 'ENG/items/magic_objects/sword_of_caution.jpg', 'ENG/items/magic_objects/talisman_of_strength.jpg', 'ENG/items/magic_objects/ultra_light_armor.jpg', 'ENG/items/magic_objects/werty_hat.jpg'
             ],
             relics: [
-            'ENG/items/relics/amulet_of_destiny.jpg', 'ENG/items/relics/ancestral_grimoire.jpg', 'ENG/items/relics/armor-piercing_battleaxe.jpg', 'ENG/items/relics/armor_of_sunset.jpg', 'ENG/items/relics/arrow-repulsing_helm.jpg', 'ENG/items/relics/back.png', 'ENG/items/relics/bonzorg_flaming_sword.jpg', 'ENG/items/relics/book_of_elements.jpg', 'ENG/items/relics/demonic_armor.jpg', 'ENG/items/relics/demonic_ring.jpg', 'ENG/items/relics/demon_slayer-broadsword.jpg', 'ENG/items/relics/diamond_shield.jpg', 'ENG/items/relics/dragonscale_armor.jpg', 'ENG/items/relics/dragon_slayer_broadsword.jpg', 'ENG/items/relics/earth-shattering_warhammer.jpg', 'ENG/items/relics/explosive_gemstone.jpg', 'ENG/items/relics/fatality_longbow.jpg', 'ENG/items/relics/invisibility_ring.jpg', 'ENG/items/relics/mask_from_the_underworld.jpg', 'ENG/items/relics/ring_of_avatarin.jpg', 'ENG/items/relics/runic_broadsword.jpg', 'ENG/items/relics/solar_armor.jpg', 'ENG/items/relics/spear_of_the_gods.jpg', 'ENG/items/relics/staff_of_wisdom.jpg', 'ENG/items/relics/tanelly_battleaxe.jpg', 'ENG/items/relics/unicorn_blood.jpg',
+            'ENG/items/relics/amulet_of_destiny.jpg', 'ENG/items/relics/ancestral_grimoire.jpg', 'ENG/items/relics/armor-piercing_battleaxe.jpg', 'ENG/items/relics/armor_of_sunset.jpg', 'ENG/items/relics/arrow-repulsing_helm.jpg', 'ENG/items/relics/bonzorg_flaming_sword.jpg', 'ENG/items/relics/book_of_elements.jpg', 'ENG/items/relics/demonic_armor.jpg', 'ENG/items/relics/demonic_ring.jpg', 'ENG/items/relics/demon_slayer-broadsword.jpg', 'ENG/items/relics/diamond_shield.jpg', 'ENG/items/relics/dragonscale_armor.jpg', 'ENG/items/relics/dragon_slayer_broadsword.jpg', 'ENG/items/relics/earth-shattering_warhammer.jpg', 'ENG/items/relics/explosive_gemstone.jpg', 'ENG/items/relics/fatality_longbow.jpg', 'ENG/items/relics/invisibility_ring.jpg', 'ENG/items/relics/mask_from_the_underworld.jpg', 'ENG/items/relics/ring_of_avatarin.jpg', 'ENG/items/relics/runic_broadsword.jpg', 'ENG/items/relics/solar_armor.jpg', 'ENG/items/relics/spear_of_the_gods.jpg', 'ENG/items/relics/staff_of_wisdom.jpg', 'ENG/items/relics/tanelly_battleaxe.jpg', 'ENG/items/relics/unicorn_blood.jpg',
             ],
             treasure: [
             'ENG/items/treasure/01.jpg','ENG/items/treasure/02.jpg','ENG/items/treasure/03.jpg','ENG/items/treasure/04.jpg','ENG/items/treasure/05.jpg','ENG/items/treasure/06.jpg','ENG/items/treasure/07.jpg','ENG/items/treasure/08.jpg','ENG/items/treasure/09.jpg','ENG/items/treasure/10.jpg'
@@ -522,18 +736,18 @@
         }
 
         function showEventsSubMenu() {
-            // document.getElementById("mainMenu").style.display = "none";
-            // document.getElementById("furnitureSubmenu").style.display = "none";
-            // document.getElementById("itemsSubmenu").style.display = "none";
-            // document.getElementById("infoButton").style.visibility = "hidden";
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("furnitureSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("infoButton").style.visibility = "hidden";
 
-            // document.querySelectorAll('.deckPage').forEach(function (page) {
-            //     page.style.display = "none";
-            // });
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                 page.style.display = "none";
+            });
 
-            // document.getElementById("eventsSubmenu").style.display = "block";
-            // document.getElementById("eventsMenuSelect").selectedIndex = 0;
-            // document.getElementById("languageButton").style.display = "none";
+            document.getElementById("eventsSubmenu").style.display = "block";
+            document.getElementById("eventsMenuSelect").selectedIndex = 0;
+            document.getElementById("languageButton").style.display = "none";
         }
 
         function showFurnitureSubMenu() {

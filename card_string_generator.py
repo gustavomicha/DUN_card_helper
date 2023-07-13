@@ -1,6 +1,6 @@
 import os
 
-folder_path = "ENG/items/magic_objects"#"items/distancia_y_arrojadizas"
+folder_path = "ENG/events/places_and_services"#"items/distancia_y_arrojadizas"
 
 file_paths = []
 
@@ -8,7 +8,7 @@ for root, dirs, files in os.walk(folder_path):
     for file in files:
         file_path = os.path.join(root, file)
         file_path = file_path.replace("\\", "/")  # Replace backslashes with forward slashes
-        if "dorso" not in file_path:
+        if ("dorso" and "back") not in file_path:
             file_paths.append(file_path)
 
 print(file_paths)
