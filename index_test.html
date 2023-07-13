@@ -7,7 +7,7 @@
         @font-face {
             font-family: 'Macondo';
             src: url('misc/Macondo-Regular.ttf') format('truetype');
-          }
+        }
 
         body {
             background-color: #000000;
@@ -26,8 +26,8 @@
         .subtitle {
             font-size: 18px;
             color: #999999;
-          }
-          
+        }
+
         .imageContainer {
             display: flex;
             justify-content: center;
@@ -80,7 +80,7 @@
             background-position: center;
             background-size: 80% auto;
             opacity: 0.8;
-            background-repeat: no-repeat; 
+            background-repeat: no-repeat;
         }
 
         .deckPage {
@@ -117,16 +117,30 @@
             border-radius: 50%;
         }
 
+        #languageButton {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            background-color: #1e1c77;
+            color: white;
+            padding: 10px 10px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            max-width: none;
+        }
+        
         h1, button, option {
-            font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
+            font-family: "Macondo", "Arial", sans-serif;
         }
 
         @media (max-width: 600px) and (min-height: 600px) {
             button {
                 width: 100%;
             }
-            
-            #encuentrosSubmenu{
+
+            #encuentrosSubmenu {
                 background-size: 400px auto;
             }
         }
@@ -138,7 +152,6 @@
         <h1>DUN Helper <span class="subtitle">Beta version</span></h1>
         <button onclick="showEncuentrosSubMenu()">Encuentros</button>
         <button onclick="openHechizosPage()">Hechizos</button>
-
     </div>
 
     <div class="center" id="encuentrosSubmenu">
@@ -167,14 +180,17 @@
         <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
     </div>
 
+    <button id="languageButton" onclick="openEnglishPage()" 
+        style="font-style: italic;">
+        ENG</button>
+
     <button id="infoButton" onclick="openInfoWindow()">?</button>
 
     <script>
         var images = {
-            // ENCUENTROS
             acciones_ciudad: [
-            "encuentros/acciones_ciudad/alquimista.png","encuentros/acciones_ciudad/biblioteca.png"],
-       
+                "encuentros/acciones_ciudad/alquimista.png", "encuentros/acciones_ciudad/biblioteca.png"
+            ],
         };
 
         var infoWindow = null;
@@ -184,7 +200,6 @@
 
             dropdown.innerHTML = ""; // Clear existing options
 
-            // Add default option
             var defaultOption = document.createElement("option");
             defaultOption.disabled = true;
             defaultOption.selected = true;
@@ -219,7 +234,7 @@
         function changeRandomImage(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
             var validOptions = Array.from(dropdown.options).filter(option => !option.disabled);
-            
+
             if (validOptions.length > 0) {
                 var randomIndex = Math.floor(Math.random() * validOptions.length);
                 dropdown.selectedIndex = Array.from(dropdown.options).indexOf(validOptions[randomIndex]);
@@ -242,6 +257,7 @@
             });
             document.getElementById("encuentrosSubmenu").style.display = "block";
             document.getElementById("encuentrosMenuSelect").selectedIndex = 0;
+            document.getElementById("languageButton").style.display = "none";
         }
 
         function showMainMenu() {
@@ -251,6 +267,7 @@
             });
             document.getElementById("mainMenu").style.display = "block";
             document.getElementById("infoButton").style.visibility = "visible";
+            document.getElementById("languageButton").style.display = "block";
         }
 
         function showEncuentrosDeckPage(deck) {
@@ -276,16 +293,19 @@
             document.getElementById('infoButton').style.display = 'none';
             document.getElementById('hechizosFrame').src = 'hechizos_test.html';
             document.getElementById('hechizosPage').style.display = 'block';
+            document.getElementById("languageButton").style.display = "none";
         }
 
         function openInfoWindow() {
-            // Check if the info window is already open
             if (infoWindow && !infoWindow.closed) {
-                infoWindow.focus(); // If open, focus on the existing window
+                infoWindow.focus();
             } else {
-                // If not open, open a new window with the specified text
                 infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
             }
+        }
+
+        function openEnglishPage() {
+            window.location.href = 'index_EN.html';
         }
 
     </script>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DUN Helper (ENG)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'Macondo';
+            src: url('misc/Macondo-Regular.ttf') format('truetype');
+          }
+
+        body {
+            background-color: #000000;
+            color: #d8d8d8;
+            font-family: "Macondo", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-top: 20px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #999999;
+          }
+          
+        .imageContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .imageContainer img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            border-radius: 10px;
+            background-color: #7c1818;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            cursor: pointer;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 50%;
+            max-width: 400px;
+        }
+
+        select {
+            padding: 20px;
+            border-radius: 10px;
+            font-family: "Macondo", sans-serif;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        #mainMenu {
+            display: block;
+            background-image: url("misc/wallpaper_app.jpg");
+            background-position: center;
+            background-size: 50% auto;
+            background-repeat: no-repeat;
+        }
+
+        #encountersSubmenu {
+            display: none;
+            background-image: url("misc/back_encounters.png");
+            background-position: center;
+            background-size: 80% auto;
+            opacity: 0.8;
+            background-repeat: no-repeat; 
+        }
+
+        #furnitureSubmenu {
+            display: none;
+            background-image: url("misc/back_furniture.jpg");
+            background-position: center;
+            background-size: 80% auto;
+            opacity: 0.8;
+            background-repeat: no-repeat; 
+        }
+
+        #itemsSubmenu {
+            display: none;
+            background-image: url("misc/back_items.jpg");
+            background-position: center;
+            background-size: 80% auto;
+            opacity: 0.8;
+            background-repeat: no-repeat;
+        }
+
+        .deckPage {
+            display: none;
+        }
+
+        #mainMenu button {
+            background-color: #7c1818;
+            width: 50%;
+            max-width: 300px;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        #infoButton {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            background-color: #4a4949;
+            color: white;
+            padding: 10px 20px;
+            font-size: 26px;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            max-width: none;
+            border-radius: 50%;
+        }
+
+        #languageButton {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            background-color: #1e1c77;
+            color: white;
+            padding: 10px 10px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            max-width: none;
+        }
+
+        h1, button, option {
+            font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
+        }
+
+        @media (max-width: 600px) and (min-height: 600px) {
+            button {
+                width: 100%;
+            }
+
+            #itemsSubmenu {
+                background-size: 400px auto;
+            }
+            #furnitureSubmenu{
+                background-size: 400px auto;
+            }
+            #encountersSubmenu{
+                background-size: 400px auto;
+            }
+        }
+    </style>
+
+<!-- analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MKVYWHQ7J9');
+</script>
+</head>
+<body>
+    <div class="center" id="mainMenu">
+        <h1>DUN Helper (ENG)<span class="subtitle">fanmade, v1.0</span></h1>
+        <button onclick="showItemsSubMenu()">Items</button>
+        <button onclick="showCompanionsSubMenu()">Companions (TBD)</button>
+        <button onclick="showEncountersSubMenu()">Encounters (TBD)</button>
+        <button onclick="showfurnitureSubMenu()">Furniture (TBD)</button>
+        <button onclick="openHechizosPage()">Spells (TBD)</button>
+
+    </div>
+
+    <div class="center" id="encountersSubmenu">
+        <h1>Encounters</h1>
+        <select id="encountersMenuSelect" onchange="showEncountersDeckPage(this.value)">
+            <option disabled selected hidden>Select Encounter</option>
+            <option value="city_actions">City Actions</option>
+            <!-- <option value="peligro_camp">Peligro en Campaña</option>
+            <option value="castillo">Población: Castillo</option> -->
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div class="center" id="furnitureSubmenu">
+        <h1>Furniture</h1>
+        <select id="furnitureMenuSelect" onchange="showFurnitureDeckPage(this.value)">
+            <option disabled selected hidden>Select Furniture</option>
+            <option value="common_furniture">Common Furniture</option>
+            <option value="special_elements">Special Elements</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div class="center" id="itemsSubmenu">
+        <h1>Items</h1>
+        <select id="itemsMenuSelect" onchange="showItemsDeckPage(this.value)">
+            <option disabled selected hidden>Select Item</option>
+            <option value="armor">Armor</option>
+            <option value="melee">Melee</option>
+            <option value="range">Range</option>
+            <option value="shields">Shields</option>
+            <option value="common_objects">Common Objects</option>
+            <option value="special_objects">Special Objects</option>
+            <option value="magic_objects">Magic Objects</option>
+            <option value="relics">Relics</option>
+            <option value="treasure">Treasure</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <!-- DECKS ENCOUNTERS  -->
+    <!-- <div id="deckPage_city_actions" class="deckPage">
+        <h1>Acciones de Ciudad</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_city_actions" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('city_actions')">Random card</button>
+        <select id="imageDropdown_city_actions" onchange="changeSelectedImage('city_actions')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEncountersSubMenu()" style="background-color: #4a4949;">Back to Encounters</button>
+    </div> -->
+
+
+    <!-- DECKS FURNITURE  -->
+    <div id="deckPage_common_furniture" class="deckPage">
+        <h1>Common Furniture</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_common_furniture" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('common_furniture')">Random card</button>
+        <select id="imageDropdown_common_furniture" onchange="changeSelectedImage('common_furniture')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showFurnitureSubMenu()" style="background-color: #4a4949;">Back to Furniture</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div id="deckPage_special_elements" class="deckPage">
+        <h1>Special Elements</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_special_elements" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('special_elements')">Random card</button>
+        <select id="imageDropdown_special_elements" onchange="changeSelectedImage('special_elements')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showFurnitureSubMenu()" style="background-color: #4a4949;">Back to Furniture</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+    
+    <!-- DECKS ITEMS  -->
+    <div id="deckPage_armor" class="deckPage">
+        <h1>Armor</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_armor" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('armor')">Random card</button>
+        <select id="imageDropdown_armor" onchange="changeSelectedImage('armor')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_melee" class="deckPage">
+        <h1>Melee</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_melee" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('melee')">Random card</button>
+        <select id="imageDropdown_melee" onchange="changeSelectedImage('melee')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_range" class="deckPage">
+        <h1>Range</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_range" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('range')">Random card</button>
+        <select id="imageDropdown_range" onchange="changeSelectedImage('range')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_shields" class="deckPage">
+        <h1>Shields</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_shields" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('shields')">Random card</button>
+        <select id="imageDropdown_shields" onchange="changeSelectedImage('shields')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_common_objects" class="deckPage">
+        <h1>Common Objects</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_common_objects" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('common_objects')">Random card</button>
+        <select id="imageDropdown_common_objects" onchange="changeSelectedImage('common_objects')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_special_objects" class="deckPage">
+        <h1>Special Objects</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_special_objects" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('special_objects')">Random card</button>
+        <select id="imageDropdown_special_objects" onchange="changeSelectedImage('special_objects')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_magic_objects" class="deckPage">
+        <h1>Magic Objects</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_magic_objects" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('magic_objects')">Random card</button>
+        <select id="imageDropdown_magic_objects" onchange="changeSelectedImage('magic_objects')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_relics" class="deckPage">
+        <h1>Relics</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_relics" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('relics')">Random card</button>
+        <select id="imageDropdown_relics" onchange="changeSelectedImage('relics')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_treasure" class="deckPage">
+        <h1>Traesure</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_treasure" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('treasure')">Random card</button>
+        <select id="imageDropdown_treasure" onchange="changeSelectedImage('treasure')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="hechizosPage" class="center" style="display: none;">
+        <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+
+
+    <button id="languageButton" onclick="openSpanishPage()" 
+        style="font-style: italic;">
+        ESP</button>
+
+
+    <button id="infoButton" onclick="openInfoWindow()">?</button>
+
+    <script>
+        var images = {
+            // ENCOUNTERS
+            
+            // MOBILIARIO
+            common_furniture: [
+            'ENG/furniture/common_furniture/...',
+            ],
+            special_elements: [
+            'ENG/furniture/special_elements/...',
+            ],
+            // ITEMS
+            armor: [
+            'ENG/items/armor/back.png', 'ENG/items/armor/breastplate_(13).jpg', 'ENG/items/armor/breastplate_(14).jpg', 'ENG/items/armor/chainmail_(10).jpg', 'ENG/items/armor/chainmail_(11).jpg', 'ENG/items/armor/elven_armor.jpg', 'ENG/items/armor/full_armor.jpg', 'ENG/items/armor/larnil_armor.jpg', 'ENG/items/armor/leather_armor_(1).jpg', 'ENG/items/armor/leather_armor_(2).jpg', 'ENG/items/armor/leather_armor_(3).jpg', 'ENG/items/armor/leather_armor_(4).jpg', 'ENG/items/armor/leather_armor_(5).jpg', 'ENG/items/armor/lorica_segmentata.jpg', 'ENG/items/armor/scale_armor.jpg', 'ENG/items/armor/studded_armor_(6).jpg', 'ENG/items/armor/studded_armor_(7).jpg', 'ENG/items/armor/superior_armor.jpg', 'ENG/items/armor/yoroi.jpg'
+            ],
+            melee: [
+            'ENG/items/melee/...',
+            ],
+            range: [
+            'ENG/items/range/arquebus_(1).jpg', 'ENG/items/range/arquebus_(2).jpg', 'ENG/items/range/back.png', 'ENG/items/range/blowgun.jpg', 'ENG/items/range/composite_bow_(3).jpg', 'ENG/items/range/composite_bow_(4).jpg', 'ENG/items/range/crossbow_(12).jpg', 'ENG/items/range/crossbow_(13).jpg', 'ENG/items/range/crossbow_pistol.jpg', 'ENG/items/range/elven_bow.jpg', 'ENG/items/range/handgun_(22).jpg', 'ENG/items/range/handgun_(23).jpg', 'ENG/items/range/heavy_javelin_(25).jpg', 'ENG/items/range/heavy_javelin_(26).jpg', 'ENG/items/range/javelin_(19).jpg', 'ENG/items/range/javelin_(20).jpg', 'ENG/items/range/javelin_(21).jpg', 'ENG/items/range/longbow_(10).jpg', 'ENG/items/range/longbow_(11).jpg', 'ENG/items/range/net.jpg', 'ENG/items/range/repeating_crossbow.jpg', 'ENG/items/range/short_bow_(5).jpg', 'ENG/items/range/short_bow_(6).jpg', 'ENG/items/range/short_bow_(7).jpg', 'ENG/items/range/short_bow_(8).jpg', 'ENG/items/range/shuriken_(28).jpg', 'ENG/items/range/shuriken_(29).jpg', 'ENG/items/range/shuriken_(30).jpg', 'ENG/items/range/sling_(16).jpg', 'ENG/items/range/sling_(17).jpg', 'ENG/items/range/sling_with_lead_projectiles.jpg'
+            ],
+            shields: [
+            'ENG/items/shields/back.png', 'ENG/items/shields/buckler_(5).jpg', 'ENG/items/shields/buckler_(6).jpg', 'ENG/items/shields/dwarf_steel_shield.jpg', 'ENG/items/shields/elven_shield.jpg', 'ENG/items/shields/great_shield_(10).jpg', 'ENG/items/shields/great_shield_(9).jpg', 'ENG/items/shields/improvised_shield.jpg', 'ENG/items/shields/shield_(2).jpg', 'ENG/items/shields/shield_(3).jpg', 'ENG/items/shields/shield_(4).jpg',
+            ],
+            common_objects: [
+            'ENG/items/common_objects/antidote_(32).jpg', 'ENG/items/common_objects/antidote_(33).jpg', 'ENG/items/common_objects/back.png', 'ENG/items/common_objects/healing_herbs_(16).jpg', 'ENG/items/common_objects/healing_herbs_(17).jpg', 'ENG/items/common_objects/healing_herbs_(18).jpg', 'ENG/items/common_objects/healing_herbs_(19).jpg', 'ENG/items/common_objects/incendiary_arrows_(30).jpg', 'ENG/items/common_objects/incendiary_arrows_(31).jpg', 'ENG/items/common_objects/lantern_(37).jpg', 'ENG/items/common_objects/lantern_(38).jpg', 'ENG/items/common_objects/mandrake_root_(49).jpg', 'ENG/items/common_objects/mandrake_root_(50).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(43).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(44).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(45).jpg', 'ENG/items/common_objects/mushrooms_of_frenzy_(46).jpg', 'ENG/items/common_objects/musical_instrument_(10).jpg', 'ENG/items/common_objects/musical_instrument_(9).jpg', 'ENG/items/common_objects/pack_of_provisions_(24).jpg', 'ENG/items/common_objects/pack_of_provisions_(25).jpg', 'ENG/items/common_objects/pack_of_provisions_(26).jpg', 'ENG/items/common_objects/pack_of_provisions_(27).jpg', 'ENG/items/common_objects/pack_of_provisions_(28).jpg', 'ENG/items/common_objects/pack_of_provisions_(29).jpg', 'ENG/items/common_objects/pickaxes_(22).jpg', 'ENG/items/common_objects/pickaxes_(23).jpg', 'ENG/items/common_objects/picklocks_(14).jpg', 'ENG/items/common_objects/picklocks_(15).jpg', 'ENG/items/common_objects/rat_poison_(20).jpg', 'ENG/items/common_objects/rat_poison_(21).jpg', 'ENG/items/common_objects/rope_(5).jpg', 'ENG/items/common_objects/rope_(6).jpg', 'ENG/items/common_objects/rope_(7).jpg', 'ENG/items/common_objects/rope_(8).jpg', 'ENG/items/common_objects/squeaky_bird_(41).jpg', 'ENG/items/common_objects/squeaky_bird_(42).jpg', 'ENG/items/common_objects/squeaky_bug_(41).jpg', 'ENG/items/common_objects/squeaky_bug_(42).jpg', 'ENG/items/common_objects/string_of_garlic_and_crucifix_(47).jpg', 'ENG/items/common_objects/string_of_garlic_and_crucifix_(48).jpg', 'ENG/items/common_objects/supreme_beer_(11).jpg', 'ENG/items/common_objects/supreme_beer_(12).jpg', 'ENG/items/common_objects/supreme_beer_(13).jpg', 'ENG/items/common_objects/torch_(1).jpg', 'ENG/items/common_objects/torch_(2).jpg', 'ENG/items/common_objects/torch_(3).jpg', 'ENG/items/common_objects/torch_(4).jpg', 'ENG/items/common_objects/vigorous_mead_(34).jpg', 'ENG/items/common_objects/vigorous_mead_(35).jpg', 'ENG/items/common_objects/vigorous_mead_(36).jpg'
+            ],
+            special_objects: [
+            'ENG/items/special_objects/back.png', 'ENG/items/special_objects/components_for_magic_(3).jpg', 'ENG/items/special_objects/components_for_magic_(4).jpg', 'ENG/items/special_objects/components_for_magic_(5).jpg', 'ENG/items/special_objects/dexterity_potion_(12).jpg', 'ENG/items/special_objects/dexterity_potion_(13).jpg', 'ENG/items/special_objects/dexterity_potion_(14).jpg', 'ENG/items/special_objects/dragon_bile_(31).jpg', 'ENG/items/special_objects/dragon_bile_(32).jpg', 'ENG/items/special_objects/greek_fire_(15).jpg', 'ENG/items/special_objects/greek_fire_(16).jpg', 'ENG/items/special_objects/healing_potion_(10).jpg', 'ENG/items/special_objects/healing_potion_(11).jpg', 'ENG/items/special_objects/healing_potion_(6).jpg', 'ENG/items/special_objects/healing_potion_(7).jpg', 'ENG/items/special_objects/healing_potion_(8).jpg', 'ENG/items/special_objects/healing_potion_(9).jpg', 'ENG/items/special_objects/heroic_potion_(19).jpg', 'ENG/items/special_objects/heroic_potion_(20).jpg', 'ENG/items/special_objects/heroic_potion_(21).jpg', 'ENG/items/special_objects/holy_water_(1).jpg', 'ENG/items/special_objects/holy_water_(2).jpg', 'ENG/items/special_objects/magic_scroll_(26).jpg', 'ENG/items/special_objects/magic_scroll_(27).jpg', 'ENG/items/special_objects/mana_potion_(23).jpg', 'ENG/items/special_objects/mana_potion_(24).jpg', 'ENG/items/special_objects/mana_potion_(25).jpg', 'ENG/items/special_objects/poison_flask_(28).jpg', 'ENG/items/special_objects/poison_flask_(29).jpg', 'ENG/items/special_objects/poison_flask_(30).jpg', 'ENG/items/special_objects/strength_potion_(17).jpg', 'ENG/items/special_objects/strength_potion_(18).jpg', 'ENG/items/special_objects/strength_potion_(19).jpg'
+            ],
+            magic_objects: [
+            'ENG/items/magic_objects/...',
+            ],
+            relics: [
+            'ENG/items/relics/amulet_of_destiny.jpg', 'ENG/items/relics/ancestral_grimoire.jpg', 'ENG/items/relics/armor-piercing_battleaxe.jpg', 'ENG/items/relics/armor_of_sunset.jpg', 'ENG/items/relics/arrow-repulsing_helm.jpg', 'ENG/items/relics/back.png', 'ENG/items/relics/bonzorg_flaming_sword.jpg', 'ENG/items/relics/book_of_elements.jpg', 'ENG/items/relics/demonic_armor.jpg', 'ENG/items/relics/demonic_ring.jpg', 'ENG/items/relics/demon_slayer-broadsword.jpg', 'ENG/items/relics/diamond_shield.jpg', 'ENG/items/relics/dragonscale_armor.jpg', 'ENG/items/relics/dragon_slayer_broadsword.jpg', 'ENG/items/relics/earth-shattering_warhammer.jpg', 'ENG/items/relics/explosive_gemstone.jpg', 'ENG/items/relics/fatality_longbow.jpg', 'ENG/items/relics/invisibility_ring.jpg', 'ENG/items/relics/mask_from_the_underworld.jpg', 'ENG/items/relics/ring_of_avatarin.jpg', 'ENG/items/relics/runic_broadsword.jpg', 'ENG/items/relics/solar_armor.jpg', 'ENG/items/relics/spear_of_the_gods.jpg', 'ENG/items/relics/staff_of_wisdom.jpg', 'ENG/items/relics/tanelly_battleaxe.jpg', 'ENG/items/relics/unicorn_blood.jpg',
+            ],
+            treasure: [
+            'ENG/items/treasure/1.png',
+            ],
+        };
+
+        var infoWindow = null;
+
+        function populateImageDropdown(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+
+            dropdown.innerHTML = ""; // Clear existing options
+
+            // Add default option
+            var defaultOption = document.createElement("option");
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            defaultOption.hidden = true;
+            defaultOption.text = "Select card";
+            dropdown.add(defaultOption);
+
+            images[deck].forEach(function (image) {
+                var option = document.createElement("option");
+                var imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
+                imageName = imageName.replace(/_/g, ' ');
+                imageName = capitalizeFirstLetter(imageName);
+                option.text = imageName;
+                option.value = image;
+                dropdown.add(option);
+            });
+        }
+
+        function clearDropdownAndImageEncounters(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0;
+            var selectedImageSrc = "ENG/encounters/" + deck + "/back.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function clearDropdownAndImageFurniture(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0;
+            var selectedImageSrc = "ENG/furniture/" + deck + "/back.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function clearDropdownAndImageItems(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0;
+            var selectedImageSrc = "ENG/items/" + deck + "/back.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.replace(/\b\w/g, function (l) {
+                return l.toUpperCase();
+            });
+        }
+
+        function changeRandomImage(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            var validOptions = Array.from(dropdown.options).filter(option => !option.disabled);
+            
+            if (validOptions.length > 0) {
+                var randomIndex = Math.floor(Math.random() * validOptions.length);
+                dropdown.selectedIndex = Array.from(dropdown.options).indexOf(validOptions[randomIndex]);
+                var selectedImageSrc = dropdown.value;
+                document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+            }
+        }
+
+        function changeSelectedImage(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            var selectedImageSrc = dropdown.value;
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function showEncountersSubMenu() {
+            // document.getElementById("mainMenu").style.display = "none";
+            // document.getElementById("furnitureSubmenu").style.display = "none";
+            // document.getElementById("itemsSubmenu").style.display = "none";
+            // document.getElementById("infoButton").style.visibility = "hidden";
+
+            // document.querySelectorAll('.deckPage').forEach(function (page) {
+            //     page.style.display = "none";
+            // });
+
+            // document.getElementById("encountersSubmenu").style.display = "block";
+            // document.getElementById("encountersMenuSelect").selectedIndex = 0;
+            // document.getElementById("languageButton").style.display = "none";
+        }
+
+        function showFurnitureSubMenu() {
+            // document.getElementById("mainMenu").style.display = "none";
+            // document.getElementById("encountersSubmenu").style.display = "none";
+            // document.getElementById("itemsSubmenu").style.display = "none";
+            // document.getElementById("infoButton").style.visibility = "hidden";
+            // document.getElementById("languageButton").style.display = "none";
+
+            // document.querySelectorAll('.deckPage').forEach(function (page) {
+            //     page.style.display = "none";
+            // });
+
+            // document.getElementById("furnitureSubmenu").style.display = "block";
+            // document.getElementById("furnitureMenuSelect").selectedIndex = 0;
+        }
+
+        function showItemsSubMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("encountersSubmenu").style.display = "none";
+            document.getElementById("furnitureSubmenu").style.display = "none";
+            document.getElementById("infoButton").style.visibility = "hidden";
+            document.getElementById("languageButton").style.display = "none";
+
+
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            document.getElementById("itemsSubmenu").style.display = "block";
+            document.getElementById("itemsMenuSelect").selectedIndex = 0;
+        }
+
+        function showMainMenu() {
+            document.getElementById("encountersSubmenu").style.display = "none";
+            document.getElementById("furnitureSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+            document.getElementById("mainMenu").style.display = "block";
+            document.getElementById("infoButton").style.visibility = "visible";
+            document.getElementById("languageButton").style.display = "block";
+
+        }
+
+        function showEncountersDeckPage(deck) {
+            document.getElementById("encountersSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "ENG/encounters/" + deck + "/back.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImageEncounters(deck);
+            populateImageDropdown(deck);
+        }
+
+        function showFurnitureDeckPage(deck) {
+            document.getElementById("furnitureSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "ENG/furniture/" + deck + "/back.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImageFurniture(deck);
+            populateImageDropdown(deck);
+        }
+        
+        function showItemsDeckPage(deck) {
+            document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "ENG/items/" + deck + "/back.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImageItems(deck);
+            populateImageDropdown(deck);
+        }
+
+        function openHechizosPage() {
+            // document.getElementById('mainMenu').style.display = 'none';
+            // document.getElementById('encountersSubmenu').style.display = 'none';
+            // document.getElementById('furnitureSubmenu').style.display = 'none';
+            // document.getElementById('itemsSubmenu').style.display = 'none';
+            // document.getElementById('infoButton').style.display = 'none';
+            // document.getElementById('hechizosFrame').src = 'hechizos.html';
+            // document.getElementById('hechizosPage').style.display = 'block';
+        }
+
+        function openInfoWindow() {
+            // Check if the info window is already open
+            if (infoWindow && !infoWindow.closed) {
+                infoWindow.focus(); // If open, focus on the existing window
+            } else {
+                // If not open, open a new window with the specified text
+                infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
+            }
+        }
+
+        function openSpanishPage() {
+            window.location.href = 'index.html';
+        }
+
+    </script>
+</body>
+</html>
