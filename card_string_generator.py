@@ -1,6 +1,6 @@
 import os
 
-folder_path = "ENG/items/relics"#"items/distancia_y_arrojadizas"
+folder_path = "ENG/items/magic_objects"#"items/distancia_y_arrojadizas"
 
 file_paths = []
 
