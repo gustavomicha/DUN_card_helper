@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hechizos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'Macondo';
+            src: url('misc/Macondo-Regular.ttf') format('truetype');
+        }
+
+        body {
+            background-color: #000000;
+            color: #d8d8d8;
+            font-family: "Macondo", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-top: 20px;
+        }
+
+        #mainContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        #imageContainer {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scrollable {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        #imageContainer img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .counter {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .counter button {
+            background-color: #131213;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .counter button.plus {
+            background-color: #888888;
+        }
+        .counter button.minus {
+            background-color: #444444;
+        }
+    
+        .counter span {
+            background-color: #ce0aed;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+        }
+
+        select {
+            padding: 20px;
+            border-radius: 10px;
+            font-family: "Arial", sans-serif;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .menu-button {
+            background-color: #4a4949;
+            border-radius: 10px;
+            color: white;
+            padding: 20px 40px;
+            cursor: pointer;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        h1, button, select, option {
+            font-family: "Macondo", "Arial", sans-serif;
+        }
+
+        @media (max-width: 767px) {
+            .imageWrapper {
+                flex: 0 0 80%;
+            }
+
+            #imageContainer {
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow-x: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hechizos</h1>
+
+    <div id="mainContainer">
+        <select id="saberSelect" onchange="changeImage()">
+            <option value="default" disabled hidden selected>Seleccionar Saber</option>
+            <option value="agua">Agua</option>
+            <option value="aire">Aire</option>
+            <option value="animismo">Animismo</option>
+            <option value="bendiciones">Bendiciones</option>
+            <option value="brujeria">Brujeria</option>
+            <option value="canalizacion">Canalización</option>
+            <option value="control">Control Animal y Vegetal</option>
+            <option value="corrupcion">Corrupción</option>
+            <option value="fuego">Fuego</option>
+            <option value="inframundo">Inframundo</option>
+            <option value="interpretacion">Interpretación</option>
+            <option value="luz">Luz</option>
+            <option value="nigomancia">Nigromancia</option>
+            <option value="runica">Rúnica</option>
+            <option value="tierra">Tierra</option>
+            <option value="tribal">Tribal</option>
+
+        </select>
+
+        <div id="imageContainer">
+            <div class="scrollable" id="scrollableContainer"></div>
+        </div>
+
+        <button onclick="goToMainMenu()" class="menu-button">Volver al menú principal</button>
+    </div>
+    
+    <script>
+        var counters = [];
+        var defaultImage = "ESP/hechizos/default.png";
+        var aguaImages = ['ESP/hechizos/agua/193.jpg', 'ESP/hechizos/agua/194.jpg', 'ESP/hechizos/agua/195.jpg', 'ESP/hechizos/agua/196.jpg', 'ESP/hechizos/agua/197.jpg', 'ESP/hechizos/agua/198.jpg'];
+        var aireImages = ['ESP/hechizos/aire/199.jpg', 'ESP/hechizos/aire/200.jpg', 'ESP/hechizos/aire/201.jpg', 'ESP/hechizos/aire/202.jpg', 'ESP/hechizos/aire/203.jpg', 'ESP/hechizos/aire/287.jpg'];
+        var animismoImages = ['ESP/hechizos/animismo/204.jpg', 'ESP/hechizos/animismo/205.jpg', 'ESP/hechizos/animismo/206.jpg', 'ESP/hechizos/animismo/207.jpg', 'ESP/hechizos/animismo/208.jpg', 'ESP/hechizos/animismo/209.jpg'];
+        var bendicionesImages = ['ESP/hechizos/bendiciones/210.jpg', 'ESP/hechizos/bendiciones/211.jpg', 'ESP/hechizos/bendiciones/212.jpg', 'ESP/hechizos/bendiciones/213.jpg', 'ESP/hechizos/bendiciones/214.jpg', 'ESP/hechizos/bendiciones/215.jpg'];
+        var brujeriaImages = ['ESP/hechizos/brujeria/216.jpg', 'ESP/hechizos/brujeria/217.jpg', 'ESP/hechizos/brujeria/218.jpg', 'ESP/hechizos/brujeria/219.jpg', 'ESP/hechizos/brujeria/220.jpg', 'ESP/hechizos/brujeria/221.jpg'];
+        var canalizacionImages = ['ESP/hechizos/canalizacion/222.jpg', 'ESP/hechizos/canalizacion/223.jpg', 'ESP/hechizos/canalizacion/224.jpg', 'ESP/hechizos/canalizacion/225.jpg', 'ESP/hechizos/canalizacion/226.jpg', 'ESP/hechizos/canalizacion/227.jpg'];
+        var controlImages = ['ESP/hechizos/control/228.jpg', 'ESP/hechizos/control/229.jpg', 'ESP/hechizos/control/230.jpg', 'ESP/hechizos/control/231.jpg', 'ESP/hechizos/control/232.jpg', 'ESP/hechizos/control/233.jpg'];
+        var corrupcionImages = ['ESP/hechizos/corrupcion/234.jpg', 'ESP/hechizos/corrupcion/235.jpg', 'ESP/hechizos/corrupcion/236.jpg', 'ESP/hechizos/corrupcion/237.jpg', 'ESP/hechizos/corrupcion/238.jpg', 'ESP/hechizos/corrupcion/239.jpg'];
+        var fuegoImages = ['ESP/hechizos/fuego/240.jpg', 'ESP/hechizos/fuego/241.jpg', 'ESP/hechizos/fuego/242.jpg', 'ESP/hechizos/fuego/243.jpg', 'ESP/hechizos/fuego/244.jpg', 'ESP/hechizos/fuego/245.jpg'];
+        var inframundoImages = ['ESP/hechizos/inframundo/246.jpg', 'ESP/hechizos/inframundo/247.jpg', 'ESP/hechizos/inframundo/248.jpg', 'ESP/hechizos/inframundo/249.jpg', 'ESP/hechizos/inframundo/250.jpg', 'ESP/hechizos/inframundo/251.jpg'];
+        var interpretacionImages = ['ESP/hechizos/interpretacion/252.jpg', 'ESP/hechizos/interpretacion/253.jpg', 'ESP/hechizos/interpretacion/254.jpg', 'ESP/hechizos/interpretacion/255.jpg', 'ESP/hechizos/interpretacion/256.jpg', 'ESP/hechizos/interpretacion/257.jpg'];
+        var luzImages = ['ESP/hechizos/luz/258.jpg', 'ESP/hechizos/luz/259.jpg', 'ESP/hechizos/luz/260.jpg', 'ESP/hechizos/luz/261.jpg', 'ESP/hechizos/luz/262.jpg', 'ESP/hechizos/luz/263.jpg'];
+        var nigromanciaImages = ['ESP/hechizos/nigromancia/264.jpg', 'ESP/hechizos/nigromancia/265.jpg', 'ESP/hechizos/nigromancia/266.jpg', 'ESP/hechizos/nigromancia/267.jpg', 'ESP/hechizos/nigromancia/268.jpg', 'ESP/hechizos/nigromancia/269.jpg'];
+        var runicaImages = ['ESP/hechizos/runica/270.jpg', 'ESP/hechizos/runica/271.jpg', 'ESP/hechizos/runica/272.jpg', 'ESP/hechizos/runica/273.jpg', 'ESP/hechizos/runica/274.jpg', 'ESP/hechizos/runica/275.jpg'];
+        var tierraImages = ['ESP/hechizos/tierra/276.jpg', 'ESP/hechizos/tierra/277.jpg', 'ESP/hechizos/tierra/278.jpg', 'ESP/hechizos/tierra/279.jpg', 'ESP/hechizos/tierra/280.jpg', 'ESP/hechizos/tierra/288.jpg'];
+        var tribalImages = ['ESP/hechizos/tribal/281.jpg', 'ESP/hechizos/tribal/282.jpg', 'ESP/hechizos/tribal/283.jpg', 'ESP/hechizos/tribal/284.jpg', 'ESP/hechizos/tribal/285.jpg', 'ESP/hechizos/tribal/286.jpg'];
+        function changeImage() {
+            var select = document.getElementById("saberSelect");
+            var selectedOption = select.value;
+    
+            if (selectedOption === "default") {
+                showDefaultImages();
+            } else if (selectedOption === "agua") {
+                showImages(aguaImages);
+            } else if (selectedOption === "aire") {
+                showImages(aireImages);
+            } else if (selectedOption === "animismo") {
+                showImages(animismoImages);
+            } else if (selectedOption === "bendiciones") {
+                showImages(bendicionesImages);
+            } else if (selectedOption === "brujeria") {
+                showImages(brujeriaImages);
+            } else if (selectedOption === "canalizacion") {
+                showImages(canalizacionImages);
+            } else if (selectedOption === "control") {
+                showImages(controlImages);
+            } else if (selectedOption === "corrupcion") {
+                showImages(corrupcionImages);
+            } else if (selectedOption === "fuego") {
+                showImages(fuegoImages);
+            } else if (selectedOption === "inframundo") {
+                showImages(inframundoImages);
+            } else if (selectedOption === "interpretacion") {
+                showImages(interpretacionImages);
+            } else if (selectedOption === "luz") {
+                showImages(luzImages);
+            } else if (selectedOption === "nigomancia") {
+                showImages(nigomanciaImages);
+            } else if (selectedOption === "runica") {
+                showImages(runicaImages);
+            } else if (selectedOption === "tierra") {
+                showImages(tierraImages);
+            } else if (selectedOption === "tribal") {
+                showImages(tribalImages);
+            }
+        }
+    
+        function updateCounter(value, index) {
+            counters[index] += value;
+            
+            // Ensure the counter stays within the desired range
+            if (counters[index] < 0) {
+                counters[index] = 0;
+            } else if (counters[index] > 99) {
+                counters[index] = 99;
+            }
+        
+            updateCounterDisplay(index);
+        }
+    
+        function updateCounterDisplay(index) {
+            var counterElement = document.getElementById("counter" + index);
+            counterElement.textContent = counters[index].toString();
+        }
+        
+    
+        function resetCounters() {
+            for (var i = 0; i < counters.length; i++) {
+                counters[i] = 0;
+                updateCounterDisplay(i);
+            }
+        }
+    
+        function goToMainMenu() {
+            window.parent.location.href = "index.html";
+        }
+        
+        function showDefaultImages() {
+            var scrollableContainer = document.getElementById("scrollableContainer");
+            scrollableContainer.innerHTML = "";
+        
+            for (var i = 0; i < 6; i++) {
+                
+                var imageWrapper = document.createElement("div");
+                imageWrapper.classList.add("imageWrapper");
+        
+                var image = document.createElement("img");
+                image.src = defaultImage;
+                image.alt = "";
+        
+                imageWrapper.appendChild(image); // Append the image to the imageWrapper
+                scrollableContainer.appendChild(imageWrapper); // Append the imageWrapper to the scrollableContainer
+            }
+        }
+        
+    
+        function manageCounters() {
+            var scrollableContainer = document.getElementById("scrollableContainer");
+            scrollableContainer.innerHTML = "";
+        
+            for (var i = 0; i < 5; i++) {
+                counters[i] = 0; // Initialize counters with 0
+                updateCounterDisplay(i);
+        
+                var counter = document.createElement("div");
+                counter.classList.add("counter");
+        
+                var minusButton = document.createElement("button");
+                minusButton.classList.add("minus");
+                minusButton.textContent = "-";
+                minusButton.onclick = (function(index) {
+                    return function() {
+                        updateCounter(-1, index);
+                    };
+                })(i);
+        
+                var counterValue = document.createElement("span");
+                counterValue.id = "counter" + i;
+                counterValue.textContent = "0";
+        
+                var plusButton = document.createElement("button");
+                plusButton.classList.add("plus");
+                plusButton.textContent = "+";
+                plusButton.onclick = (function(index) {
+                    return function() {
+                        updateCounter(1, index);
+                    };
+                })(i);
+        
+                counter.appendChild(minusButton);
+                counter.appendChild(counterValue);
+                counter.appendChild(plusButton);
+        
+                imageWrapper.appendChild(image);
+                imageWrapper.appendChild(counter);
+                scrollableContainer.appendChild(imageWrapper);
+            }
+        }
+        
+
+        function showImages(imageArray) {
+            var scrollableContainer = document.getElementById("scrollableContainer");
+            scrollableContainer.innerHTML = "";
+
+            counters = new Array(imageArray.length).fill(0); // Initialize counters array with 0s
+
+            imageArray.forEach(function(imageSrc, index) {
+                var imageWrapper = document.createElement("div");
+                imageWrapper.classList.add("imageWrapper");
+
+                var image = document.createElement("img");
+                image.src = imageSrc;
+                image.alt = "";
+
+                var counter = document.createElement("div");
+                counter.classList.add("counter");
+
+                var minusButton = document.createElement("button");
+                minusButton.classList.add("minus");
+                minusButton.textContent = "-";
+                minusButton.onclick = (function(index) {
+                    return function() {
+                        updateCounter(-1, index);
+                    };
+                })(index);
+
+                var counterValue = document.createElement("span");
+                counterValue.id = "counter" + index;
+                counterValue.textContent = "0";
+
+                var plusButton = document.createElement("button");
+                plusButton.classList.add("plus");
+                plusButton.textContent = "+";
+                plusButton.onclick = (function(index) {
+                    return function() {
+                        updateCounter(1, index);
+                    };
+                })(index);
+
+                counter.appendChild(minusButton);
+                counter.appendChild(counterValue);
+                counter.appendChild(plusButton);
+
+                imageWrapper.appendChild(image);
+                imageWrapper.appendChild(counter);
+                scrollableContainer.appendChild(imageWrapper);
+            });
+        }
+        
+        window.onload = function() {
+            showDefaultImages();
+            document.getElementById("saberSelect").value = "default";
+        };
+    </script>
+</body>
+</html>
