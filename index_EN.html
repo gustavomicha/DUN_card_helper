@@ -213,7 +213,7 @@
         <select id="eventsMenuSelect" onchange="showEventsDeckPage(this.value)">
             <option disabled selected hidden>Select Event</option>
             <option value="places_and_services">Places and Services</option>
-            <option value="danger_campaing">Danger in Campaign</option>
+            <option value="danger_campaign">Danger in Campaign</option>
             
             <option value="castle">Settlement: Castle</option>
             <option value="city">Settlement: City</option>
@@ -268,6 +268,18 @@
         </div>
         <button onclick="changeRandomImage('places_and_services')">Random card</button>
         <select id="imageDropdown_places_and_services" onchange="changeSelectedImage('places_and_services')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_danger_campaign" class="deckPage">
+        <h1>Places and Services</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_danger_campaign" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('danger_campaign')">Random card</button>
+        <select id="imageDropdown_danger_campaign" onchange="changeSelectedImage('danger_campaign')">
             <option disabled selected hidden>Select card</option>
         </select>
         <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
@@ -620,7 +632,7 @@
             'ENG/events/sea/disease.jpg', 'ENG/events/sea/favorable_winds.jpg', 'ENG/events/sea/good_captain.jpg', 'ENG/events/sea/its_a_fin.jpg', 'ENG/events/sea/ocean_colossus.jpg', 'ENG/events/sea/pirates.jpg', 'ENG/events/sea/strong_currents.jpg', 'ENG/events/sea/tempest.jpg'
             ],
             swamp: [
-            'ENG/events/swamp/.DS_Store', 'ENG/events/swamp/aquatic_predators.jpg', 'ENG/events/swamp/cart.jpg', 'ENG/events/swamp/cloud_of_insects_(52).jpg', 'ENG/events/swamp/cloud_of_insects_(53).jpg', 'ENG/events/swamp/swamp_dwellers.jpg', 'ENG/events/swamp/walking_dead.jpg', 'ENG/events/swamp/will_o_the_wisps.jpg'
+            'ENG/events/swamp/aquatic_predators.jpg', 'ENG/events/swamp/cart.jpg', 'ENG/events/swamp/cloud_of_insects_(52).jpg', 'ENG/events/swamp/cloud_of_insects_(53).jpg', 'ENG/events/swamp/swamp_dwellers.jpg', 'ENG/events/swamp/walking_dead.jpg', 'ENG/events/swamp/will_o_the_wisps.jpg'
             ],
             volcanic: [
             'ENG/events/volcanic/attack_in_the_wastelands.jpg', 'ENG/events/volcanic/black_clouds.jpg', 'ENG/events/volcanic/hunger.jpg', 'ENG/events/volcanic/landslide.jpg', 'ENG/events/volcanic/toxic_gas.jpg', 'ENG/events/volcanic/volcanic_fumes.jpg'
