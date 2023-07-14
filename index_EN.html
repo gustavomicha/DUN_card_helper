@@ -203,8 +203,8 @@
         <button onclick="showItemsSubMenu()">Items</button>
         <!-- <button onclick="showCompanionsSubMenu()">Companions (TBD)</button> -->
         <button onclick="showEventsSubMenu()">Events</button>
-        <button onclick="showfurnitureSubMenu()">Furniture (TBD)</button>
-        <button onclick="openHechizosPage()">Spells (TBD)</button>
+        <button onclick="showFurnitureSubMenu()">Furniture</button>
+        <button onclick="openSpellsPage()">Spells</button>
 
     </div>
 
@@ -229,8 +229,6 @@
             <option value="sea">Terrain: Sea</option>
             <option value="swamp">Terrain: Swamp</option>
             <option value="volcanic">Terrain: Volcanic</option>
-            <!-- <option value="peligro_camp">Peligro en Campaña</option>
-            <option value="castillo">Población: Castillo</option> -->
         </select>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
     </div>
@@ -567,8 +565,8 @@
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
 
-    <div id="hechizosPage" class="center" style="display: none;">
-        <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+    <div id="spellsPage" class="center" style="display: none;">
+        <iframe id="spellsFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
     </div>
 
 
@@ -629,10 +627,10 @@
             ],
             // FURNITURE
             common_furniture: [
-            'ENG/furniture/common_furniture/...',
+            'ENG/furniture/common_furniture/alchemy_table.jpg', 'ENG/furniture/common_furniture/alembic.jpg', 'ENG/furniture/common_furniture/amphoras_or_containers.jpg', 'ENG/furniture/common_furniture/archery_target.jpg', 'ENG/furniture/common_furniture/armory.jpg', 'ENG/furniture/common_furniture/barrels_and_boxes.jpg', 'ENG/furniture/common_furniture/beds.jpg', 'ENG/furniture/common_furniture/bonfire.jpg', 'ENG/furniture/common_furniture/columns.jpg', 'ENG/furniture/common_furniture/cupboard.jpg', 'ENG/furniture/common_furniture/dining_room.jpg', 'ENG/furniture/common_furniture/empty_(14).jpg', 'ENG/furniture/common_furniture/empty_(15).jpg', 'ENG/furniture/common_furniture/empty_with_irregular_surface_(24).jpg', 'ENG/furniture/common_furniture/empty_with_irregular_surface_(25).jpg', 'ENG/furniture/common_furniture/fireplace.jpg', 'ENG/furniture/common_furniture/forge.jpg', 'ENG/furniture/common_furniture/fountain.jpg', 'ENG/furniture/common_furniture/grate.jpg', 'ENG/furniture/common_furniture/horse-drawn_carriage.jpg', 'ENG/furniture/common_furniture/kitchen.jpg', 'ENG/furniture/common_furniture/latrine.jpg', 'ENG/furniture/common_furniture/library.jpg', 'ENG/furniture/common_furniture/sorcery_table.jpg', 'ENG/furniture/common_furniture/spicetable.jpg', 'ENG/furniture/common_furniture/stables.jpg', 'ENG/furniture/common_furniture/statues.jpg', 'ENG/furniture/common_furniture/throne.jpg', 'ENG/furniture/common_furniture/torture_machine.jpg', 'ENG/furniture/common_furniture/training_dummy.jpg', 'ENG/furniture/common_furniture/trapdoor.jpg', 'ENG/furniture/common_furniture/water_well.jpg'
             ],
             special_elements: [
-            'ENG/furniture/special_elements/...',
+            'ENG/furniture/special_elements/aquatic_monster_dwelling.jpg', 'ENG/furniture/special_elements/big_creature_den.jpg', 'ENG/furniture/special_elements/burning_floor.jpg', 'ENG/furniture/special_elements/carnivorous_plants.jpg', 'ENG/furniture/special_elements/cliff.jpg', 'ENG/furniture/special_elements/crypt.jpg', 'ENG/furniture/special_elements/crystal_vein.jpg', 'ENG/furniture/special_elements/dangerous_mammals.jpg', 'ENG/furniture/special_elements/dead_adventurer.jpg', 'ENG/furniture/special_elements/dwarf_tavern.jpg', 'ENG/furniture/special_elements/fighting_pit.jpg', 'ENG/furniture/special_elements/flooded_section.jpg', 'ENG/furniture/special_elements/fountain_or_magic_pond.jpg', 'ENG/furniture/special_elements/geletanous_cube.jpg', 'ENG/furniture/special_elements/giant_insects_next.jpg', 'ENG/furniture/special_elements/grasping_roots.jpg', 'ENG/furniture/special_elements/great_treasure.jpg', 'ENG/furniture/special_elements/important_tomb.jpg', 'ENG/furniture/special_elements/machinery.jpg', 'ENG/furniture/special_elements/magic_circle.jpg', 'ENG/furniture/special_elements/magic_mirror.jpg', 'ENG/furniture/special_elements/magic_throne.jpg', 'ENG/furniture/special_elements/mine.jpg', 'ENG/furniture/special_elements/mold.jpg', 'ENG/furniture/special_elements/mushrooms.jpg', 'ENG/furniture/special_elements/mysterious_mist.jpg', 'ENG/furniture/special_elements/orc_brothel.jpg', 'ENG/furniture/special_elements/prison_man_at_arms.jpg', 'ENG/furniture/special_elements/prison_the_civilian.jpg', 'ENG/furniture/special_elements/prison_the_lady.jpg', 'ENG/furniture/special_elements/room_of_the_mirrors.jpg', 'ENG/furniture/special_elements/shrine.jpg', 'ENG/furniture/special_elements/special_statue.jpg', 'ENG/furniture/special_elements/spiderweb.jpg', 'ENG/furniture/special_elements/teleport_portal.jpg', 'ENG/furniture/special_elements/the_hall_of_riddles.jpg', 'ENG/furniture/special_elements/the_witch.jpg', 'ENG/furniture/special_elements/vermin_bats.jpg', 'ENG/furniture/special_elements/vermin_rats.jpg', 'ENG/furniture/special_elements/vermin_snakes.jpg', 'ENG/furniture/special_elements/vermin_swarm.jpg', 'ENG/furniture/special_elements/wandering_merchant.jpg'
             ],
             // ITEMS
             armor: [
@@ -740,6 +738,7 @@
             document.getElementById("furnitureSubmenu").style.display = "none";
             document.getElementById("itemsSubmenu").style.display = "none";
             document.getElementById("infoButton").style.visibility = "hidden";
+            document.getElementById("languageButton").style.display = "none";
 
             document.querySelectorAll('.deckPage').forEach(function (page) {
                  page.style.display = "none";
@@ -747,22 +746,21 @@
 
             document.getElementById("eventsSubmenu").style.display = "block";
             document.getElementById("eventsMenuSelect").selectedIndex = 0;
-            document.getElementById("languageButton").style.display = "none";
         }
 
         function showFurnitureSubMenu() {
-            // document.getElementById("mainMenu").style.display = "none";
-            // document.getElementById("eventsSubmenu").style.display = "none";
-            // document.getElementById("itemsSubmenu").style.display = "none";
-            // document.getElementById("infoButton").style.visibility = "hidden";
-            // document.getElementById("languageButton").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("eventsSubmenu").style.display = "none";
+            document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("infoButton").style.visibility = "hidden";
+            document.getElementById("languageButton").style.display = "none";
 
-            // document.querySelectorAll('.deckPage').forEach(function (page) {
-            //     page.style.display = "none";
-            // });
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
 
-            // document.getElementById("furnitureSubmenu").style.display = "block";
-            // document.getElementById("furnitureMenuSelect").selectedIndex = 0;
+            document.getElementById("furnitureSubmenu").style.display = "block";
+            document.getElementById("furnitureMenuSelect").selectedIndex = 0;
         }
 
         function showItemsSubMenu() {
@@ -846,14 +844,15 @@
             populateImageDropdown(deck);
         }
 
-        function openHechizosPage() {
-            // document.getElementById('mainMenu').style.display = 'none';
-            // document.getElementById('eventsSubmenu').style.display = 'none';
-            // document.getElementById('furnitureSubmenu').style.display = 'none';
-            // document.getElementById('itemsSubmenu').style.display = 'none';
-            // document.getElementById('infoButton').style.display = 'none';
-            // document.getElementById('hechizosFrame').src = 'hechizos.html';
-            // document.getElementById('hechizosPage').style.display = 'block';
+        function openSpellsPage() {
+            document.getElementById('mainMenu').style.display = 'none';
+            document.getElementById('eventsSubmenu').style.display = 'none';
+            document.getElementById('furnitureSubmenu').style.display = 'none';
+            document.getElementById('itemsSubmenu').style.display = 'none';
+            document.getElementById('infoButton').style.display = 'none';
+            document.getElementById("languageButton").style.display = "none";
+            document.getElementById('spellsFrame').src = 'spells_EN.html';
+            document.getElementById('spellsPage').style.display = 'block';
         }
 
         function openInfoWindow() {

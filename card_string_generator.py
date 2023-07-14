@@ -1,6 +1,6 @@
 import os
 
-folder_path = "ENG/events/places_and_services"#"items/distancia_y_arrojadizas"
+folder_path = "ENG/spells/underworld"#"items/distancia_y_arrojadizas"
 
 file_paths = []
 
