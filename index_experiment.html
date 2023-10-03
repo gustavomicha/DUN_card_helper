@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DUN Helper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'Macondo';
+            src: url('misc/Macondo-Regular.ttf') format('truetype');
+          }
+
+        body {
+            background-color: #000000;
+            color: #d8d8d8;
+            font-family: "Macondo", "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-top: 20px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #999999;
+          }
+          
+        .imageContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .imageContainer img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            border-radius: 10px;
+            background-color: #7c1818;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            cursor: pointer;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 50%;
+            max-width: 400px;
+        }
+
+        select {
+            padding: 20px;
+            border-radius: 10px;
+            font-family: "Macondo", sans-serif;
+            font-size: 24px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        #mainMenu {
+            display: block;
+            background-image: url("misc/wallpaper_app.jpg");
+            background-position: center;
+            background-size: 50% auto;
+            background-repeat: no-repeat;
+        }
+
+        #itemsSubmenu {
+            display: none;
+            background-image: url("misc/back_items.jpg");
+            background-position: center;
+            background-size: 80% auto;
+            opacity: 0.8;
+            background-repeat: no-repeat;
+        }
+
+        .deckPage {
+            display: none;
+        }
+
+        #mainMenu button {
+            background-color: #7c1818;
+            width: 50%;
+            max-width: 300px;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        #infoButton {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            background-color: #4a4949;
+            color: white;
+            padding: 10px 20px;
+            font-size: 26px;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            max-width: none;
+            border-radius: 50%;
+        }
+
+        #languageButton {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            background-color: #1e1c77;
+            color: white;
+            padding: 10px 10px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            max-width: none;
+        }
+
+        h1, button, option {
+            font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
+        }
+
+        @media (min-width: 601px) {
+            /* Media query for desktop screens */
+            .imageContainer img {
+                max-width: 25%; /* Reduce the size to 50% */
+            }
+        }
+
+        @media (max-width: 600px){
+            button {
+                width: 100%;
+            }
+
+            #itemsSubmenu {
+                background-size: 500px auto;
+                background-position: center bottom;
+                background-attachment: fixed;
+            }
+            #mainMenu {
+                background-size: 80% auto;
+                background-position: center bottom;
+                background-attachment: fixed;
+            }
+        }
+    </style>
+
+<!-- analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MKVYWHQ7J9');
+</script>
+</head>
+<body>
+    <div class="center" id="mainMenu">
+        <h1>DUN Helper</h1> <span class="subtitle">v1.0 (fanmade)</span>
+        <button onclick="showItemsSubMenu()">Items</button>
+        <button onclick="openHechizosPage()">Hechizos</button>
+
+    </div>
+
+
+    <div class="center" id="itemsSubmenu">
+        <h1>Items</h1>
+        <select id="itemsMenuSelect" onchange="showItemsDeckPage(this.value)">
+            <option disabled selected hidden>Seleccionar Item</option>
+            <option value="armaduras">Armaduras</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <div id="loadingGifContainer" style="display: none; width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <img src="misc/loading.gif" alt="Loading..." style="width: 100%; height: 100%;">
+    </div>
+
+    <!-- DECKS ITEMS  -->
+    <div id="deckPage_armaduras" class="deckPage">
+        <h1>Armaduras</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_armaduras" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('armaduras')">Carta aleatoria</button>
+        <select id="imageDropdown_armaduras" onchange="changeSelectedImage('armaduras')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
+
+
+    <div id="hechizosPage" class="center" style="display: none;">
+        <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+
+    <button id="languageButton" onclick="openEnglishPage()" style="background: none; border: none; padding: 0;">
+        <img src="misc/ESP.png" alt="English Flag" style="width: 40px; height: 40px;">
+        <p style="color: white; margin-top: 5px; font-size: 12px; text-align: center; width: 40px;">Switch to ENG</p>
+    </button>
+    
+
+    <button id="infoButton" onclick="openInfoWindow()">?</button>
+
+    <script>
+        var images = {
+            // ITEMS
+            armaduras: [
+            'ESP/items/armaduras/armadura_completa.jpg', 'ESP/items/armaduras/armadura_de_cuero_(1).jpg', 'ESP/items/armaduras/armadura_de_cuero_(2).jpg', 'ESP/items/armaduras/armadura_de_cuero_(3).jpg', 'ESP/items/armaduras/armadura_de_cuero_(4).jpg', 'ESP/items/armaduras/armadura_de_cuero_(5).jpg', 'ESP/items/armaduras/armadura_de_escamas.jpg', 'ESP/items/armaduras/armadura_de_larnil.jpg', 'ESP/items/armaduras/armadura_elfica.jpg', 'ESP/items/armaduras/armadura_superior.jpg', 'ESP/items/armaduras/armadura_tachonada_(6).jpg', 'ESP/items/armaduras/armadura_tachonada_(7).jpg', 'ESP/items/armaduras/coraza_(13).jpg', 'ESP/items/armaduras/coraza_(14).jpg', 'ESP/items/armaduras/cota_de_malla_(10).jpg', 'ESP/items/armaduras/cota_de_malla_(11).jpg', 'ESP/items/armaduras/lorica_sementata.jpg', 'ESP/items/armaduras/yoroi.jpg'
+            ],
+        };
+
+        var infoWindow = null;
+
+        function populateImageDropdown(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+
+            dropdown.innerHTML = ""; // Clear existing options
+
+            // Add default option
+            var defaultOption = document.createElement("option");
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            defaultOption.hidden = true;
+            defaultOption.text = "Seleccionar carta";
+            dropdown.add(defaultOption);
+
+            images[deck].forEach(function (image) {
+                var option = document.createElement("option");
+                var imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
+                imageName = imageName.replace(/_/g, ' ');
+                imageName = capitalizeFirstLetter(imageName);
+                option.text = imageName;
+                option.value = image;
+                dropdown.add(option);
+            });
+        }
+
+
+        function clearDropdownAndImageItems(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            dropdown.selectedIndex = 0;
+            var selectedImageSrc = "ESP/items/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.replace(/\b\w/g, function (l) {
+                return l.toUpperCase();
+            });
+        }
+
+        function changeRandomImage(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            var validOptions = Array.from(dropdown.options).filter(option => !option.disabled);
+            
+            if (validOptions.length > 0) {
+                // Show the loading GIF container
+                var loadingGifContainer = document.getElementById('loadingGifContainer');
+                loadingGifContainer.style.display = 'block';
+        
+                // Set a timeout to simulate loading time with a delay of 1 second
+                setTimeout(function () {
+                    var randomIndex = Math.floor(Math.random() * validOptions.length);
+                    dropdown.selectedIndex = Array.from(dropdown.options).indexOf(validOptions[randomIndex]);
+                    var selectedImageSrc = dropdown.value;
+                    document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        
+                    // Hide the loading GIF container after setting the image
+                    loadingGifContainer.style.display = 'none';
+                }, 1000); // 1000 milliseconds (1 second)
+            }
+        }
+        
+        
+        function changeSelectedImage(deck) {
+            var dropdown = document.getElementById(`imageDropdown_${deck}`);
+            var selectedImageSrc = dropdown.value;
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+        }
+
+        function showItemsSubMenu() {
+            document.getElementById("mainMenu").style.display = "none";
+            document.getElementById("infoButton").style.visibility = "hidden";
+            document.getElementById("languageButton").style.display = "none";
+
+
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            document.getElementById("itemsSubmenu").style.display = "block";
+            document.getElementById("itemsMenuSelect").selectedIndex = 0;
+        }
+
+        function showMainMenu() {
+            document.getElementById("itemsSubmenu").style.display = "none";
+
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+            document.getElementById("mainMenu").style.display = "block";
+            document.getElementById("infoButton").style.visibility = "visible";
+            document.getElementById("languageButton").style.display = "block";
+
+        }
+
+        
+        function showItemsDeckPage(deck) {
+            document.getElementById("itemsSubmenu").style.display = "none";
+            document.getElementById("mainMenu").style.display = "none";
+            document.querySelectorAll('.deckPage').forEach(function (page) {
+                page.style.display = "none";
+            });
+
+            var deckPageId = `deckPage_${deck}`;
+            document.getElementById(deckPageId).style.display = "block";
+
+            var selectedImageSrc = "ESP/items/" + deck + "/dorso.png";
+            document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+            clearDropdownAndImageItems(deck);
+            populateImageDropdown(deck);
+        }
+
+        function openHechizosPage() {
+            document.getElementById('mainMenu').style.display = 'none';
+            document.getElementById('itemsSubmenu').style.display = 'none';
+            document.getElementById("languageButton").style.display = "none";
+            document.getElementById('infoButton').style.display = 'none';
+
+            document.getElementById('hechizosFrame').src = 'spells_ES.html';
+            document.getElementById('hechizosPage').style.display = 'block';
+        }
+
+        function openInfoWindow() {
+            // Check if the info window is already open
+            if (infoWindow && !infoWindow.closed) {
+                infoWindow.focus(); // If open, focus on the existing window
+            } else {
+                // If not open, open a new window with the specified text
+                infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
+            }
+        }
+
+        function openEnglishPage() {
+            window.location.href = 'index_EN.html';
+        }
+
+    </script>
+</body>
+</html>
