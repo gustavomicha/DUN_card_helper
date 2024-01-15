@@ -3,6 +3,7 @@
 <head>
     <title>DUN Helper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <style>
         @font-face {
             font-family: 'Macondo';
@@ -157,6 +158,10 @@
                 background-position: center bottom;
                 background-attachment: fixed;
             }
+            
+            #loadingGifContainer {
+                top: 40% !important; /* Change the vertical position to 40% */
+            }
         }
     </style>
 
@@ -187,7 +192,7 @@
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
 
-    <div id="loadingGifContainer" style="display: none; width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div id="loadingGifContainer" style="display: none; width: 300px; height: 300px; position: absolute; top: 100%; left: 150%; transform: translate(-50%, -50%);">
         <img src="misc/loading.gif" alt="Loading..." style="width: 100%; height: 100%;">
     </div>
 
@@ -284,7 +289,7 @@
         
                     // Hide the loading GIF container after setting the image
                     loadingGifContainer.style.display = 'none';
-                }, 1000); // 1000 milliseconds (1 second)
+                }, 300); // 1000 milliseconds (1 second)
             }
         }
         
