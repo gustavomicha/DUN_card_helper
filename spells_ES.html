@@ -142,14 +142,17 @@
             <option value="canalizacion">Canalización</option>
             <option value="control">Control Animal y Vegetal</option>
             <option value="corrupcion">Corrupción</option>
+            <option value="favores">Favores</option>
             <option value="fuego">Fuego</option>
             <option value="inframundo">Inframundo</option>
             <option value="interpretacion">Interpretación</option>
             <option value="luz">Luz</option>
+            <option value="mentalismo">Mentalismo</option>
             <option value="nigomancia">Nigromancia</option>
             <option value="runica">Rúnica</option>
             <option value="tierra">Tierra</option>
             <option value="tribal">Tribal</option>
+            
 
         </select>
 
@@ -255,6 +258,12 @@
                 showImages(imageArray);
             } else if (selectedOption === "tribal") {
                 imageArray = includeExpansion ? tribalImages.concat(tribal_expImages) : tribalImages;
+                showImages(imageArray);
+            }  else if (selectedOption === "favores") {
+                imageArray = favores_expImages;
+                showImages(imageArray);
+            } else if (selectedOption === "mentalismo") {
+                imageArray = mentalismo_expImages;
                 showImages(imageArray);
             }
         }
