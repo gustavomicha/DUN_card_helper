@@ -118,6 +118,12 @@
             border-radius: 50%;
         }
 
+        #expansionToggle {
+            color: white;
+            font-family: "Macondo", "Arial", sans-serif;
+            font-size: 30px;
+        }
+
         #languageButton {
             position: absolute;
             top: 40px;
@@ -177,6 +183,10 @@
 <body>
     <div class="center" id="mainMenu">
         <h1>DUN Helper</h1> <span class="subtitle">v1.0 (fanmade)</span>
+        <div id="expansionToggle">
+            <label for="expansionCheckbox">New Challenges:</label>
+            <input type="checkbox" id="expansionCheckbox" checked onchange="toggleExpansion()">
+        </div>
         <button onclick="showItemsSubMenu()">Items</button>
         <button onclick="openHechizosPage()">Hechizos</button>
 
@@ -227,8 +237,9 @@
         var images = {
             // ITEMS
             armaduras: [
-            'ESP/items/armaduras/armadura_completa.jpg', 'ESP/items/armaduras/armadura_de_cuero_(1).jpg', 'ESP/items/armaduras/armadura_de_cuero_(2).jpg', 'ESP/items/armaduras/armadura_de_cuero_(3).jpg', 'ESP/items/armaduras/armadura_de_cuero_(4).jpg', 'ESP/items/armaduras/armadura_de_cuero_(5).jpg', 'ESP/items/armaduras/armadura_de_escamas.jpg', 'ESP/items/armaduras/armadura_de_larnil.jpg', 'ESP/items/armaduras/armadura_elfica.jpg', 'ESP/items/armaduras/armadura_superior.jpg', 'ESP/items/armaduras/armadura_tachonada_(6).jpg', 'ESP/items/armaduras/armadura_tachonada_(7).jpg', 'ESP/items/armaduras/coraza_(13).jpg', 'ESP/items/armaduras/coraza_(14).jpg', 'ESP/items/armaduras/cota_de_malla_(10).jpg', 'ESP/items/armaduras/cota_de_malla_(11).jpg', 'ESP/items/armaduras/lorica_sementata.jpg', 'ESP/items/armaduras/yoroi.jpg'
+            'ESP/items/armaduras/armadura_completa.jpg', 'ESP/items/armaduras/armadura_de_cuero_(1).jpg', 'ESP/items/armaduras/armadura_de_cuero_(2).jpg', 'ESP/items/armaduras/armadura_de_cuero_(3).jpg', 'ESP/items/armaduras/armadura_de_cuero_(4).jpg', 'ESP/items/armaduras/armadura_de_cuero_(5).jpg', 'ESP/items/armaduras/armadura_de_escamas.jpg', 'ESP/items/armaduras/armadura_de_larnil.jpg', 'ESP/items/armaduras/armadura_elfica.jpg', 'ESP/items/armaduras/armadura_superior.jpg', 'ESP/items/armaduras/armadura_tachonada_(6).jpg', 'ESP/items/armaduras/armadura_tachonada_(7).jpg', 'ESP/items/armaduras/coraza_(13).jpg', 'ESP/items/armaduras/coraza_(14).jpg', 
             ],
+            armaduras_exp: ['ESP/items/cuerpo_a_cuerpo_exp/baston_de_guerra_(69).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/baston_de_guerra_(70).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/daga_de_parada_(71).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/daga_de_parada_(72).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/kukri_(66).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/kukri_(67).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/lucerna.jpg', 'ESP/items/cuerpo_a_cuerpo_exp/sai_(73).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/sai_(74).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/zanbato.jpg']
         };
 
         var infoWindow = null;
@@ -245,11 +256,16 @@
             defaultOption.hidden = true;
             defaultOption.text = "Seleccionar carta";
             dropdown.add(defaultOption);
-
-            images[deck].forEach(function (image) {
+        
+            var deckImages = images[deck];
+            if (includeExpansion && images[deck + '_exp']) {
+                deckImages = deckImages.concat(images[deck + '_exp']);
+            }
+        
+            deckImages.forEach(function (image) {
                 var option = document.createElement("option");
                 var imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
-                imageName = imageName.replace(/_/g, ' ');
+                imageName = imageName.replace(/_/g, ' ').replace(/\((\d+)\)/g, ' $1');
                 imageName = capitalizeFirstLetter(imageName);
                 option.text = imageName;
                 option.value = image;
@@ -366,6 +382,16 @@
 
         function openEnglishPage() {
             window.location.href = 'index_EN.html';
+        }
+
+        var includeExpansion = true;
+
+        function toggleExpansion() {
+            includeExpansion = document.getElementById("expansionCheckbox").checked;
+            if (document.getElementById("itemsSubmenu").style.display === "block") {
+                // Update the dropdown if the submenu is currently displayed
+                showItemsDeckPage('armaduras');
+            }
         }
 
     </script>

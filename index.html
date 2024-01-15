@@ -136,6 +136,12 @@
             border-radius: 50%;
         }
 
+        #expansionToggle {
+            color: white;
+            font-family: "Macondo", "Arial", sans-serif;
+            font-size: 30px;
+        }
+
         #languageButton {
             position: absolute;
             top: 40px;
@@ -186,6 +192,7 @@
                 background-position: center bottom;
                 background-attachment: fixed;
             }
+        }
     </style>
 
 <!-- analytics -->
@@ -200,6 +207,12 @@
 <body>
     <div class="center" id="mainMenu">
         <h1>DUN Helper</h1> <span class="subtitle">v1.0 (fanmade)</span>
+        
+        <div id="expansionToggle">
+            <label for="expansionCheckbox">New Challenges:</label>
+            <input type="checkbox" id="expansionCheckbox" checked onchange="toggleExpansion()">
+        </div>
+
         <button onclick="showItemsSubMenu()">Items</button>
         <button onclick="showEncuentrosSubMenu()">Eventos</button>
         <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
@@ -253,6 +266,7 @@
             <option value="objetos_magicos">Objetos Magicos</option>
             <option value="reliquias">Reliquias</option>
             <option value="tesoro">Tesoro</option>
+            <option value="recursos">Recursos</option>
         </select>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
@@ -617,6 +631,19 @@
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
 
+    <div id="deckPage_recursos" class="deckPage">
+        <h1>Recursos</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_recursos" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('recursos')">Carta aleatoria</button>
+        <select id="imageDropdown_recursos" onchange="changeSelectedImage('recursos')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>
+
     <div id="hechizosPage" class="center" style="display: none;">
         <iframe id="hechizosFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
     </div>
@@ -689,7 +716,8 @@
             'ESP/items/armaduras/armadura_completa.jpg', 'ESP/items/armaduras/armadura_de_cuero_(1).jpg', 'ESP/items/armaduras/armadura_de_cuero_(2).jpg', 'ESP/items/armaduras/armadura_de_cuero_(3).jpg', 'ESP/items/armaduras/armadura_de_cuero_(4).jpg', 'ESP/items/armaduras/armadura_de_cuero_(5).jpg', 'ESP/items/armaduras/armadura_de_escamas.jpg', 'ESP/items/armaduras/armadura_de_larnil.jpg', 'ESP/items/armaduras/armadura_elfica.jpg', 'ESP/items/armaduras/armadura_superior.jpg', 'ESP/items/armaduras/armadura_tachonada_(6).jpg', 'ESP/items/armaduras/armadura_tachonada_(7).jpg', 'ESP/items/armaduras/coraza_(13).jpg', 'ESP/items/armaduras/coraza_(14).jpg', 'ESP/items/armaduras/cota_de_malla_(10).jpg', 'ESP/items/armaduras/cota_de_malla_(11).jpg', 'ESP/items/armaduras/lorica_sementata.jpg', 'ESP/items/armaduras/yoroi.jpg'
             ],
             cuerpo_a_cuerpo: [
-            'ESP/items/cuerpo_a_cuerpo/alabarda.jpg', 'ESP/items/cuerpo_a_cuerpo/arma_rudimentaria.jpg', 'ESP/items/cuerpo_a_cuerpo/baston_(3).jpg', 'ESP/items/cuerpo_a_cuerpo/baston_(4).jpg', 'ESP/items/cuerpo_a_cuerpo/cimitarra_(5).jpg', 'ESP/items/cuerpo_a_cuerpo/cimitarra_(6).jpg', 'ESP/items/cuerpo_a_cuerpo/colmillos.jpg', 'ESP/items/cuerpo_a_cuerpo/cuernos.jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(10).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(11).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(12).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(13).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(9).jpg', 'ESP/items/cuerpo_a_cuerpo/desarmado.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(15).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(16).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(17).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(18).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_bastarda_(19).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_bastarda_(20).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_corta_(21).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_corta_(22).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_dentada.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_elfica_(23).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_elfica_(24).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_falcata.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_fausal.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_khopesh.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_mandoble.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ropera.jpg', 'ESP/items/cuerpo_a_cuerpo/falx.jpg', 'ESP/items/cuerpo_a_cuerpo/garras.jpg', 'ESP/items/cuerpo_a_cuerpo/garrote.jpg', 'ESP/items/cuerpo_a_cuerpo/gran_falx.jpg', 'ESP/items/cuerpo_a_cuerpo/gran_mangual.jpg', 'ESP/items/cuerpo_a_cuerpo/gran_martillo.jpg', 'ESP/items/cuerpo_a_cuerpo/guadaña.jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_(30).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_(31).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_(32).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_arrojadiza_(33).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_arrojadiza_(34).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_de_batalla.jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_de_doble_filo.jpg', 'ESP/items/cuerpo_a_cuerpo/herramienta.jpg', 'ESP/items/cuerpo_a_cuerpo/katana_(38).jpg', 'ESP/items/cuerpo_a_cuerpo/katana_(39).jpg', 'ESP/items/cuerpo_a_cuerpo/katar_(40).jpg', 'ESP/items/cuerpo_a_cuerpo/katar_(41).jpg', 'ESP/items/cuerpo_a_cuerpo/kusarigama.jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_(42).jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_(43).jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_(44).jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_de_caballeria.jpg', 'ESP/items/cuerpo_a_cuerpo/latigo.jpg', 'ESP/items/cuerpo_a_cuerpo/lucero_del_alba.jpg', 'ESP/items/cuerpo_a_cuerpo/macuahutil.jpg', 'ESP/items/cuerpo_a_cuerpo/mangual.jpg', 'ESP/items/cuerpo_a_cuerpo/martillo_de_guerra.jpg', 'ESP/items/cuerpo_a_cuerpo/maza_(50).jpg', 'ESP/items/cuerpo_a_cuerpo/maza_(51).jpg', 'ESP/items/cuerpo_a_cuerpo/puño_de_hierro.jpg', 'ESP/items/cuerpo_a_cuerpo/sable.jpg', 'ESP/items/cuerpo_a_cuerpo/tijera_de_gladiador.jpg', 'ESP/items/cuerpo_a_cuerpo/tridente.jpg'            ],
+            'ESP/items/cuerpo_a_cuerpo/alabarda.jpg', 'ESP/items/cuerpo_a_cuerpo/arma_rudimentaria.jpg', 'ESP/items/cuerpo_a_cuerpo/baston_(3).jpg', 'ESP/items/cuerpo_a_cuerpo/baston_(4).jpg', 'ESP/items/cuerpo_a_cuerpo/cimitarra_(5).jpg', 'ESP/items/cuerpo_a_cuerpo/cimitarra_(6).jpg', 'ESP/items/cuerpo_a_cuerpo/colmillos.jpg', 'ESP/items/cuerpo_a_cuerpo/cuernos.jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(10).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(11).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(12).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(13).jpg', 'ESP/items/cuerpo_a_cuerpo/daga_(9).jpg', 'ESP/items/cuerpo_a_cuerpo/desarmado.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(15).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(16).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(17).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_(18).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_bastarda_(19).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ancha_bastarda_(20).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_corta_(21).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_corta_(22).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_dentada.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_elfica_(23).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_elfica_(24).jpg', 'ESP/items/cuerpo_a_cuerpo/espada_falcata.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_fausal.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_khopesh.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_mandoble.jpg', 'ESP/items/cuerpo_a_cuerpo/espada_ropera.jpg', 'ESP/items/cuerpo_a_cuerpo/falx.jpg', 'ESP/items/cuerpo_a_cuerpo/garras.jpg', 'ESP/items/cuerpo_a_cuerpo/garrote.jpg', 'ESP/items/cuerpo_a_cuerpo/gran_falx.jpg', 'ESP/items/cuerpo_a_cuerpo/gran_mangual.jpg', 'ESP/items/cuerpo_a_cuerpo/gran_martillo.jpg', 'ESP/items/cuerpo_a_cuerpo/guadaña.jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_(30).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_(31).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_(32).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_arrojadiza_(33).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_arrojadiza_(34).jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_de_batalla.jpg', 'ESP/items/cuerpo_a_cuerpo/hacha_de_doble_filo.jpg', 'ESP/items/cuerpo_a_cuerpo/herramienta.jpg', 'ESP/items/cuerpo_a_cuerpo/katana_(38).jpg', 'ESP/items/cuerpo_a_cuerpo/katana_(39).jpg', 'ESP/items/cuerpo_a_cuerpo/katar_(40).jpg', 'ESP/items/cuerpo_a_cuerpo/katar_(41).jpg', 'ESP/items/cuerpo_a_cuerpo/kusarigama.jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_(42).jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_(43).jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_(44).jpg', 'ESP/items/cuerpo_a_cuerpo/lanza_de_caballeria.jpg', 'ESP/items/cuerpo_a_cuerpo/latigo.jpg', 'ESP/items/cuerpo_a_cuerpo/lucero_del_alba.jpg', 'ESP/items/cuerpo_a_cuerpo/macuahutil.jpg', 'ESP/items/cuerpo_a_cuerpo/mangual.jpg', 'ESP/items/cuerpo_a_cuerpo/martillo_de_guerra.jpg', 'ESP/items/cuerpo_a_cuerpo/maza_(50).jpg', 'ESP/items/cuerpo_a_cuerpo/maza_(51).jpg', 'ESP/items/cuerpo_a_cuerpo/puño_de_hierro.jpg', 'ESP/items/cuerpo_a_cuerpo/sable.jpg', 'ESP/items/cuerpo_a_cuerpo/tijera_de_gladiador.jpg', 'ESP/items/cuerpo_a_cuerpo/tridente.jpg'
+            ],
             distancia_y_arrojadizas: [
             'ESP/items/distancia_y_arrojadizas/arcabuz_(1).jpg', 'ESP/items/distancia_y_arrojadizas/arcabuz_(2).jpg', 'ESP/items/distancia_y_arrojadizas/arco_compuesto_(3).jpg', 'ESP/items/distancia_y_arrojadizas/arco_compuesto_(4).jpg', 'ESP/items/distancia_y_arrojadizas/arco_corto_(5).jpg', 'ESP/items/distancia_y_arrojadizas/arco_corto_(6).jpg', 'ESP/items/distancia_y_arrojadizas/arco_corto_(7).jpg', 'ESP/items/distancia_y_arrojadizas/arco_corto_(8).jpg', 'ESP/items/distancia_y_arrojadizas/arco_elfico.jpg', 'ESP/items/distancia_y_arrojadizas/arco_largo_(10).jpg', 'ESP/items/distancia_y_arrojadizas/arco_largo_(11).jpg', 'ESP/items/distancia_y_arrojadizas/ballesta_(12).jpg', 'ESP/items/distancia_y_arrojadizas/ballesta_(13).jpg', 'ESP/items/distancia_y_arrojadizas/ballesta_de_repeticion.jpg', 'ESP/items/distancia_y_arrojadizas/cerbatana.jpg', 'ESP/items/distancia_y_arrojadizas/honda_(16).jpg', 'ESP/items/distancia_y_arrojadizas/honda_(17).jpg', 'ESP/items/distancia_y_arrojadizas/honda_con_proyectiles.jpg', 'ESP/items/distancia_y_arrojadizas/jabalina_(19).jpg', 'ESP/items/distancia_y_arrojadizas/jabalina_(20).jpg', 'ESP/items/distancia_y_arrojadizas/jabalina_(21).jpg', 'ESP/items/distancia_y_arrojadizas/jabalina_pesada_(25).jpg', 'ESP/items/distancia_y_arrojadizas/jabalina_pesada_(26).jpg', 'ESP/items/distancia_y_arrojadizas/pistola_(22).jpg', 'ESP/items/distancia_y_arrojadizas/pistola_(23).jpg', 'ESP/items/distancia_y_arrojadizas/pistola_ballesta.jpg', 'ESP/items/distancia_y_arrojadizas/red.jpg', 'ESP/items/distancia_y_arrojadizas/shuriken_(28).jpg', 'ESP/items/distancia_y_arrojadizas/shuriken_(29).jpg', 'ESP/items/distancia_y_arrojadizas/shuriken_(30).jpg'            ],
             escudos: [
@@ -709,15 +737,51 @@
             tesoro: [
             'ESP/items/tesoro/1.png','ESP/items/tesoro/2.png','ESP/items/tesoro/3.png','ESP/items/tesoro/4.png','ESP/items/tesoro/5.png','ESP/items/tesoro/6.png','ESP/items/tesoro/7.png','ESP/items/tesoro/8.png','ESP/items/tesoro/9.png','ESP/items/tesoro/10.png'
             ],
+            // NEW CHALLENGES Expansion
+            cuerpo_a_cuerpo_exp: [
+            'ESP/items/cuerpo_a_cuerpo_exp/baston_de_guerra_(69).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/baston_de_guerra_(70).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/daga_de_parada_(71).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/daga_de_parada_(72).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/kukri_(66).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/kukri_(67).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/lucerna.jpg', 'ESP/items/cuerpo_a_cuerpo_exp/sai_(73).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/sai_(74).jpg', 'ESP/items/cuerpo_a_cuerpo_exp/zanbato.jpg'
+            ],
+            objetos_comunes_exp: [
+            'ESP/items/objetos_comunes_exp/bandolera_especial.jpg', 'ESP/items/objetos_comunes_exp/brebaje_curativo_(56).jpg', 'ESP/items/objetos_comunes_exp/brebaje_curativo_(57).jpg', 'ESP/items/objetos_comunes_exp/campana.jpg', 'ESP/items/objetos_comunes_exp/gancho_(61).jpg', 'ESP/items/objetos_comunes_exp/gancho_(62).jpg', 'ESP/items/objetos_comunes_exp/llave_maestra_(51).jpg', 'ESP/items/objetos_comunes_exp/llave_maestra_(52).jpg', 'ESP/items/objetos_comunes_exp/pico_(64).jpg', 'ESP/items/objetos_comunes_exp/pico_(65).jpg', 'ESP/items/objetos_comunes_exp/pinturas_de_camuflaje.jpg', 'ESP/items/objetos_comunes_exp/trebol_de_la_suerte_(53).jpg', 'ESP/items/objetos_comunes_exp/trebol_de_la_suerte_(54).jpg'
+            ],
+            objetos_especiales_exp: [
+            'ESP/items/objetos_especiales_exp/estandarte.jpg', 'ESP/items/objetos_especiales_exp/frasco_de_luz_solar.jpg', 'ESP/items/objetos_especiales_exp/lubricante_especial_(69).jpg', 'ESP/items/objetos_especiales_exp/lubricante_especial_(70).jpg', 'ESP/items/objetos_especiales_exp/oscuridad_embotellada.jpg', 'ESP/items/objetos_especiales_exp/pergamino_agua_de_vida.jpg', 'ESP/items/objetos_especiales_exp/pergamino_bola_de_fuego.jpg', 'ESP/items/objetos_especiales_exp/pergamino_escudo_de_viento.jpg', 'ESP/items/objetos_especiales_exp/pergamino_hechizo_basico_(64).jpg', 'ESP/items/objetos_especiales_exp/pergamino_hechizo_basico_(65).jpg', 'ESP/items/objetos_especiales_exp/piedra_lunar_(59).jpg', 'ESP/items/objetos_especiales_exp/piedra_lunar_(60).jpg', 'ESP/items/objetos_especiales_exp/pieza_de_repuesto_(66).jpg', 'ESP/items/objetos_especiales_exp/pieza_de_repuesto_(67).jpg', 'ESP/items/objetos_especiales_exp/pieza_de_repuesto_(68).jpg', 'ESP/items/objetos_especiales_exp/pocion_brebaje_del_gypcian.jpg', 'ESP/items/objetos_especiales_exp/pocion_del_oraculo.jpg', 'ESP/items/objetos_especiales_exp/pocion_de_agua_de_lynn.jpg', 'ESP/items/objetos_especiales_exp/pocion_de_bebedizo_verde_(54).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_bebedizo_verde_(55).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_camaleon.jpg', 'ESP/items/objetos_especiales_exp/pocion_de_cocodrilo.jpg', 'ESP/items/objetos_especiales_exp/pocion_de_elixir_de_vida_(41).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_elixir_de_vida_(42).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_furia_(49).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_furia_(50).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_furia_(51).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_sangre_de_sapo.jpg', 'ESP/items/objetos_especiales_exp/pocion_de_teleportacion.jpg', 'ESP/items/objetos_especiales_exp/pocion_de_velocidad_(46).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_velocidad_(47).jpg', 'ESP/items/objetos_especiales_exp/pocion_de_velocidad_(48).jpg', 'ESP/items/objetos_especiales_exp/pocion_vigorizante_(70).jpg', 'ESP/items/objetos_especiales_exp/pocion_vigorizante_(71).jpg', 'ESP/items/objetos_especiales_exp/rama_maligna.jpg', 'ESP/items/objetos_especiales_exp/runas_explosivas.jpg', 'ESP/items/objetos_especiales_exp/runa_antimagia.jpg'
+            ],
+            objetos_magicos_exp: [
+            'ESP/items/objetos_magicos_exp/arco_de_cuchillas.jpg', 'ESP/items/objetos_magicos_exp/botas_de_salto.jpg', 'ESP/items/objetos_magicos_exp/esfera_de_proteccion.jpg', 'ESP/items/objetos_magicos_exp/espada_del_relampago_rapido.jpg', 'ESP/items/objetos_magicos_exp/grimorio_de_los_cobblestone.jpg', 'ESP/items/objetos_magicos_exp/honda_ignea.jpg', 'ESP/items/objetos_magicos_exp/lanza_del_seto_noble.jpg', 'ESP/items/objetos_magicos_exp/varita_rompeoidos.jpg'
+            ],
+            peligro_camp_exp: [
+            'ESP/encuentros/peligro_camp_exp/agua_envenada - Copy (3).png', 'ESP/encuentros/peligro_camp_exp/agua_envenada.png', 'ESP/encuentros/peligro_camp_exp/evento_de_viaje.png', 'ESP/encuentros/peligro_camp_exp/una_trampa.png', 'ESP/encuentros/peligro_camp_exp/un_rayo_extraño.png'
+            ],
+            montanioso_exp: [
+            'ESP/encuentros/montanioso_exp/aguilas_gigantes.png', 'ESP/encuentros/montanioso_exp/alud.png', 'ESP/encuentros/montanioso_exp/telarañas.png'
+            ],
+            desertico_exp: [
+            'ESP/encuentros/desertico_exp/serpiente_venenosa.png', 'ESP/encuentros/desertico_exp/tormenta_de_arena.png'
+            ],
+            villa_exp: [
+            'ESP/encuentros/villa_exp/aventurero_errante.png', 'ESP/encuentros/villa_exp/ejecucion.png', 'ESP/encuentros/villa_exp/festividad.png', 'ESP/encuentros/villa_exp/habitantes_desconfiados.png', 'ESP/encuentros/villa_exp/maldecir_forastero.png', 'ESP/encuentros/villa_exp/manos_obra.png'
+            ],
+            ciudad_exp: [
+            'ESP/encuentros/ciudad_exp/chivato.png', 'ESP/encuentros/ciudad_exp/habitantes_desconfiados.png', 'ESP/encuentros/ciudad_exp/hechicero_azul.png', 'ESP/encuentros/ciudad_exp/mercader_desconfiado.png', 'ESP/encuentros/ciudad_exp/noble.png', 'ESP/encuentros/ciudad_exp/picaros.png', 'ESP/encuentros/ciudad_exp/sacerdote_ayuda.png', 'ESP/encuentros/ciudad_exp/trilero.png'
+            ],
+            castillo_exp: [
+            'ESP/encuentros/castillo_exp/aprovisionados_o_envenenados.png', 'ESP/encuentros/castillo_exp/forzudo.png', 'ESP/encuentros/castillo_exp/mercenario_errante.png', 'ESP/encuentros/castillo_exp/soldados_alerta.png'
+            ],
+
+            // Recursos
+            recursos: [
+            'ESP/items/recursos/babosa_de_dragon_(27).jpg', 'ESP/items/recursos/babosa_de_dragon_(28).jpg', 'ESP/items/recursos/bayas_de_lynn.jpg', 'ESP/items/recursos/cardo_azul-de_anam.jpg', 'ESP/items/recursos/casa_de_hadas.jpg', 'ESP/items/recursos/centinela.jpg', 'ESP/items/recursos/coraza_roja_(4).jpg', 'ESP/items/recursos/coraza_roja_(5).jpg', 'ESP/items/recursos/corazon_de_huargo.jpg', 'ESP/items/recursos/cristal_rojo_(18).jpg', 'ESP/items/recursos/cristal_rojo_(19).jpg', 'ESP/items/recursos/duermevela.jpg', 'ESP/items/recursos/escarabajo_martillo_(29).jpg', 'ESP/items/recursos/escarabajo_martillo_(30).jpg', 'ESP/items/recursos/fantasma_rosa.jpg', 'ESP/items/recursos/hierro_blanco_(20).jpg', 'ESP/items/recursos/hierro_blanco_(21).jpg', 'ESP/items/recursos/hongo_soldado_(12).jpg', 'ESP/items/recursos/hongo_soldado_(13).jpg', 'ESP/items/recursos/lanta_de_camaleon.jpg', 'ESP/items/recursos/lengua_de_dragon.jpg', 'ESP/items/recursos/madera_de_nor.jpg', 'ESP/items/recursos/piedra_de_jade_nocturno_(22).jpg', 'ESP/items/recursos/piedra_de_jade_nocturno_(23).jpg', 'ESP/items/recursos/plata_estelar.jpg', 'ESP/items/recursos/punta_de_obsidiana_(16).jpg', 'ESP/items/recursos/punta_de_obsidiana_(17).jpg', 'ESP/items/recursos/sueño_azul.jpg'
+            ],
+        
         };
 
         var infoWindow = null;
 
         function populateImageDropdown(deck) {
             var dropdown = document.getElementById(`imageDropdown_${deck}`);
-
             dropdown.innerHTML = ""; // Clear existing options
-
+        
             // Add default option
             var defaultOption = document.createElement("option");
             defaultOption.disabled = true;
@@ -725,11 +789,25 @@
             defaultOption.hidden = true;
             defaultOption.text = "Seleccionar carta";
             dropdown.add(defaultOption);
+        
+            var deckImages = images[deck];
+            if (includeExpansion && images[`${deck}_exp`]) {
+                deckImages = deckImages.concat(images[`${deck}_exp`]);
+            }
+        
+            // Sort deckImages array alphabetically
+            deckImages.sort(function(a, b) {
+                var nameA = a.toLowerCase();
+                var nameB = b.toLowerCase();
+                if (nameA < nameB) return -1;
+                if (nameA > nameB) return 1;
+                return 0;
+            });
 
-            images[deck].forEach(function (image) {
+            deckImages.forEach(function (image) {
                 var option = document.createElement("option");
                 var imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
-                imageName = imageName.replace(/_/g, ' ');
+                imageName = imageName.replace(/_/g, ' ').replace(/\((\d+)\)/g, ' $1');
                 imageName = capitalizeFirstLetter(imageName);
                 option.text = imageName;
                 option.value = image;
@@ -924,6 +1002,25 @@
                 infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
             }
         }
+
+        var includeExpansion = true;
+
+        function toggleExpansion() {
+            var isChecked = document.getElementById("expansionCheckbox").checked;
+            localStorage.setItem("includeExpansion", isChecked);
+            includeExpansion = document.getElementById("expansionCheckbox").checked;
+        
+            // Refresh the dropdowns for the current deck if the items submenu is displayed
+            if (document.getElementById("itemsSubmenu").style.display === "block") {
+                // You will need a way to identify which deck is currently being viewed
+                // For example, if you have a global variable or a way to find the current deck
+                var currentDeck = getCurrentDeck(); // Replace with actual logic to get the current deck
+                if (currentDeck) {
+                    populateImageDropdown(currentDeck);
+                }
+            }
+        }
+        
 
         function openEnglishPage() {
             window.location.href = 'index_EN.html';

@@ -1,6 +1,6 @@
 import os
 
-# folder_path = "ESP/hechizos/"#"items/distancia_y_arrojadizas"
+# folder_path = "ESP/encuentros/castillo_exp"
 
 # file_paths = []
 
@@ -13,8 +13,8 @@ import os
 
 # print(file_paths)
 
-
-folder_path = "ESP/hechizos/"
+## To see all cards under each subfolder
+folder_path = "ESP\hechizos_exp"
 output_string = ""
 
 for folder_name in os.listdir(folder_path):

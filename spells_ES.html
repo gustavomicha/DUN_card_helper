@@ -161,6 +161,7 @@
     </div>
     
     <script>
+        var includeExpansion = localStorage.getItem("includeExpansion") === "true";
         var counters = [];
         var defaultImage = "ESP/hechizos/default.png";
         var aguaImages = ['ESP/hechizos/agua/193.jpg', 'ESP/hechizos/agua/194.jpg', 'ESP/hechizos/agua/195.jpg', 'ESP/hechizos/agua/196.jpg', 'ESP/hechizos/agua/197.jpg', 'ESP/hechizos/agua/198.jpg'];
@@ -179,44 +180,82 @@
         var runicaImages = ['ESP/hechizos/runica/270.jpg', 'ESP/hechizos/runica/271.jpg', 'ESP/hechizos/runica/272.jpg', 'ESP/hechizos/runica/273.jpg', 'ESP/hechizos/runica/274.jpg', 'ESP/hechizos/runica/275.jpg'];
         var tierraImages = ['ESP/hechizos/tierra/276.jpg', 'ESP/hechizos/tierra/277.jpg', 'ESP/hechizos/tierra/278.jpg', 'ESP/hechizos/tierra/279.jpg', 'ESP/hechizos/tierra/280.jpg', 'ESP/hechizos/tierra/288.jpg'];
         var tribalImages = ['ESP/hechizos/tribal/281.jpg', 'ESP/hechizos/tribal/282.jpg', 'ESP/hechizos/tribal/283.jpg', 'ESP/hechizos/tribal/284.jpg', 'ESP/hechizos/tribal/285.jpg', 'ESP/hechizos/tribal/286.jpg'];
+        
+        // Expansion
+        var favores_expImages = ['ESP/hechizos_exp/favores_exp/353.jpg', 'ESP/hechizos_exp/favores_exp/354.jpg', 'ESP/hechizos_exp/favores_exp/355.jpg', 'ESP/hechizos_exp/favores_exp/356.jpg', 'ESP/hechizos_exp/favores_exp/357.jpg', 'ESP/hechizos_exp/favores_exp/358.jpg', 'ESP/hechizos_exp/favores_exp/359.jpg', 'ESP/hechizos_exp/favores_exp/360.jpg', 'ESP/hechizos_exp/favores_exp/361.jpg', 'ESP/hechizos_exp/favores_exp/362.jpg'];
+        var mentalismo_expImages = ['ESP/hechizos_exp/mentalismo_exp/363.jpg', 'ESP/hechizos_exp/mentalismo_exp/364.jpg', 'ESP/hechizos_exp/mentalismo_exp/365.jpg', 'ESP/hechizos_exp/mentalismo_exp/366.jpg', 'ESP/hechizos_exp/mentalismo_exp/367.jpg', 'ESP/hechizos_exp/mentalismo_exp/368.jpg', 'ESP/hechizos_exp/mentalismo_exp/369.jpg', 'ESP/hechizos_exp/mentalismo_exp/370.jpg', 'ESP/hechizos_exp/mentalismo_exp/371.jpg', 'ESP/hechizos_exp/mentalismo_exp/372.jpg'];
+        var agua_expImages = ['ESP/hechizos_exp/agua_exp/297.jpg', 'ESP/hechizos_exp/agua_exp/298.jpg', 'ESP/hechizos_exp/agua_exp/299.jpg', 'ESP/hechizos_exp/agua_exp/300.jpg'];
+        var aire_expImages = ['ESP/hechizos_exp/aire_exp/293.jpg', 'ESP/hechizos_exp/aire_exp/294.jpg', 'ESP/hechizos_exp/aire_exp/295.jpg', 'ESP/hechizos_exp/aire_exp/296.jpg'];
+        var animismo_expImages = ['ESP/hechizos_exp/animismo_exp/349.jpg', 'ESP/hechizos_exp/animismo_exp/350.jpg', 'ESP/hechizos_exp/animismo_exp/351.jpg', 'ESP/hechizos_exp/animismo_exp/352.jpg'];
+        var bendiciones_expImages = ['ESP/hechizos_exp/bendiciones_exp/309.jpg', 'ESP/hechizos_exp/bendiciones_exp/310.jpg', 'ESP/hechizos_exp/bendiciones_exp/311.jpg', 'ESP/hechizos_exp/bendiciones_exp/312.jpg'];
+        var brujeria_expImages = ['ESP/hechizos_exp/brujeria_exp/325.jpg', 'ESP/hechizos_exp/brujeria_exp/326.jpg', 'ESP/hechizos_exp/brujeria_exp/327.jpg', 'ESP/hechizos_exp/brujeria_exp/328.jpg'];
+        var canalizacion_expImages = ['ESP/hechizos_exp/canalizacion_exp/341.jpg', 'ESP/hechizos_exp/canalizacion_exp/342.jpg', 'ESP/hechizos_exp/canalizacion_exp/343.jpg', 'ESP/hechizos_exp/canalizacion_exp/344.jpg'];
+        var control_expImages = ['ESP/hechizos_exp/control_exp/345.jpg', 'ESP/hechizos_exp/control_exp/346.jpg', 'ESP/hechizos_exp/control_exp/347.jpg', 'ESP/hechizos_exp/control_exp/348.jpg'];
+        var corrupcion_expImages = ['ESP/hechizos_exp/corrupcion_exp/333.jpg', 'ESP/hechizos_exp/corrupcion_exp/334.jpg', 'ESP/hechizos_exp/corrupcion_exp/335.jpg', 'ESP/hechizos_exp/corrupcion_exp/336.jpg'];
+        var fuego_expImages = ['ESP/hechizos_exp/fuego_exp/289.jpg', 'ESP/hechizos_exp/fuego_exp/290.jpg', 'ESP/hechizos_exp/fuego_exp/291.jpg', 'ESP/hechizos_exp/fuego_exp/292.jpg'];
+        var inframundo_expImages = ['ESP/hechizos_exp/inframundo_exp/329.jpg', 'ESP/hechizos_exp/inframundo_exp/330.jpg', 'ESP/hechizos_exp/inframundo_exp/331.jpg', 'ESP/hechizos_exp/inframundo_exp/332.jpg'];
+        var interpretacion_expImages = ['ESP/hechizos_exp/interpretacion_exp/313.jpg', 'ESP/hechizos_exp/interpretacion_exp/314.jpg', 'ESP/hechizos_exp/interpretacion_exp/315.jpg', 'ESP/hechizos_exp/interpretacion_exp/316.jpg'];
+        var luz_expImages = ['ESP/hechizos_exp/luz_exp/317.jpg', 'ESP/hechizos_exp/luz_exp/318.jpg', 'ESP/hechizos_exp/luz_exp/319.jpg', 'ESP/hechizos_exp/luz_exp/320.jpg'];
+        var nigromancia_expImages = ['ESP/hechizos_exp/nigromancia_exp/321.jpg', 'ESP/hechizos_exp/nigromancia_exp/322.jpg', 'ESP/hechizos_exp/nigromancia_exp/323.jpg', 'ESP/hechizos_exp/nigromancia_exp/324.jpg'];
+        var runica_expImages = ['ESP/hechizos_exp/runica_exp/305.jpg', 'ESP/hechizos_exp/runica_exp/306.jpg', 'ESP/hechizos_exp/runica_exp/307.jpg', 'ESP/hechizos_exp/runica_exp/308.jpg'];
+        var tierra_expImages = ['ESP/hechizos_exp/tierra_exp/301.jpg', 'ESP/hechizos_exp/tierra_exp/302.jpg', 'ESP/hechizos_exp/tierra_exp/303.jpg', 'ESP/hechizos_exp/tierra_exp/304.jpg'];
+        var tribal_expImages = ['ESP/hechizos_exp/tribal_exp/337.jpg', 'ESP/hechizos_exp/tribal_exp/338.jpg', 'ESP/hechizos_exp/tribal_exp/339.jpg', 'ESP/hechizos_exp/tribal_exp/340.jpg'];
+                
         function changeImage() {
             var select = document.getElementById("saberSelect");
             var selectedOption = select.value;
-    
+            var imageArray = [];
+            
             if (selectedOption === "default") {
                 showDefaultImages();
             } else if (selectedOption === "agua") {
-                showImages(aguaImages);
+                imageArray = includeExpansion ? aguaImages.concat(agua_expImages) : aguaImages;
+                showImages(imageArray);
             } else if (selectedOption === "aire") {
-                showImages(aireImages);
+                imageArray = includeExpansion ? aireImages.concat(aire_expImages) : aireImages;
+                showImages(imageArray);
             } else if (selectedOption === "animismo") {
-                showImages(animismoImages);
+                imageArray = includeExpansion ? animismoImages.concat(animismo_expImages) : animismoImages;
+                showImages(imageArray);
             } else if (selectedOption === "bendiciones") {
-                showImages(bendicionesImages);
+                imageArray = includeExpansion ? bendicionesImages.concat(bendiciones_expImages) : bendicionesImages;
+                showImages(imageArray);
             } else if (selectedOption === "brujeria") {
-                showImages(brujeriaImages);
+                imageArray = includeExpansion ? brujeriaImages.concat(brujeria_expImages) : brujeriaImages;
+                showImages(imageArray);
             } else if (selectedOption === "canalizacion") {
-                showImages(canalizacionImages);
+                imageArray = includeExpansion ? canalizacionImages.concat(canalizacion_expImages) : canalizacionImages;
+                showImages(imageArray);
             } else if (selectedOption === "control") {
-                showImages(controlImages);
+                imageArray = includeExpansion ? controlImages.concat(control_expImages) : controlImages;
+                showImages(imageArray);
             } else if (selectedOption === "corrupcion") {
-                showImages(corrupcionImages);
+                imageArray = includeExpansion ? corrupcionImages.concat(corrupcion_expImages) : corrupcionImages;
+                showImages(imageArray);
             } else if (selectedOption === "fuego") {
-                showImages(fuegoImages);
+                imageArray = includeExpansion ? fuegoImages.concat(fuego_expImages) : fuegoImages;
+                showImages(imageArray);
             } else if (selectedOption === "inframundo") {
-                showImages(inframundoImages);
+                imageArray = includeExpansion ? inframundoImages.concat(inframundo_expImages) : inframundoImages;
+                showImages(imageArray);
             } else if (selectedOption === "interpretacion") {
-                showImages(interpretacionImages);
+                imageArray = includeExpansion ? interpretacionImages.concat(interpretacion_expImages) : interpretacionImages;
+                showImages(imageArray);
             } else if (selectedOption === "luz") {
-                showImages(luzImages);
+                imageArray = includeExpansion ? luzImages.concat(luz_expImages) : luzImages;
+                showImages(imageArray);
             } else if (selectedOption === "nigomancia") {
-                showImages(nigromanciaImages);
+                imageArray = includeExpansion ? nigromanciaImages.concat(nigromancia_expImages) : nigromanciaImages;
+                showImages(imageArray);
             } else if (selectedOption === "runica") {
-                showImages(runicaImages);
+                imageArray = includeExpansion ? runicaImages.concat(runica_expImages) : runicaImages;
+                showImages(imageArray);
             } else if (selectedOption === "tierra") {
-                showImages(tierraImages);
+                imageArray = includeExpansion ? tierraImages.concat(tierra_expImages) : tierraImages;
+                showImages(imageArray);
             } else if (selectedOption === "tribal") {
-                showImages(tribalImages);
+                imageArray = includeExpansion ? tribalImages.concat(tribal_expImages) : tribalImages;
+                showImages(imageArray);
             }
         }
     
