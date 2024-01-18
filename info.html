@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Info Window</title>
+    <title>Info Window - DUN Helper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @font-face {
+            font-family: 'Macondo';
+            src: url('misc/Macondo-Regular.ttf') format('truetype');
+            }
+
         body {
-            background-color: #000000;
-            color: #d8d8d8;
-            font-family: "Arial", sans-serif;
+            background-color: #333;
+            color: #f0f0f0;
+            font-family: "Macondo", sans-serif;
             margin: 0;
             padding: 20px;
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
-            font-size: 32px;
-            margin-top: 20px;
+            font-size: 24px;
+            margin: 20px 0;
         }
 
         p {
-            font-size: 24px;
-            line-height: 1.5;
+            font-size: 16px;
+            line-height: 1.6;
             margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .section {
+            margin-bottom: 40px;
         }
     </style>
 </head>
 <body>
-    <h1>(ESP) DUN Helper Info</h1>
-    <p>Fanmade app para el fácil acceso de cartas de DUN</p>
-    <p>Los ítems repetidos muestran su numeración en el nombre (ej "Maza (51)") y no en la imagen (repetida para todos).
-        Esta numeración sirve para evitar tomar una carta ya en juego al elegir al azar.</p>
-    <p>Dudas, comentarios o bugs, contactar a: gustavomicha@gmail.com (o por telegram a Relhit)</p>
-    <p>App de uso no comercial, todos los derechos pertenecen a Ludic Dragon, etc.</p>
+    <div class="section">
+        <h1>DUN Helper Info (ESP)</h1>
+        <p>Aplicación fanmade para un acceso fácil a las cartas de DUN.</p>
+        <p>Los ítems repetidos muestran su numeración en el nombre, por ejemplo "Maza (51)", y no en la imagen (que es la misma para todos iguales). Esta numeración ayuda a evitar seleccionar una carta ya en juego al escoger aleatoriamente.</p>
+        <p>El contenido de "New Challenges" está incluido por defecto. Para excluirlo, desmarca la casilla correspondiente. Puede ser necesario realizar esta acción más de una vez para que la página refleje los cambios.</p>
+        <p>Para dudas, comentarios o reporte de bugs, contactar a: gustavomicha@gmail.com, o por Telegram a @relhit.</p>
+        <p>Aplicación de uso no comercial. Todos los derechos pertenecen a Ludic Dragon, etc.</p>
+    </div>
 
-    <h1>(ENG) DUN Helper Info</h1>
-    <p>Fanmade app for easy access to DUN cards</p>
-    <p>Repeated items show their numbering in the name (e.g. "Mace (51)") and not in the image (repeated for all).
-        This numbering is to avoid taking a card already in play when choosing at random.
-    </p>
-    <p>Doubts, comments or bugs, contact: gustavomicha@gmail.com (or by telegram to Relhit)</p>
-    <p>App for non-commercial use, all rights belong to Ludic Dragon, etc.</p>
-
-
-
-
-
-
-
+    <div class="section">
+        <h1>DUN Helper Info (ENG)</h1>
+        <p>Fanmade app for easy access to DUN cards.</p>
+        <p>Repeated items display their numbering in the name, e.g., "Mace (51)", rather than in the image (which is repeated for all same items). This numbering helps to prevent selecting a card already in play when choosing randomly.</p>
+        <p>The "New Challenges" content is included by default. To exclude it, uncheck the corresponding box. You may need to do this more than once for the page to reflect the changes.</p>
+        <p>For doubts, comments, or bug reporting, contact: gustavomicha@gmail.com, or by Telegram to @relhit.</p>
+        <p>App for non-commercial use only. All rights belong to Ludic Dragon, etc.</p>
+    </div>
 </body>
 </html>

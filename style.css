@@ -1,0 +1,189 @@
+
+@font-face {
+    font-family: 'Macondo';
+    src: url('misc/Macondo-Regular.ttf') format('truetype');
+    }
+
+body {
+    background-color: #000000;
+    color: #d8d8d8;
+    font-family: "Macondo", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #999999;
+    }
+    
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.imageContainer img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    border-radius: 10px;
+    background-color: #7c1818;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    cursor: pointer;
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 50%;
+    max-width: 400px;
+}
+
+select {
+    padding: 20px;
+    border-radius: 10px;
+    font-family: "Macondo", sans-serif;
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#mainMenu {
+    display: block;
+    background-image: url("misc/wallpaper_app.jpg");
+    background-position: center;
+    background-size: 50% auto;
+    background-repeat: no-repeat;
+}
+
+#encuentrosSubmenu {
+    display: none;
+    background-image: url("misc/back_events.png");
+    background-position: center;
+    background-size: 80% auto;
+    opacity: 0.8;
+    background-repeat: no-repeat; 
+}
+
+#mobiliarioSubmenu {
+    display: none;
+    background-image: url("misc/back_furniture.jpg");
+    background-position: center;
+    background-size: 80% auto;
+    opacity: 0.8;
+    background-repeat: no-repeat; 
+}
+
+#itemsSubmenu {
+    display: none;
+    background-image: url("misc/back_items.jpg");
+    background-position: center;
+    background-size: 80% auto;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+}
+
+.deckPage {
+    display: none;
+}
+
+#mainMenu button {
+    background-color: #7c1818;
+    width: 50%;
+    max-width: 300px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+#infoButton {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    background-color: #4a4949;
+    color: white;
+    padding: 10px 20px;
+    font-size: 26px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    max-width: none;
+    border-radius: 50%;
+}
+
+#expansionToggle {
+    color: white;
+    font-family: "Macondo", "Arial", sans-serif;
+    font-size: 30px;
+}
+
+#languageButton {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    background-color: #1e1c77;
+    color: white;
+    padding: 10px 10px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    max-width: none;
+}
+
+h1, button, option {
+    font-family: "Macondo", "Arial", sans-serif; /* Added "Macondo" font */
+}
+
+@media (min-width: 601px) {
+    /* Media query for desktop screens */
+    .imageContainer img {
+        max-width: 25%; /* Reduce the size to 50% */
+    }
+}
+
+@media (max-width: 600px){
+    button {
+        width: 100%;
+    }
+
+    #itemsSubmenu {
+        background-size: 500px auto;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+    #mobiliarioSubmenu{
+        background-size: 500px auto;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+    #encuentrosSubmenu{
+        background-size: 400px auto;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+    #mainMenu {
+        background-size: 80% auto;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+}
