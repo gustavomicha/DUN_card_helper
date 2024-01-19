@@ -1,92 +1,72 @@
 var counters = [];
-var defaultImage = 'assets/images/ENG/spells/default.png';
-var airImages = [
-'assets/images/ENG/spells/air/air_elemental.png', 'assets/images/ENG/spells/air/burst_of_speed.png', 'assets/images/ENG/spells/air/immobilize.png', 'assets/images/ENG/spells/air/knock_down.png', 'assets/images/ENG/spells/air/lightning_bolt.png', 'assets/images/ENG/spells/air/shield_of_wind.png'
-];
-var animismImages = [
-'assets/images/ENG/spells/animism/amber_statue.png', 'assets/images/ENG/spells/animism/breathe_life.png', 'assets/images/ENG/spells/animism/curse.png', 'assets/images/ENG/spells/animism/reveal_environment.png', 'assets/images/ENG/spells/animism/smell_enemies.png', 'assets/images/ENG/spells/animism/tough_skin.png'
-];
-var blessingsImages = [
-'assets/images/ENG/spells/blessings/call_of_the_fenix.png', 'assets/images/ENG/spells/blessings/defender_of_truth.png', 'assets/images/ENG/spells/blessings/hammer_of_justice.png', 'assets/images/ENG/spells/blessings/healing_hands.png', 'assets/images/ENG/spells/blessings/heart_of_the_tiger.png', 'assets/images/ENG/spells/blessings/scourge_of_evil.png'
-];
-var channellingImages = [
-'assets/images/ENG/spells/channelling/boiling_blood.png', 'assets/images/ENG/spells/channelling/detecting_evil.png', 'assets/images/ENG/spells/channelling/dexterity_enhancement.png', 'assets/images/ENG/spells/channelling/heal.png', 'assets/images/ENG/spells/channelling/immunity.png', 'assets/images/ENG/spells/channelling/placate_tempers.png'
-];
-var corruptionImages = [
-'assets/images/ENG/spells/corruption/damage_mind.png', 'assets/images/ENG/spells/corruption/entrail_blast.png', 'assets/images/ENG/spells/corruption/great_tumors.png', 'assets/images/ENG/spells/corruption/inner_fire.png', 'assets/images/ENG/spells/corruption/marshy_ground.png', 'assets/images/ENG/spells/corruption/vile_vomit.png'
-];
-var earthImages = [
-'assets/images/ENG/spells/earth/rain_of_stones.png', 'assets/images/ENG/spells/earth/restoring_earth.png', 'assets/images/ENG/spells/earth/stone_skin.png', 'assets/images/ENG/spells/earth/summon_elemental.png', 'assets/images/ENG/spells/earth/walkthrough.png', 'assets/images/ENG/spells/earth/wall_of_stone.png'
- ];
-var fireImages = [
-'assets/images/ENG/spells/fire/burning_fist.png', 'assets/images/ENG/spells/fire/fireball.png', 'assets/images/ENG/spells/fire/fire_elemental.png', 'assets/images/ENG/spells/fire/fire_wall.png', 'assets/images/ENG/spells/fire/flaming_weapon.png', 'assets/images/ENG/spells/fire/shin_of_fire.png']
-;
-var lightImages = [
-'assets/images/ENG/spells/light/blast_of_light.png', 'assets/images/ENG/spells/light/clairvoyance.png', 'assets/images/ENG/spells/light/flashing_weapons.png', 'assets/images/ENG/spells/light/healing_light.png', 'assets/images/ENG/spells/light/holy_light.png', 'assets/images/ENG/spells/light/sheltering_light.png'
-];
-var musicImages = [
-'assets/images/ENG/spells/music/charmer.png', 'assets/images/ENG/spells/music/deep_silence.png', 'assets/images/ENG/spells/music/distraction.png', 'assets/images/ENG/spells/music/illusionism.png', 'assets/images/ENG/spells/music/invigorating_tune.png', 'assets/images/ENG/spells/music/lacerating_melody.png'
-];
-var natureImages = [
-'assets/images/ENG/spells/nature/beast_skin.png', 'assets/images/ENG/spells/nature/cloak_of_leaves.png', 'assets/images/ENG/spells/nature/furious_birds.png', 'assets/images/ENG/spells/nature/hunting_spear.png', 'assets/images/ENG/spells/nature/lord_of_the_beasts.png', 'assets/images/ENG/spells/nature/veil_of_thorns.png'
-];
-var necromancyImages = [
-'assets/images/ENG/spells/necromancy/deadly_gaze.png', 'assets/images/ENG/spells/necromancy/fearsome.png', 'assets/images/ENG/spells/necromancy/fireball_blue.png', 'assets/images/ENG/spells/necromancy/leech_life.png', 'assets/images/ENG/spells/necromancy/raise_the_dead.png', 'assets/images/ENG/spells/necromancy/strength_of_the_dead.png'
-];
-var runicImages = [
-'assets/images/ENG/spells/runic/accurate_attack.png', 'assets/images/ENG/spells/runic/earthquake.png', 'assets/images/ENG/spells/runic/lightning.png', 'assets/images/ENG/spells/runic/restore_wounds.png', 'assets/images/ENG/spells/runic/rune_of_strength.png', 'assets/images/ENG/spells/runic/rune_of_toughness.png'
-];
-var tribalImages = [
-'assets/images/ENG/spells/tribal/arrows_what_arrows.png', 'assets/images/ENG/spells/tribal/brain_damage.png', 'assets/images/ENG/spells/tribal/frenzy.png', 'assets/images/ENG/spells/tribal/god_crush_them.png', 'assets/images/ENG/spells/tribal/green_flame.png', 'assets/images/ENG/spells/tribal/war_dance.png'
-];
-var underworldImages = [
-'assets/images/ENG/spells/underworld/demonic_seduction.png', 'assets/images/ENG/spells/underworld/favour_of_the_gods.png', 'assets/images/ENG/spells/underworld/fire_of_chaos.png', 'assets/images/ENG/spells/underworld/infernal_possission.png', 'assets/images/ENG/spells/underworld/regeneration.png', 'assets/images/ENG/spells/underworld/whip_of_evil.png'
-];
-var waterImages = [
-'assets/images/ENG/spells/water/crushing_wave.png', 'assets/images/ENG/spells/water/ice_arrows.png', 'assets/images/ENG/spells/water/ice_wall.png', 'assets/images/ENG/spells/water/treacherous_waters.png', 'assets/images/ENG/spells/water/water_elemental.png', 'assets/images/ENG/spells/water/water_of_life.png'
-];
-var witchcraftImages = [
-'assets/images/ENG/spells/witchcraft/black_wings.png', 'assets/images/ENG/spells/witchcraft/dark_arrow.png', 'assets/images/ENG/spells/witchcraft/mind_control.png', 'assets/images/ENG/spells/witchcraft/poisonous_fumes.png', 'assets/images/ENG/spells/witchcraft/suffocation.png', 'assets/images/ENG/spells/witchcraft/summon_vermin.png'
-];
+var base_path_spell = "../../assets/images/ENG/spells/";
+var defaultImage = base_path_spell + '/default.png';
+
+var spellImages = {
+    air: [
+    'air/air_elemental.png', 'air/burst_of_speed.png', 'air/immobilize.png', 'air/knock_down.png', 'air/lightning_bolt.png', 'air/shield_of_wind.png'
+    ],
+    animism: [
+    'animism/amber_statue.png', 'animism/breathe_life.png', 'animism/curse.png', 'animism/reveal_environment.png', 'animism/smell_enemies.png', 'animism/tough_skin.png'
+    ],
+    blessings: [
+    'blessings/call_of_the_fenix.png', 'blessings/defender_of_truth.png', 'blessings/hammer_of_justice.png', 'blessings/healing_hands.png', 'blessings/heart_of_the_tiger.png', 'blessings/scourge_of_evil.png'
+    ],
+    channelling: [
+    'channelling/boiling_blood.png', 'channelling/detecting_evil.png', 'channelling/dexterity_enhancement.png', 'channelling/heal.png', 'channelling/immunity.png', 'channelling/placate_tempers.png'
+    ],
+    corruption: [
+    'corruption/damage_mind.png', 'corruption/entrail_blast.png', 'corruption/great_tumors.png', 'corruption/inner_fire.png', 'corruption/marshy_ground.png', 'corruption/vile_vomit.png'
+    ],
+    earth: [
+    'earth/rain_of_stones.png', 'earth/restoring_earth.png', 'earth/stone_skin.png', 'earth/summon_elemental.png', 'earth/walkthrough.png', 'earth/wall_of_stone.png'
+     ],
+    fire: [
+    'fire/burning_fist.png', 'fire/fireball.png', 'fire/fire_elemental.png', 'fire/fire_wall.png', 'fire/flaming_weapon.png', 'fire/shin_of_fire.png']
+    ,
+    light: [
+    'light/blast_of_light.png', 'light/clairvoyance.png', 'light/flashing_weapons.png', 'light/healing_light.png', 'light/holy_light.png', 'light/sheltering_light.png'
+    ],
+    music: [
+    'music/charmer.png', 'music/deep_silence.png', 'music/distraction.png', 'music/illusionism.png', 'music/invigorating_tune.png', 'music/lacerating_melody.png'
+    ],
+    nature: [
+    'nature/beast_skin.png', 'nature/cloak_of_leaves.png', 'nature/furious_birds.png', 'nature/hunting_spear.png', 'nature/lord_of_the_beasts.png', 'nature/veil_of_thorns.png'
+    ],
+    necromancy: [
+    'necromancy/deadly_gaze.png', 'necromancy/fearsome.png', 'necromancy/fireball_blue.png', 'necromancy/leech_life.png', 'necromancy/raise_the_dead.png', 'necromancy/strength_of_the_dead.png'
+    ],
+    runic: [
+    'runic/accurate_attack.png', 'runic/earthquake.png', 'runic/lightning.png', 'runic/restore_wounds.png', 'runic/rune_of_strength.png', 'runic/rune_of_toughness.png'
+    ],
+    tribal: [
+    'tribal/arrows_what_arrows.png', 'tribal/brain_damage.png', 'tribal/frenzy.png', 'tribal/god_crush_them.png', 'tribal/green_flame.png', 'tribal/war_dance.png'
+    ],
+    underworld: [
+    'underworld/demonic_seduction.png', 'underworld/favour_of_the_gods.png', 'underworld/fire_of_chaos.png', 'underworld/infernal_possission.png', 'underworld/regeneration.png', 'underworld/whip_of_evil.png'
+    ],
+    water: [
+    'water/crushing_wave.png', 'water/ice_arrows.png', 'water/ice_wall.png', 'water/treacherous_waters.png', 'water/water_elemental.png', 'water/water_of_life.png'
+    ],
+    witchcraft: [
+    'witchcraft/black_wings.png', 'witchcraft/dark_arrow.png', 'witchcraft/mind_control.png', 'witchcraft/poisonous_fumes.png', 'witchcraft/suffocation.png', 'witchcraft/summon_vermin.png'
+    ],
+    };
+
+function prependBasePath(imageArray, basePath) {
+    return imageArray.map(image => basePath + image);
+}
 
 function changeImage() {
-    var select = document.getElementById('saberSelect');
+    var select = document.getElementById("saberSelect");
     var selectedOption = select.value;
+    var imageArray = [];
 
-    if (selectedOption === 'default') {
+    if (selectedOption === "default") {
         showDefaultImages();
-    } else if (selectedOption === 'air') {
-        showImages(airImages);
-    } else if (selectedOption === 'animism') {
-        showImages(animismImages);
-    } else if (selectedOption === 'blessings') {
-        showImages(blessingsImages);
-    } else if (selectedOption === 'channelling') {
-        showImages(channellingImages);
-    } else if (selectedOption === 'corruption') {
-        showImages(corruptionImages);
-    } else if (selectedOption === 'earth') {
-        showImages(earthImages);
-    } else if (selectedOption === 'fire') {
-        showImages(fireImages);
-    } else if (selectedOption === 'light') {
-        showImages(lightImages);
-    } else if (selectedOption === 'music') {
-        showImages(musicImages);
-    } else if (selectedOption === 'nature') {
-        showImages(natureImages);
-    } else if (selectedOption === 'necromancy') {
-        showImages(necromancyImages);
-    } else if (selectedOption === 'runic') {
-        showImages(runicImages);
-    } else if (selectedOption === 'tribal') {
-        showImages(tribalImages);
-    } else if (selectedOption === 'underworld') {
-        showImages(underworldImages);
-    } else if (selectedOption === 'water') {
-        showImages(waterImages);
-    } else if (selectedOption === 'witchcraft') {
-        showImages(witchcraftImages);
+    } else if (spellImages[selectedOption]) {
+        imageArray = prependBasePath(spellImages[selectedOption], base_path_spell);
+        showImages(imageArray);
     }
 }
 
@@ -117,7 +97,7 @@ function resetCounters() {
 }
 
 function goToMainMenu() {
-    window.parent.location.href = 'index_EN.html';
+    window.parent.location.href = '../../index_EN.html';
 }
 
 function showDefaultImages() {
