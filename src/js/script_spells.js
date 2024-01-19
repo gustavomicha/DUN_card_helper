@@ -55,17 +55,28 @@ function changeImage() {
 
     if (selectedOption === "default") {
         showDefaultImages();
-    } else if (spellImages[selectedOption]) {
-        imageArray = prependBasePath(spellImages[selectedOption], base_path_spell);
-        if (includeExpansion && spellExpImages[selectedOption]) {
-            imageArray = imageArray.concat(prependBasePath(spellExpImages[selectedOption], base_path_spell_exp));
+    } else {
+        // Handle base images
+        if (spellImages[selectedOption]) {
+            imageArray = prependBasePath(spellImages[selectedOption], base_path_spell);
         }
-        showImages(imageArray);
-    } else if (spellExpImages[selectedOption]) {
-        imageArray = prependBasePath(spellExpImages[selectedOption], base_path_spell_exp);
-        showImages(imageArray);
+
+        // Concatenate expansion images if needed
+        if (includeExpansion && spellExpImages[selectedOption + "_exp"]) {
+            imageArray = imageArray.concat(prependBasePath(spellExpImages[selectedOption + "_exp"], base_path_spell_exp));
+        }
+
+        // If there are images to show, call showImages
+        if (imageArray.length > 0) {
+            showImages(imageArray);
+        } else {
+            // Handle the case where no images are found
+            console.error("No images found for the selected option.");
+            showDefaultImages();
+        }
     }
 }
+
 
 
 function updateCounter(value, index) {
