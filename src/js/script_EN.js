@@ -25,21 +25,21 @@ function populateImageDropdown(deck) {
 function clearDropdownAndImageEvents(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
-    var selectedImageSrc = "../../assets/images/ENG/events/" + deck + "/back.png";
+    var selectedImageSrc = "assets/images/ENG/events/" + deck + "/back.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 
 function clearDropdownAndImageFurniture(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
-    var selectedImageSrc = "../../assets/images/ENG/furniture/" + deck + "/back.png";
+    var selectedImageSrc = "assets/images/ENG/furniture/" + deck + "/back.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 
 function clearDropdownAndImageItems(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
-    var selectedImageSrc = "../../assets/images/ENG/items/" + deck + "/back.png";
+    var selectedImageSrc = "assets/images/ENG/items/" + deck + "/back.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 

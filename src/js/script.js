@@ -161,7 +161,7 @@ function showEncuentrosDeckPage(deck) {
     var deckPageId = `deckPage_${deck}`;
     document.getElementById(deckPageId).style.display = "block";
 
-    var selectedImageSrc = "/assets/images/ESP/encuentros/" + deck + "/dorso.png";
+    var selectedImageSrc = "assets/images/ESP/encuentros/" + deck + "/dorso.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
     clearDropdownAndImageEncuentros(deck);
@@ -178,7 +178,7 @@ function showMobiliarioDeckPage(deck) {
     var deckPageId = `deckPage_${deck}`;
     document.getElementById(deckPageId).style.display = "block";
 
-    var selectedImageSrc = "/assets/images/ESP/mobiliario/" + deck + "/dorso.png";
+    var selectedImageSrc = "assets/images/ESP/mobiliario/" + deck + "/dorso.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
     clearDropdownAndImageMobiliario(deck);
@@ -195,7 +195,7 @@ function showItemsDeckPage(deck) {
     var deckPageId = `deckPage_${deck}`;
     document.getElementById(deckPageId).style.display = "block";
 
-    var selectedImageSrc = "/assets/images/ESP/items/" + deck + "/dorso.png";
+    var selectedImageSrc = "assets/images/ESP/items/" + deck + "/dorso.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
     clearDropdownAndImageItems(deck);
