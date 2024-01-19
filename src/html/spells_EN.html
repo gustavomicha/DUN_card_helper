@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spells</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/src/css/style_spells.css">
+    <script src="/src/js/script_spells_EN.js" defer></script>
+</head>
+<body>
+    <h1>Spells</h1>
+
+    <div id="mainContainer">
+        <select id="saberSelect" onchange="changeImage()">
+            <option value="default" disabled hidden selected>Select School</option>
+            <option value="air">Air</option>
+            <option value="animism">Animism</option>
+            <option value="blessings">Blessings</option>
+            <option value="channelling">Channelling</option>
+            <option value="corruption">Corruption</option>
+            <option value="earth">Earth</option>
+            <option value="fire">Fire</option>
+            <option value="light">Light</option>
+            <option value="music">Music</option>
+            <option value="nature">Nature</option>
+            <option value="necromancy">Necromancy</option>
+            <option value="runic">Runic</option>
+            <option value="tribal">Tribal</option>
+            <option value="underworld">Underworld</option>
+            <option value="water">Water</option>
+            <option value="witchcraft">Witchcraft</option>
+        </select>
+
+        <div id="imageContainer">
+            <div class="scrollable" id="scrollableContainer"></div>
+        </div>
+
+        <button onclick="goToMainMenu()" class="menu-button">Back to Main Menu</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DUN Helper (ENG)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/src/css/style.css">
+    <script src="/src/js/card_names.js"></script>
+    <script src="/src/js/script_EN.js" defer></script>
+    <!-- analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MKVYWHQ7J9');
+    </script>
+</head>
+<body>
+    <div class="center" id="mainMenu">
+        <h1>DUN Helper</h1><span class="subtitle">v1.0 (fanmade)</span>
+        <button onclick="showItemsSubMenu()">Items</button>
+        <!-- <button onclick="showCompanionsSubMenu()">Companions (TBD)</button> -->
+        <button onclick="showEventsSubMenu()">Events</button>
+        <button onclick="showFurnitureSubMenu()">Furniture</button>
+        <button onclick="openSpellsPage()">Spells</button>
+
+    </div>
+
+    <div class="center" id="eventsSubmenu">
+        <h1>Events</h1>
+        <select id="eventsMenuSelect" onchange="showEventsDeckPage(this.value)">
+            <option disabled selected hidden>Select Event</option>
+            <option value="places_and_services">Places and Services</option>
+            <option value="danger_campaign">Danger in Campaign</option>
+            <option value="castle">Settlement: Castle</option>
+            <option value="city">Settlement: City</option>
+            <option value="village">Settlement: Village</option>
+            <option value="desert">Terrain: Desert</option>
+            <option value="forest">Terrain: Forest</option>
+            <option value="glacier">Terrain: Glacier</option>
+            <option value="mountain">Terrain: Mountain</option>
+            <option value="plains">Terrain: Plains</option>
+            <option value="river">Terrain: River</option>
+            <option value="road">Terrain: Road</option>
+            <option value="sea">Terrain: Sea</option>
+            <option value="swamp">Terrain: Swamp</option>
+            <option value="volcanic">Terrain: Volcanic</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div class="center" id="furnitureSubmenu">
+        <h1>Furniture</h1>
+        <select id="furnitureMenuSelect" onchange="showFurnitureDeckPage(this.value)">
+            <option disabled selected hidden>Select Furniture</option>
+            <option value="common_furniture">Common Furniture</option>
+            <option value="special_elements">Special Elements</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div class="center" id="itemsSubmenu">
+        <h1>Items</h1>
+        <select id="itemsMenuSelect" onchange="showItemsDeckPage(this.value)">
+            <option disabled selected hidden>Select Item</option>
+            <option value="armor">Armor</option>
+            <option value="melee">Melee</option>
+            <option value="range">Range</option>
+            <option value="shields">Shields</option>
+            <option value="common_objects">Common Objects</option>
+            <option value="special_objects">Special Objects</option>
+            <option value="magic_objects">Magic Objects</option>
+            <option value="relics">Relics</option>
+            <option value="treasure">Treasure</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div id="loadingGifContainer" style="display: none; width: 300px; height: 300px; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);">
+        <img src="/assets/misc/loading.gif" alt="Loading..." style="width: 100%; height: 100%;">
+    </div>
+
+    <!-- DECKS ENCOUNTERS  -->
+    <div id="deckPage_places_and_services" class="deckPage">
+        <h1>Places and Services</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_places_and_services" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('places_and_services')">Random card</button>
+        <select id="imageDropdown_places_and_services" onchange="changeSelectedImage('places_and_services')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_danger_campaign" class="deckPage">
+        <h1>Places and Services</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_danger_campaign" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('danger_campaign')">Random card</button>
+        <select id="imageDropdown_danger_campaign" onchange="changeSelectedImage('danger_campaign')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_castle" class="deckPage">
+        <h1>Settlement: Castle</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_castle" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('castle')">Random card</button>
+        <select id="imageDropdown_castle" onchange="changeSelectedImage('castle')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_city" class="deckPage">
+        <h1>Settlement: City</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_city" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('city')">Random card</button>
+        <select id="imageDropdown_city" onchange="changeSelectedImage('city')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_village" class="deckPage">
+        <h1>Settlement: Village</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_village" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('village')">Random card</button>
+        <select id="imageDropdown_village" onchange="changeSelectedImage('village')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+
+    <div id="deckPage_desert" class="deckPage">
+        <h1>Event: Desert</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_desert" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('desert')">Random card</button>
+        <select id="imageDropdown_desert" onchange="changeSelectedImage('desert')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_forest" class="deckPage">
+        <h1>Event: Forest</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_forest" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('forest')">Random card</button>
+        <select id="imageDropdown_forest" onchange="changeSelectedImage('forest')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_glacier" class="deckPage">
+        <h1>Event: Glacier</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_glacier" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('glacier')">Random card</button>
+        <select id="imageDropdown_glacier" onchange="changeSelectedImage('glacier')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_mountain" class="deckPage">
+        <h1>Event: Mountain</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_mountain" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('mountain')">Random card</button>
+        <select id="imageDropdown_mountain" onchange="changeSelectedImage('mountain')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_plains" class="deckPage">
+        <h1>Event: Plains</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_plains" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('plains')">Random card</button>
+        <select id="imageDropdown_plains" onchange="changeSelectedImage('plains')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_river" class="deckPage">
+        <h1>Event: River</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_river" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('river')">Random card</button>
+        <select id="imageDropdown_river" onchange="changeSelectedImage('river')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_road" class="deckPage">
+        <h1>Event: Road</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_road" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('road')">Random card</button>
+        <select id="imageDropdown_road" onchange="changeSelectedImage('road')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_sea" class="deckPage">
+        <h1>Event: Sea</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_sea" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('sea')">Random card</button>
+        <select id="imageDropdown_sea" onchange="changeSelectedImage('sea')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_swamp" class="deckPage">
+        <h1>Event: Swamp</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_swamp" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('swamp')">Random card</button>
+        <select id="imageDropdown_swamp" onchange="changeSelectedImage('swamp')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <div id="deckPage_volcanic" class="deckPage">
+        <h1>Event: Volcanic</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_volcanic" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('volcanic')">Random card</button>
+        <select id="imageDropdown_volcanic" onchange="changeSelectedImage('volcanic')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showEventsSubMenu()" style="background-color: #4a4949;">Back to Events</button>
+    </div>
+    
+    <!-- DECKS FURNITURE  -->
+    <div id="deckPage_common_furniture" class="deckPage">
+        <h1>Common Furniture</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_common_furniture" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('common_furniture')">Random card</button>
+        <select id="imageDropdown_common_furniture" onchange="changeSelectedImage('common_furniture')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showFurnitureSubMenu()" style="background-color: #4a4949;">Back to Furniture</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div id="deckPage_special_elements" class="deckPage">
+        <h1>Special Elements</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_special_elements" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('special_elements')">Random card</button>
+        <select id="imageDropdown_special_elements" onchange="changeSelectedImage('special_elements')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showFurnitureSubMenu()" style="background-color: #4a4949;">Back to Furniture</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+    
+    <!-- DECKS ITEMS  -->
+    <div id="deckPage_armor" class="deckPage">
+        <h1>Armor</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_armor" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('armor')">Random card</button>
+        <select id="imageDropdown_armor" onchange="changeSelectedImage('armor')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_melee" class="deckPage">
+        <h1>Melee</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_melee" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('melee')">Random card</button>
+        <select id="imageDropdown_melee" onchange="changeSelectedImage('melee')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_range" class="deckPage">
+        <h1>Range</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_range" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('range')">Random card</button>
+        <select id="imageDropdown_range" onchange="changeSelectedImage('range')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_shields" class="deckPage">
+        <h1>Shields</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_shields" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('shields')">Random card</button>
+        <select id="imageDropdown_shields" onchange="changeSelectedImage('shields')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_common_objects" class="deckPage">
+        <h1>Common Objects</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_common_objects" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('common_objects')">Random card</button>
+        <select id="imageDropdown_common_objects" onchange="changeSelectedImage('common_objects')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_special_objects" class="deckPage">
+        <h1>Special Objects</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_special_objects" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('special_objects')">Random card</button>
+        <select id="imageDropdown_special_objects" onchange="changeSelectedImage('special_objects')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_magic_objects" class="deckPage">
+        <h1>Magic Objects</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_magic_objects" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('magic_objects')">Random card</button>
+        <select id="imageDropdown_magic_objects" onchange="changeSelectedImage('magic_objects')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_relics" class="deckPage">
+        <h1>Relics</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_relics" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('relics')">Random card</button>
+        <select id="imageDropdown_relics" onchange="changeSelectedImage('relics')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="deckPage_treasure" class="deckPage">
+        <h1>Traesure</h1>
+        <div class="imageContainer">
+            <img id="selectedImage_treasure" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('treasure')">Random card</button>
+        <select id="imageDropdown_treasure" onchange="changeSelectedImage('treasure')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Back to Items</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>    </div>
+
+    <div id="spellsPage" class="center" style="display: none;">
+        <iframe id="spellsFrame" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+
+
+    <button id="languageButton" onclick="openSpanishPage()" style="background: none; border: none; padding: 0;">
+        <img src="/assets/misc/ENG.png" alt="English Flag" style="width: 40px; height: 40px;">
+        <p style="color: white; margin-top: 5px; font-size: 12px; text-align: center; width: 40px;">Cambiar<br>a ESP</p>
+    </button>
+
+
+    <button id="infoButton" onclick="openInfoWindow()">?</button>
+
+</body>
+</html>
+
+

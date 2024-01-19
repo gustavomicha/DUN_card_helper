@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hechizos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/src/css/style_spells.css">
+    <script src="/src/js/script_spells.js" defer></script>
+</head>
+<body>
+    <h1>Hechizos</h1>
+
+    <div id="mainContainer">
+        <select id="saberSelect" onchange="changeImage()">
+            <option value="default" disabled hidden selected>Seleccionar Saber</option>
+            <option value="agua">Agua</option>
+            <option value="aire">Aire</option>
+            <option value="animismo">Animismo</option>
+            <option value="bendiciones">Bendiciones</option>
+            <option value="brujeria">Brujeria</option>
+            <option value="canalizacion">Canalización</option>
+            <option value="control">Control Animal y Vegetal</option>
+            <option value="corrupcion">Corrupción</option>
+            <option value="favores">Favores</option>
+            <option value="fuego">Fuego</option>
+            <option value="inframundo">Inframundo</option>
+            <option value="interpretacion">Interpretación</option>
+            <option value="luz">Luz</option>
+            <option value="mentalismo">Mentalismo</option>
+            <option value="nigomancia">Nigromancia</option>
+            <option value="runica">Rúnica</option>
+            <option value="tierra">Tierra</option>
+            <option value="tribal">Tribal</option>
+            
+
+        </select>
+
+        <div id="imageContainer">
+            <div class="scrollable" id="scrollableContainer"></div>
+        </div>
+
+        <button onclick="goToMainMenu()" class="menu-button">Volver al menú principal</button>
+    </div>
+    
+</body>
+</html>

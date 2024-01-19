@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Macondo';
+    src: url('/assets/misc/Macondo-Regular.ttf') format('truetype');
+}
+
+body {
+    background-color: #000000;
+    color: #d8d8d8;
+    font-family: "Macondo", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+#mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+#imageContainer {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollable {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#imageContainer img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.counter {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.counter button {
+    background-color: #131213;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.counter button.plus {
+    background-color: #888888;
+}
+.counter button.minus {
+    background-color: #444444;
+}
+
+.counter span {
+    background-color: #ce0aed;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+}
+
+select {
+    padding: 20px;
+    border-radius: 10px;
+    font-family: "Arial", sans-serif;
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.menu-button {
+    background-color: #4a4949;
+    border-radius: 10px;
+    color: white;
+    padding: 20px 40px;
+    cursor: pointer;
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+h1, button, select, option {
+    font-family: "Macondo", "Arial", sans-serif;
+}
+
+@media (max-width: 767px) {
+    .imageWrapper {
+        flex: 0 0 80%;
+    }
+
+    #imageContainer {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: scroll;
+    }
+}

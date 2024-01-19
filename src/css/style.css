@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'Macondo';
-    src: url('misc/Macondo-Regular.ttf') format('truetype');
+    src: url('/assets/misc/Macondo-Regular.ttf') format('truetype');
     }
 
 body {
@@ -63,15 +63,24 @@ select {
 
 #mainMenu {
     display: block;
-    background-image: url("misc/wallpaper_app.jpg");
+    background-image: url("/assets/misc/wallpaper_app.jpg");
     background-position: center;
     background-size: 50% auto;
     background-repeat: no-repeat;
 }
 
+#itemsSubmenu {
+    display: none;
+    background-image: url("/assets/misc/back_items.jpg");
+    background-position: center;
+    background-size: 80% auto;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+}
+
 #encuentrosSubmenu {
     display: none;
-    background-image: url("misc/back_events.png");
+    background-image: url("/assets/misc/back_events.png");
     background-position: center;
     background-size: 80% auto;
     opacity: 0.8;
@@ -80,20 +89,29 @@ select {
 
 #mobiliarioSubmenu {
     display: none;
-    background-image: url("misc/back_furniture.jpg");
+    background-image: url("/assets/misc/back_furniture.jpg");
     background-position: center;
     background-size: 80% auto;
     opacity: 0.8;
     background-repeat: no-repeat; 
 }
 
-#itemsSubmenu {
+#eventsSubmenu {
     display: none;
-    background-image: url("misc/back_items.jpg");
+    background-image: url("/assets/misc/back_events.png");
     background-position: center;
     background-size: 80% auto;
     opacity: 0.8;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
+}
+
+#furnitureSubmenu {
+    display: none;
+    background-image: url("/assets/misc/back_furniture.jpg");
+    background-position: center;
+    background-size: 80% auto;
+    opacity: 0.8;
+    background-repeat: no-repeat; 
 }
 
 .deckPage {
@@ -177,6 +195,16 @@ h1, button, option {
         background-attachment: fixed;
     }
     #encuentrosSubmenu{
+        background-size: 400px auto;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+    #furnitureSubmenu{
+        background-size: 500px auto;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+    #eventsSubmenu{
         background-size: 400px auto;
         background-position: center bottom;
         background-attachment: fixed;

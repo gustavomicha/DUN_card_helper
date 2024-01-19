@@ -6,7 +6,7 @@ import requests
 base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/equipo/"
 start_num = 328 #288
 end_num = 400#372
-destination_folder = "ESP/downloaded/items"
+destination_folder = "/assets/images/ESP/downloaded/items"
 
 # Create the destination folder if it does not exist
 if not os.path.exists(destination_folder):
