@@ -210,7 +210,7 @@ function openHechizosPage() {
     document.getElementById("languageButton").style.display = "none";
     document.getElementById('infoButton').style.display = 'none';
 
-    document.getElementById('hechizosFrame').src = 'spells_ES.html';
+    document.getElementById('hechizosFrame').src = 'src/html/spells_ES.html';
     document.getElementById('hechizosPage').style.display = 'block';
 }
 
@@ -224,7 +224,7 @@ function openInfoWindow() {
         infoWindow.focus(); // If open, focus on the existing window
     } else {
         // If not open, open a new window with the specified text
-        infoWindow = window.open('info.html', '_blank', 'width=400,height=200');
+        infoWindow = window.open('src/html/info.html', '_blank', 'width=400,height=200');
     }
 }
 
