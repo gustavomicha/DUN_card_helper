@@ -14,8 +14,8 @@ To access the website visit:
 - **Expansion Content:** (currently only in Spanish) Includes content from the game's expansion "New Challenges".
 
 ## Structure
-- `index.html` and `index_EN.html`: Main HTML files for the Spanish and English (EN) versions, respectively.
-- `spells.html` and `spells_EN.html`: Sub-html scripts for displaying spells, in Spanish and English (EN).
+- `index.html` and `index_EN.html`: Main HTML files for the Spanish (ES) and English (EN) versions, respectively. These files located in the root directory to ensure compatibility with GitHub Pages' default behavior, which serves `index.html` as the homepage.
+- `spells_ES.html` and `spells_EN.html`: Sub-html scripts for displaying spells, in Spanish and English.
 - `script.js`, `script_EN.js`, and `card_names.js`: JavaScript files containing functionality and card names.
 - `style.css` and `style_spells.css`: Contains the CSS styles used for the layout and design of the web application.
 - `card_string_generator.py`: A Python script to fetch card filenames from their directories.

@@ -214,5 +214,5 @@ function openInfoWindow() {
 
 // Switch to Spanish version
 function openSpanishPage() {
-    window.location.href = 'index.html';
+    window.location.href = '/index.html';
 }

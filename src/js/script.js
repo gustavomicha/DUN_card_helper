@@ -239,7 +239,7 @@ function toggleExpansion() {
 
 // Switch to English version
 function openEnglishPage() {
-    window.location.href = 'index_EN.html';
+    window.location.href = 'src/html/index_EN.html';
 }
 
 
