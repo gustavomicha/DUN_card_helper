@@ -1,13 +1,17 @@
 # DUN Card Helper
 
 ## About
-DUN Card Helper is a fanmade web application designed to facilitate the gameplay of the board game Dungeon Universalis (DUN) developed and distributed by Ludic Dragon (all rights reserved). This project is developed with the assistance of ChatGPT and aims to provide a convenient tool for players, the designer has no prior HTML or JavaScript experience.
+DUN Card Helper is a fanmade web application designed to facilitate the gameplay of the board game Dungeon Universalis (DUN) developed and distributed by Ludic Dragon (all rights reserved). This project is developed with the assistance of ChatGPT and aims to provide a convenient tool for players. The designer has no prior HTML or JavaScript experience, so errors may be found.
+To access the website visit: 
+- [DUN Helper English Version](https://gustavomicha.github.io/DUN_card_helper/index_EN.html)
+- [DUN Helper Spanish Version](https://gustavomicha.github.io/DUN_card_helper/index.html)
+
 
 ## Features
 - **Card Display:** Allows players to view main cards and select them randomly, reducing the time spent on shuffling decks.
 - **Spell Viewer:** Enables viewing of all spells from a chosen magic school, including a mana counter for tracking.
 - **Dual Language Support:** The application is available in both Spanish (index.html) and English (index_EN.html).
-- **Expansion Content:** (currently only in Spanish) Includes content from the game's expansion `New Challenges`.
+- **Expansion Content:** (currently only in Spanish) Includes content from the game's expansion "New Challenges".
 
 ## Structure
 - `index.html` and `index_EN.html`: Main HTML files for the Spanish and English (EN) versions, respectively.
@@ -19,7 +23,7 @@ DUN Card Helper is a fanmade web application designed to facilitate the gameplay
 
 ## Notes
 - All card images are the property of Ludic Dragon. This app should only be used by individuals who own a copy of DUN.
-- The developer is not a "Macondo" font, however he used this for consistency with the offical DUN website.
+- The developer is not a "Macondo" font fan, however he used this for consistency with the offical DUN website.
 
 ## Disclaimer
 This is an amateur, fanmade project and may contain incoherent, redundant, and spaghetti code due to the developer's learning process.
