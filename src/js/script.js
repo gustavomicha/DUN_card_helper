@@ -38,21 +38,21 @@ function populateImageDropdown(deck) {
 function clearDropdownAndImageEncuentros(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
-    var selectedImageSrc = "/assets/images/ESP/encuentros/" + deck + "/dorso.png";
+    var selectedImageSrc = "assets/images/ESP/encuentros/" + deck + "/dorso.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 
 function clearDropdownAndImageMobiliario(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
-    var selectedImageSrc = "/assets/images/ESP/mobiliario/" + deck + "/dorso.png";
+    var selectedImageSrc = "assets/images/ESP/mobiliario/" + deck + "/dorso.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 
 function clearDropdownAndImageItems(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
-    var selectedImageSrc = "/assets/images/ESP/items/" + deck + "/dorso.png";
+    var selectedImageSrc = "assets/images/ESP/items/" + deck + "/dorso.png";
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 
