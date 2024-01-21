@@ -78,6 +78,17 @@ const images = {
     tesoro: [
     'assets/images/ESP/items/tesoro/1.png','assets/images/ESP/items/tesoro/2.png','assets/images/ESP/items/tesoro/3.png','assets/images/ESP/items/tesoro/4.png','assets/images/ESP/items/tesoro/5.png','assets/images/ESP/items/tesoro/6.png','assets/images/ESP/items/tesoro/7.png','assets/images/ESP/items/tesoro/8.png','assets/images/ESP/items/tesoro/9.png','assets/images/ESP/items/tesoro/10.png'
     ],
+    // ACOMPAÑANTES
+    animales: [
+    'assets/images/ESP/acompaniantes/animales/aguila.jpg', 'assets/images/ESP/acompaniantes/animales/arce.jpg', 'assets/images/ESP/acompaniantes/animales/caballo.jpg', 'assets/images/ESP/acompaniantes/animales/cabra.jpg', 'assets/images/ESP/acompaniantes/animales/cria_de_dragon.jpg', 'assets/images/ESP/acompaniantes/animales/cuervo.jpg', 'assets/images/ESP/acompaniantes/animales/devorador.jpg', 'assets/images/ESP/acompaniantes/animales/espiritu_familiar.jpg', 'assets/images/ESP/acompaniantes/animales/gato.jpg', 'assets/images/ESP/acompaniantes/animales/gorila.jpg', 'assets/images/ESP/acompaniantes/animales/gran_araña.jpg', 'assets/images/ESP/acompaniantes/animales/gran_felino.jpg', 'assets/images/ESP/acompaniantes/animales/gran_jabali.jpg', 'assets/images/ESP/acompaniantes/animales/halcon.jpg', 'assets/images/ESP/acompaniantes/animales/huargo.jpg', 'assets/images/ESP/acompaniantes/animales/lechuza.jpg', 'assets/images/ESP/acompaniantes/animales/lobo.jpg', 'assets/images/ESP/acompaniantes/animales/mono.jpg', 'assets/images/ESP/acompaniantes/animales/oso.jpg', 'assets/images/ESP/acompaniantes/animales/perro.jpg', 'assets/images/ESP/acompaniantes/animales/perro_de_guerra.jpg', 'assets/images/ESP/acompaniantes/animales/rata_gigante.jpg', 'assets/images/ESP/acompaniantes/animales/unicornio.jpg'
+    ],
+    mercenarios: [
+    'assets/images/ESP/acompaniantes/mercenarios/civil.jpg', 'assets/images/ESP/acompaniantes/mercenarios/fanatico_religioso.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_elfo.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_enano.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_hechicero.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_humano_soldado.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_humano_tirador.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_ogro.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_orco.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_veterano.jpg', 
+    ],
+    otros:[
+    'assets/images/ESP/acompaniantes/otros/elemental_de_agua.png', 'assets/images/ESP/acompaniantes/otros/elemental_de_aire.png', 'assets/images/ESP/acompaniantes/otros/elemental_de_fuego.png', 'assets/images/ESP/acompaniantes/otros/elemental_de_tierra.png', 'assets/images/ESP/acompaniantes/otros/gigante_arboreo.png', 'assets/images/ESP/acompaniantes/otros/gigante_de_hierro.png', 'assets/images/ESP/acompaniantes/otros/gigante_de_piedra.png', 'assets/images/ESP/acompaniantes/otros/hombre_lobo.png'
+    ],
+
     // NEW CHALLENGES Expansion
     cuerpo_a_cuerpo_exp: [
     'assets/images/ESP/items/cuerpo_a_cuerpo_exp/baston_de_guerra_(69).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/baston_de_guerra_(70).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/daga_de_parada_(71).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/daga_de_parada_(72).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/kukri_(66).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/kukri_(67).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/lucerna.jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/sai_(73).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/sai_(74).jpg', 'assets/images/ESP/items/cuerpo_a_cuerpo_exp/zanbato.jpg'
@@ -108,6 +119,12 @@ const images = {
     ],
     castillo_exp: [
     'assets/images/ESP/encuentros/castillo_exp/aprovisionados_o_envenenados.png', 'assets/images/ESP/encuentros/castillo_exp/forzudo.png', 'assets/images/ESP/encuentros/castillo_exp/mercenario_errante.png', 'assets/images/ESP/encuentros/castillo_exp/soldados_alerta.png'
+    ],
+    animales_exp: [
+    'assets/images/ESP/acompaniantes/animales/felino_de_cristal.jpg'
+    ],
+    mercenarios_exp: [
+    'assets/images/ESP/acompaniantes/mercenarios/constructo.jpg', 'assets/images/ESP/acompaniantes/mercenarios/espadachin.jpg', 'assets/images/ESP/acompaniantes/mercenarios/ladron_goblin.jpg', 'assets/images/ESP/acompaniantes/mercenarios/mercenario_mediano.jpg', 'assets/images/ESP/acompaniantes/mercenarios/montaraz.jpg' 
     ],
 
     // Recursos

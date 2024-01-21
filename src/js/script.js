@@ -49,6 +49,13 @@ function clearDropdownAndImageMobiliario(deck) {
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 
+function clearDropdownAndImageAcompaniantes(deck) {
+    var dropdown = document.getElementById(`imageDropdown_${deck}`);
+    dropdown.selectedIndex = 0;
+    var selectedImageSrc = "assets/images/ESP/acompaniantes/" + deck + "/dorso.png";
+    document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+}
+
 function clearDropdownAndImageItems(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
@@ -93,6 +100,7 @@ function changeSelectedImage(deck) {
 function showEncuentrosSubMenu() {
     document.getElementById("mainMenu").style.display = "none";
     document.getElementById("mobiliarioSubmenu").style.display = "none";
+    document.getElementById("acompaniantesSubmenu").style.display = "none";
     document.getElementById("itemsSubmenu").style.display = "none";
     document.getElementById("infoButton").style.visibility = "hidden";
     document.getElementById("languageButton").style.display = "none";
@@ -108,6 +116,7 @@ function showEncuentrosSubMenu() {
 function showMobiliarioSubMenu() {
     document.getElementById("mainMenu").style.display = "none";
     document.getElementById("encuentrosSubmenu").style.display = "none";
+    document.getElementById("acompaniantesSubmenu").style.display = "none";
     document.getElementById("itemsSubmenu").style.display = "none";
     document.getElementById("infoButton").style.visibility = "hidden";
     document.getElementById("languageButton").style.display = "none";
@@ -120,10 +129,27 @@ function showMobiliarioSubMenu() {
     document.getElementById("mobiliarioMenuSelect").selectedIndex = 0;
 }
 
+function showAcompaniantesSubMenu() {
+    document.getElementById("mainMenu").style.display = "none";
+    document.getElementById("encuentrosSubmenu").style.display = "none";
+    document.getElementById("mobiliarioSubmenu").style.display = "none";
+    document.getElementById("itemsSubmenu").style.display = "none";
+    document.getElementById("infoButton").style.visibility = "hidden";
+    document.getElementById("languageButton").style.display = "none";
+
+    document.querySelectorAll('.deckPage').forEach(function (page) {
+        page.style.display = "none";
+    });
+
+    document.getElementById("acompaniantesSubmenu").style.display = "block";
+    document.getElementById("acompaniantesMenuSelect").selectedIndex = 0;
+}
+
 function showItemsSubMenu() {
     document.getElementById("mainMenu").style.display = "none";
     document.getElementById("encuentrosSubmenu").style.display = "none";
     document.getElementById("mobiliarioSubmenu").style.display = "none";
+    document.getElementById("acompaniantesSubmenu").style.display = "none";
     document.getElementById("infoButton").style.visibility = "hidden";
     document.getElementById("languageButton").style.display = "none";
 
@@ -139,6 +165,7 @@ function showItemsSubMenu() {
 function showMainMenu() {
     document.getElementById("encuentrosSubmenu").style.display = "none";
     document.getElementById("mobiliarioSubmenu").style.display = "none";
+    document.getElementById("acompaniantesSubmenu").style.display = "none";
     document.getElementById("itemsSubmenu").style.display = "none";
 
     document.querySelectorAll('.deckPage').forEach(function (page) {
@@ -185,6 +212,23 @@ function showMobiliarioDeckPage(deck) {
     populateImageDropdown(deck);
 }
 
+function showAcompaniantesDeckPage(deck) {
+    document.getElementById("acompaniantesSubmenu").style.display = "none";
+    document.getElementById("mainMenu").style.display = "none";
+    document.querySelectorAll('.deckPage').forEach(function (page) {
+        page.style.display = "none";
+    });
+
+    var deckPageId = `deckPage_${deck}`;
+    document.getElementById(deckPageId).style.display = "block";
+
+    var selectedImageSrc = "assets/images/ESP/acompaniantes/" + deck + "/dorso.png";
+    document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+    clearDropdownAndImageAcompaniantes(deck);
+    populateImageDropdown(deck);
+}
+
 function showItemsDeckPage(deck) {
     document.getElementById("itemsSubmenu").style.display = "none";
     document.getElementById("mainMenu").style.display = "none";
@@ -206,6 +250,7 @@ function openHechizosPage() {
     document.getElementById('mainMenu').style.display = 'none';
     document.getElementById('encuentrosSubmenu').style.display = 'none';
     document.getElementById('mobiliarioSubmenu').style.display = 'none';
+    document.getElementById("acompaniantesSubmenu").style.display = "none";
     document.getElementById('itemsSubmenu').style.display = 'none';
     document.getElementById('infoButton').style.display = 'none';
     document.getElementById("languageButton").style.display = "none";

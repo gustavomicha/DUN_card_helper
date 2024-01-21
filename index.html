@@ -28,6 +28,7 @@
         <button onclick="showItemsSubMenu()">Items</button>
         <button onclick="showEncuentrosSubMenu()">Eventos</button>
         <button onclick="showMobiliarioSubMenu()">Mobiliario</button>
+        <button onclick="showAcompaniantesSubMenu()">Acompañantes</button>
         <button onclick="openHechizosPage()">Hechizos</button>
     </div>
     
@@ -60,6 +61,17 @@
             <option disabled selected hidden>Seleccionar Mobiliario</option>
             <option value="mobiliario_comun">Mobiliario Común</option>
             <option value="elementos_especiales">Elementos Especiales</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <div class="center" id="acompaniantesSubmenu">
+        <h1>Mobiliario</h1>
+        <select id="acompaniantesMenuSelect" onchange="showAcompaniantesDeckPage(this.value)">
+            <option disabled selected hidden>Seleccionar Acompañantes</option>
+            <option value="animales">Animales</option>
+            <option value="mercenarios">Mercenarios</option>
+            <option value="otros">Otros</option>
         </select>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
@@ -319,7 +331,50 @@
         <button onclick="showMobiliarioSubMenu()" style="background-color: #4a4949;">Volver a Mobiliario</button>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
     </div>
-    
+
+    <!-- DECKS ACOMPANIANTES  -->
+    <div id="deckPage_animales" class="deckPage">
+        <h1>Animales</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_animales" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('animales')">Carta aleatoria</button>
+        <select id="imageDropdown_animales" onchange="changeSelectedImage('animales')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showAcompaniantesSubMenu()" style="background-color: #4a4949;">Volver a Acompañantes</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <div id="deckPage_mercenarios" class="deckPage">
+        <h1>Mercenarios</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_mercenarios" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('mercenarios')">Carta aleatoria</button>
+        <select id="imageDropdown_mercenarios" onchange="changeSelectedImage('mercenarios')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showAcompaniantesSubMenu()" style="background-color: #4a4949;">Volver a Acompañantes</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
+    <div id="deckPage_otros" class="deckPage">
+        <h1>Otros</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_otros" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('otros')">Carta aleatoria</button>
+        <select id="imageDropdown_otros" onchange="changeSelectedImage('otros')">
+            <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <button onclick="showAcompaniantesSubMenu()" style="background-color: #4a4949;">Volver a Acompañantes</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>
+    </div>
+
     <!-- DECKS ITEMS  -->
     <div id="deckPage_armaduras" class="deckPage">
         <h1>Armaduras</h1>

@@ -3,10 +3,10 @@ import requests
 
 # Define the base URL and the range of numbers
 # base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/magias"
-base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/equipo/"
-start_num = 328 #288
-end_num = 400#372
-destination_folder = "/assets/images/ESP/downloaded/items"
+base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/mercenarios/"
+start_num = 1
+end_num = 50
+destination_folder = "assets/images/ESP/downloaded/"
 
 # Create the destination folder if it does not exist
 if not os.path.exists(destination_folder):
@@ -15,7 +15,7 @@ if not os.path.exists(destination_folder):
 # Iterate over the range of numbers
 for num in range(start_num, end_num + 1):
     # Construct the image URL
-    image_url = f"{base_url}/{num}/{num}.jpg"
+    image_url = f"{base_url}/{num}/{num}_en.jpg"
     
     # Attempt to download the image
     try:
