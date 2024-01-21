@@ -24,7 +24,7 @@ def show_card_names(folder_path,include_subfolders):
         print(output_string)
 
 if __name__ == "__main__":
-    folder_path = "assets/images/ESP/acompaniantes/otros"
+    folder_path = "assets/images/ENG/companions/others"
     include_subfolders = False
 
     # folder_path = "assets/images/ESP/hechizos_exp"

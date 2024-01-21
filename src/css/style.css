@@ -105,6 +105,15 @@ select {
     background-repeat: no-repeat; 
 }
 
+#companionsSubmenu {
+    display: none;
+    background-image: url("../../assets/misc/back_companions.png");
+    background-position: center;
+    background-size: 80% auto;
+    opacity: 0.8;
+    background-repeat: no-repeat; 
+}
+
 #eventsSubmenu {
     display: none;
     background-image: url("../../assets/misc/back_events.png");
@@ -214,6 +223,11 @@ h1, button, option {
         background-attachment: fixed;
     }
     #furnitureSubmenu{
+        background-size: 500px auto;
+        background-position: center bottom;
+        background-attachment: fixed;
+    }
+    #companionsSubmenu{
         background-size: 500px auto;
         background-position: center bottom;
         background-attachment: fixed;

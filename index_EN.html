@@ -20,11 +20,10 @@
     <div class="center" id="mainMenu">
         <h1>DUN Helper</h1><span class="subtitle">v1.0 (fanmade)</span>
         <button onclick="showItemsSubMenu()">Items</button>
-        <!-- <button onclick="showCompanionsSubMenu()">Companions (TBD)</button> -->
         <button onclick="showEventsSubMenu()">Events</button>
         <button onclick="showFurnitureSubMenu()">Furniture</button>
+        <button onclick="showCompanionsSubMenu()">Companions</button>
         <button onclick="openSpellsPage()">Spells</button>
-
     </div>
 
     <div class="center" id="eventsSubmenu">
@@ -56,6 +55,17 @@
             <option disabled selected hidden>Select Furniture</option>
             <option value="common_furniture">Common Furniture</option>
             <option value="special_elements">Special Elements</option>
+        </select>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div class="center" id="companionsSubmenu">
+        <h1>Mobiliario</h1>
+        <select id="companionsMenuSelect" onchange="showCompanionsDeckPage(this.value)">
+            <option disabled selected hidden>Select Companion</option>
+            <option value="animals">Animals</option>
+            <option value="mercenaries">Mercenaries</option>
+            <option value="others">Others (TBD)</option>
         </select>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
     </div>
@@ -289,6 +299,48 @@
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
     </div>
     
+    <div id="deckPage_animals" class="deckPage">
+        <h1>Animals</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_animals" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('animals')">Random card</button>
+        <select id="imageDropdown_animals" onchange="changeSelectedImage('animals')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showCompanionsSubMenu()" style="background-color: #4a4949;">Back to Companions</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div id="deckPage_mercenaries" class="deckPage">
+        <h1>Mercenarios</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_mercenaries" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('mercenaries')">Random card</button>
+        <select id="imageDropdown_mercenaries" onchange="changeSelectedImage('mercenaries')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showCompanionsSubMenu()" style="background-color: #4a4949;">Back to Companions</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
+    <div id="deckPage_others" class="deckPage">
+        <h1>Others</h1>
+        <div class="imageContainer">
+            <!-- Removed the <img> tag for the dorso image -->
+            <img id="selectedImage_others" src="" alt="Selected Image">
+        </div>
+        <button onclick="changeRandomImage('others')">Random card</button>
+        <select id="imageDropdown_others" onchange="changeSelectedImage('others')">
+            <option disabled selected hidden>Select card</option>
+        </select>
+        <button onclick="showCompanionsSubMenu()" style="background-color: #4a4949;">Back to Companions</button>
+        <button onclick="showMainMenu()" style="background-color: #4a4949;">Back to Main Menu</button>
+    </div>
+
     <!-- DECKS ITEMS  -->
     <div id="deckPage_armor" class="deckPage">
         <h1>Armor</h1>

@@ -36,6 +36,13 @@ function clearDropdownAndImageFurniture(deck) {
     document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 }
 
+function clearDropdownAndImageCompanions(deck) {
+    var dropdown = document.getElementById(`imageDropdown_${deck}`);
+    dropdown.selectedIndex = 0;
+    var selectedImageSrc = "assets/images/ENG/companions/" + deck + "/back.png";
+    document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+}
+
 function clearDropdownAndImageItems(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.selectedIndex = 0;
@@ -80,6 +87,7 @@ function changeSelectedImage(deck) {
 function showEventsSubMenu() {
     document.getElementById("mainMenu").style.display = "none";
     document.getElementById("furnitureSubmenu").style.display = "none";
+    document.getElementById("companionsSubmenu").style.display = "none";
     document.getElementById("itemsSubmenu").style.display = "none";
     document.getElementById("infoButton").style.visibility = "hidden";
     document.getElementById("languageButton").style.display = "none";
@@ -95,6 +103,7 @@ function showEventsSubMenu() {
 function showFurnitureSubMenu() {
     document.getElementById("mainMenu").style.display = "none";
     document.getElementById("eventsSubmenu").style.display = "none";
+    document.getElementById("companionsSubmenu").style.display = "none";
     document.getElementById("itemsSubmenu").style.display = "none";
     document.getElementById("infoButton").style.visibility = "hidden";
     document.getElementById("languageButton").style.display = "none";
@@ -107,10 +116,27 @@ function showFurnitureSubMenu() {
     document.getElementById("furnitureMenuSelect").selectedIndex = 0;
 }
 
+function showCompanionsSubMenu() {
+    document.getElementById("mainMenu").style.display = "none";
+    document.getElementById("eventsSubmenu").style.display = "none";
+    document.getElementById("furnitureSubmenu").style.display = "none";
+    document.getElementById("itemsSubmenu").style.display = "none";
+    document.getElementById("infoButton").style.visibility = "hidden";
+    document.getElementById("languageButton").style.display = "none";
+
+    document.querySelectorAll('.deckPage').forEach(function (page) {
+        page.style.display = "none";
+    });
+
+    document.getElementById("companionsSubmenu").style.display = "block";
+    document.getElementById("companionsMenuSelect").selectedIndex = 0;
+}
+
 function showItemsSubMenu() {
     document.getElementById("mainMenu").style.display = "none";
     document.getElementById("eventsSubmenu").style.display = "none";
     document.getElementById("furnitureSubmenu").style.display = "none";
+    document.getElementById("companionsSubmenu").style.display = "none";
     document.getElementById("infoButton").style.visibility = "hidden";
     document.getElementById("languageButton").style.display = "none";
 
@@ -127,6 +153,7 @@ function showMainMenu() {
     document.getElementById("eventsSubmenu").style.display = "none";
     document.getElementById("furnitureSubmenu").style.display = "none";
     document.getElementById("itemsSubmenu").style.display = "none";
+    document.getElementById("companionsSubmenu").style.display = "none";
 
     document.querySelectorAll('.deckPage').forEach(function (page) {
         page.style.display = "none";
@@ -171,6 +198,22 @@ function showFurnitureDeckPage(deck) {
     populateImageDropdown(deck);
 }
 
+function showCompanionsDeckPage(deck) {
+    document.getElementById("companionsSubmenu").style.display = "none";
+    document.getElementById("mainMenu").style.display = "none";
+    document.querySelectorAll('.deckPage').forEach(function (page) {
+        page.style.display = "none";
+    });
+
+    var deckPageId = `deckPage_${deck}`;
+    document.getElementById(deckPageId).style.display = "block";
+
+    var selectedImageSrc = "/assets/images/ENG/companions/" + deck + "/back.png";
+    document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
+
+    clearDropdownAndImageCompanions(deck);
+    populateImageDropdown(deck);
+}
 function showItemsDeckPage(deck) {
     document.getElementById("itemsSubmenu").style.display = "none";
     document.getElementById("mainMenu").style.display = "none";
@@ -193,6 +236,7 @@ function openSpellsPage() {
     document.getElementById('eventsSubmenu').style.display = 'none';
     document.getElementById('furnitureSubmenu').style.display = 'none';
     document.getElementById('itemsSubmenu').style.display = 'none';
+    document.getElementById("companionsSubmenu").style.display = "none";
     document.getElementById('infoButton').style.display = 'none';
     document.getElementById("languageButton").style.display = "none";
     document.getElementById('spellsFrame').src = 'src/html/spells_EN.html';
