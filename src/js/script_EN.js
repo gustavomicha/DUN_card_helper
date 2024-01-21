@@ -195,7 +195,7 @@ function openSpellsPage() {
     document.getElementById('itemsSubmenu').style.display = 'none';
     document.getElementById('infoButton').style.display = 'none';
     document.getElementById("languageButton").style.display = "none";
-    document.getElementById('spellsFrame').src = '/src/html/spells_EN.html';
+    document.getElementById('spellsFrame').src = 'src/html/spells_EN.html';
     document.getElementById('spellsPage').style.display = 'block';
 }
 

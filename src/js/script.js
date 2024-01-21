@@ -95,6 +95,7 @@ function showEncuentrosSubMenu() {
     document.getElementById("mobiliarioSubmenu").style.display = "none";
     document.getElementById("itemsSubmenu").style.display = "none";
     document.getElementById("infoButton").style.visibility = "hidden";
+    document.getElementById("languageButton").style.display = "none";
 
     document.querySelectorAll('.deckPage').forEach(function (page) {
         page.style.display = "none";
@@ -102,7 +103,6 @@ function showEncuentrosSubMenu() {
 
     document.getElementById("encuentrosSubmenu").style.display = "block";
     document.getElementById("encuentrosMenuSelect").selectedIndex = 0;
-    document.getElementById("languageButton").style.display = "none";
 }
 
 function showMobiliarioSubMenu() {
@@ -207,13 +207,11 @@ function openHechizosPage() {
     document.getElementById('encuentrosSubmenu').style.display = 'none';
     document.getElementById('mobiliarioSubmenu').style.display = 'none';
     document.getElementById('itemsSubmenu').style.display = 'none';
-    document.getElementById("languageButton").style.display = "none";
     document.getElementById('infoButton').style.display = 'none';
-
+    document.getElementById("languageButton").style.display = "none";
     document.getElementById('hechizosFrame').src = 'src/html/spells_ES.html';
     document.getElementById('hechizosPage').style.display = 'block';
 }
-
 
 // Info Button
 var infoWindow = null;
