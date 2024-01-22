@@ -30,6 +30,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: scroll;
 }
 
 .scrollable {
@@ -105,6 +106,10 @@ select {
 
 h1, button, select, option {
     font-family: "Macondo", "Arial", sans-serif;
+}
+
+.imageWrapper {
+    flex: 0 0 20%;
 }
 
 @media (max-width: 767px) {
