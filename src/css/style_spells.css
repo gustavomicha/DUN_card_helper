@@ -104,6 +104,13 @@ select {
     margin-bottom: 20px;
 }
 
+.menu-button:hover,
+.menu-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 h1, button, select, option {
     font-family: "Macondo", "Arial", sans-serif;
 }
