@@ -21,7 +21,11 @@ function populateImageDropdown(deck, terrain = null) {
     dropdown.add(defaultOption);
 
     var deckImages = images[deck]; // Retrieve images from your card_names.js
-
+    
+    if (includeExpansion && images[`${deck}_exp`]) {
+        deckImages = deckImages.concat(images[`${deck}_exp`]);
+    }
+    
     // Check if we need to filter by terrain
     if (terrain && recursosPorTerreno[terrain]) {
         // Filter images that match the terrain resources
