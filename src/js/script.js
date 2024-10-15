@@ -1,4 +1,14 @@
-function populateImageDropdown(deck) {
+function filterRecursosByTerreno(terreno) {
+    if (terreno) {
+        populateImageDropdown('recursos', terreno);
+    } else {
+        // If no terrain is selected, show all resources
+        populateImageDropdown('recursos');
+    }
+}
+
+
+function populateImageDropdown(deck, terrain = null) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     dropdown.innerHTML = ""; // Clear existing options
 
@@ -10,9 +20,15 @@ function populateImageDropdown(deck) {
     defaultOption.text = "Seleccionar carta";
     dropdown.add(defaultOption);
 
-    var deckImages = images[deck];
-    if (includeExpansion && images[`${deck}_exp`]) {
-        deckImages = deckImages.concat(images[`${deck}_exp`]);
+    var deckImages = images[deck]; // Retrieve images from your card_names.js
+
+    // Check if we need to filter by terrain
+    if (terrain && recursosPorTerreno[terrain]) {
+        // Filter images that match the terrain resources
+        deckImages = deckImages.filter(image => {
+            const imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
+            return recursosPorTerreno[terrain].some(recurso => imageName.includes(recurso));
+        });
     }
 
     // Sort deckImages array alphabetically
@@ -24,12 +40,12 @@ function populateImageDropdown(deck) {
         return 0;
     });
 
+    // Populate the dropdown with images
     deckImages.forEach(function (image) {
         var option = document.createElement("option");
         var imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
         imageName = imageName.replace(/_/g, ' ').replace(/\((\d+)\)/g, ' $1');
-        imageName = capitalizeFirstLetter(imageName);
-        option.text = imageName;
+        option.text = capitalizeFirstLetter(imageName);
         option.value = image;
         dropdown.add(option);
     });
@@ -72,22 +88,19 @@ function capitalizeFirstLetter(string) {
 function changeRandomImage(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     var validOptions = Array.from(dropdown.options).filter(option => !option.disabled);
-    
+
     if (validOptions.length > 0) {
-        // Show the loading GIF container
         var loadingGifContainer = document.getElementById('loadingGifContainer');
         loadingGifContainer.style.display = 'block';
 
-        // Set a timeout to simulate loading time with a delay of 1 second
         setTimeout(function () {
             var randomIndex = Math.floor(Math.random() * validOptions.length);
             dropdown.selectedIndex = Array.from(dropdown.options).indexOf(validOptions[randomIndex]);
             var selectedImageSrc = dropdown.value;
             document.getElementById(`selectedImage_${deck}`).src = selectedImageSrc;
 
-            // Hide the loading GIF container after setting the image
             loadingGifContainer.style.display = 'none';
-        }, 300); // 1000 milliseconds (1 second)
+        }, 300); 
     }
 }
 
@@ -153,6 +166,10 @@ function showItemsSubMenu() {
     document.getElementById("infoButton").style.visibility = "hidden";
     document.getElementById("languageButton").style.display = "none";
 
+    // Reset terrain dropdown when showing Items submenu
+    var terrenoSelect = document.getElementById("terrenoSelect");
+    terrenoSelect.selectedIndex = 0; // Reset to default selection
+    clearDropdownAndImageItems('recursos');
 
     document.querySelectorAll('.deckPage').forEach(function (page) {
         page.style.display = "none";

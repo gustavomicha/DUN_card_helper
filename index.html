@@ -496,12 +496,23 @@
     <div id="deckPage_recursos" class="deckPage">
         <h1>Recursos</h1>
         <div class="imageContainer">
-            <!-- Removed the <img> tag for the dorso image -->
             <img id="selectedImage_recursos" src="" alt="Selected Image">
         </div>
         <button onclick="changeRandomImage('recursos')">Carta aleatoria</button>
         <select id="imageDropdown_recursos" onchange="changeSelectedImage('recursos')">
             <option disabled selected hidden>Seleccionar carta</option>
+        </select>
+        <select id="terrenoSelect" onchange="filterRecursosByTerreno(this.value)">
+            <option disabled selected hidden>Seleccionar Terreno</option>
+            <option value="todos">Todos</option>
+            <option value="boscoso">Boscoso</option>
+            <option value="desertico">Desértico</option>
+            <option value="glaciar">Glaciar</option>
+            <option value="llanura">Llanura</option>
+            <option value="mar">Mar</option>
+            <option value="montanioso">Montañoso</option>
+            <option value="pantanoso">Pantanoso</option>
+            <option value="volcanico">Volcánico</option>
         </select>
         <button onclick="showItemsSubMenu()" style="background-color: #4a4949;">Volver a Items</button>
         <button onclick="showMainMenu()" style="background-color: #4a4949;">Volver al menú principal</button>    </div>

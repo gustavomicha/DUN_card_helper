@@ -129,7 +129,7 @@ const images = {
 
     // Recursos
     recursos: [
-    'assets/images/ESP/items/recursos/babosa_de_dragon_(27).jpg', 'assets/images/ESP/items/recursos/babosa_de_dragon_(28).jpg', 'assets/images/ESP/items/recursos/bayas_de_lynn.jpg', 'assets/images/ESP/items/recursos/cardo_azul-de_anam.jpg', 'assets/images/ESP/items/recursos/casa_de_hadas.jpg', 'assets/images/ESP/items/recursos/centinela.jpg', 'assets/images/ESP/items/recursos/coraza_roja_(4).jpg', 'assets/images/ESP/items/recursos/coraza_roja_(5).jpg', 'assets/images/ESP/items/recursos/corazon_de_huargo.jpg', 'assets/images/ESP/items/recursos/cristal_rojo_(18).jpg', 'assets/images/ESP/items/recursos/cristal_rojo_(19).jpg', 'assets/images/ESP/items/recursos/duermevela.jpg', 'assets/images/ESP/items/recursos/escarabajo_martillo_(29).jpg', 'assets/images/ESP/items/recursos/escarabajo_martillo_(30).jpg', 'assets/images/ESP/items/recursos/fantasma_rosa.jpg', 'assets/images/ESP/items/recursos/hierro_blanco_(20).jpg', 'assets/images/ESP/items/recursos/hierro_blanco_(21).jpg', 'assets/images/ESP/items/recursos/hongo_soldado_(12).jpg', 'assets/images/ESP/items/recursos/hongo_soldado_(13).jpg', 'assets/images/ESP/items/recursos/lanta_de_camaleon.jpg', 'assets/images/ESP/items/recursos/lengua_de_dragon.jpg', 'assets/images/ESP/items/recursos/madera_de_nor.jpg', 'assets/images/ESP/items/recursos/piedra_de_jade_nocturno_(22).jpg', 'assets/images/ESP/items/recursos/piedra_de_jade_nocturno_(23).jpg', 'assets/images/ESP/items/recursos/plata_estelar.jpg', 'assets/images/ESP/items/recursos/punta_de_obsidiana_(16).jpg', 'assets/images/ESP/items/recursos/punta_de_obsidiana_(17).jpg', 'assets/images/ESP/items/recursos/sueño_azul.jpg'
+    'assets/images/ESP/items/recursos/babosa_de_dragon_(27).jpg', 'assets/images/ESP/items/recursos/babosa_de_dragon_(28).jpg', 'assets/images/ESP/items/recursos/bayas_de_lynn.jpg', 'assets/images/ESP/items/recursos/cardo_azul_de_anam.jpg', 'assets/images/ESP/items/recursos/casa_de_hadas.jpg', 'assets/images/ESP/items/recursos/centinela.jpg', 'assets/images/ESP/items/recursos/coraza_roja_(4).jpg', 'assets/images/ESP/items/recursos/coraza_roja_(5).jpg', 'assets/images/ESP/items/recursos/corazon_de_huargo.jpg', 'assets/images/ESP/items/recursos/cristal_rojo_(18).jpg', 'assets/images/ESP/items/recursos/cristal_rojo_(19).jpg', 'assets/images/ESP/items/recursos/duermevela.jpg', 'assets/images/ESP/items/recursos/escarabajo_martillo_(29).jpg', 'assets/images/ESP/items/recursos/escarabajo_martillo_(30).jpg', 'assets/images/ESP/items/recursos/fantasma_rosa.jpg', 'assets/images/ESP/items/recursos/hierro_blanco_(20).jpg', 'assets/images/ESP/items/recursos/hierro_blanco_(21).jpg', 'assets/images/ESP/items/recursos/hongo_soldado_(12).jpg', 'assets/images/ESP/items/recursos/hongo_soldado_(13).jpg', 'assets/images/ESP/items/recursos/lanta_de_camaleon.jpg', 'assets/images/ESP/items/recursos/lengua_de_dragon.jpg', 'assets/images/ESP/items/recursos/madera_de_nor.jpg', 'assets/images/ESP/items/recursos/piedra_de_jade_nocturno_(22).jpg', 'assets/images/ESP/items/recursos/piedra_de_jade_nocturno_(23).jpg', 'assets/images/ESP/items/recursos/plata_estelar.jpg', 'assets/images/ESP/items/recursos/punta_de_obsidiana_(16).jpg', 'assets/images/ESP/items/recursos/punta_de_obsidiana_(17).jpg', 'assets/images/ESP/items/recursos/sueño_azul.jpg'
     ],
 
 };
@@ -224,3 +224,87 @@ const images_EN = {
     'assets/images/ENG/items/treasure/01.jpg','assets/images/ENG/items/treasure/02.jpg','assets/images/ENG/items/treasure/03.jpg','assets/images/ENG/items/treasure/04.jpg','assets/images/ENG/items/treasure/05.jpg','assets/images/ENG/items/treasure/06.jpg','assets/images/ENG/items/treasure/07.jpg','assets/images/ENG/items/treasure/08.jpg','assets/images/ENG/items/treasure/09.jpg','assets/images/ENG/items/treasure/10.jpg'
     ],
 };
+
+
+const recursosPorTerreno = {
+        boscoso: [
+            'casa_de_hadas',
+            'centinela',
+            'coraza_roja_(4)',
+            'coraza_roja_(5)',
+            'corazon_de_huargo',
+            'duermevela',
+            'planta_camaleon',
+            'lengua_de_dragon',
+            'madera_de_nor',
+            'sueño_azul',
+
+        ],
+        desertico: [
+            'escarabao_martillo_(29)',
+            'escarabao_martillo_(30)',
+            'hierro_blanco_(20)',
+            'hierro_blanco_(21)',
+            'piedra_de_jade_nocturno_(22)',
+            'piedra_de_jade_nocturno_(23)',
+        ],
+        glaciar: [
+            'bayas_de_lynn',
+            'cardo_azul_de_anam',
+            'fantasma_rosa',
+            'plata_estelar',
+            'sueño_azul',
+        ],
+        llanura: [
+            'bayas_de_lynn',
+            'centinela',
+            'fantasma_rosa',            
+            'punta_de_obsidiana_(16)',
+            'punta_de_obsidiana_(17)',
+        ],
+        mar: [
+            'babosa_de_dragon_(27)',
+            'babosa_de_dragon_(28)',
+            'casa_de_hadas',
+            'duermevela',
+            'fantasma_rosa',
+            'planta_camaleon',
+        ],
+        montanioso: [
+            'cardo_azul_de_anam',
+            'escarabao_martillo_(29)',
+            'escarabao_martillo_(30)',
+            'hierro_blanco_(20)',
+            'hierro_blanco_(21)',
+            'hongo_soldado_(12)',
+            'hongo_soldado_(13)',
+            'lengua_de_dragon',
+            'madera_de_nor',
+            'piedra_de_jade_nocturno_(22)',
+            'piedra_de_jade_nocturno_(23)',
+            'plata_estelar',
+            'sueño_azul',
+
+        ],
+        pantanoso: [
+            'babosa_de_dragon_(27)',
+            'babosa_de_dragon_(28)',
+            'centinela',
+            'coraza_roja_(4)',
+            'coraza_roja_(5)',
+            'duermevela',
+            'lengua_de_dragon',
+
+        ],
+        volcanico: [
+            'cristal_rojo_(18)',
+            'cristal_rojo_(19)',
+            'escarabao_martillo_(29)',
+            'escarabao_martillo_(30)',
+            'piedra_de_jade_nocturno_(22)',
+            'piedra_de_jade_nocturno_(23)',
+            'punta_de_obsidiana_(16)',
+            'punta_de_obsidiana_(17)',
+        ]
+    };
+    
