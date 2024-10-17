@@ -1,0 +1,91 @@
+body {
+    background-color: #000000;
+    color: #d8d8d8;
+    font-family: "Macondo", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+select {
+    padding: 20px;
+    border-radius: 10px;
+    font-family: "Arial", sans-serif;
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.menu-button {
+    background-color: #4a4949;
+    border-radius: 10px;
+    color: white;
+    padding: 20px 40px;
+    cursor: pointer;
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.menu-button:hover,
+.menu-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1, button, select, option {
+    font-family: "Macondo", "Arial", sans-serif;
+}
+
+/* Center the crafting output and ensure rows are aligned properly */
+#crafting-output {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style for image rows */
+#crafting-output div {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content */
+    margin-bottom: 15px;
+}
+
+/* Smaller size for misc icons (like alquimista, esc_hechiceria, oro) */
+#crafting-output img.misc-icon {
+    width: 50px;
+    height: auto;
+}
+
+#crafting-output img.misc-icon-oro {
+    width: 25px;
+    height: auto;
+}
+
+
+/* Standard size for resource/result images */
+#crafting-output img.resource-image {
+    width: 100px;
+    height: auto;
+}
+
+/* Style for the + and = symbols */
+#crafting-output span.symbol {
+    font-size: 32px; /* Increase size for better visibility */
+    margin: 0 10px; /* Add spacing around the symbols */
+    color: white;
+}

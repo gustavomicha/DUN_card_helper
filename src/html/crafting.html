@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafting</title>
+    <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+    <link rel="stylesheet" href="../../src/css/style_crafting.css">
+    <script src="../../src/js/script_crafting.js" defer></script>
+    <script src="../../src/js/card_names.js"></script>
+</head>
+<body>
+    <h1>Crafting</h1>
+    <div>
+        <select id="recursos-select" style="width: 100%;" onchange="onResourceChange()">
+            <option disabled selected>Elegir Recurso</option>
+        </select>
+    </div>
+    
+    <!-- Container to dynamically show images -->
+    <div id="crafting-output"></div>
+
+    <div>
+        <button onclick="goToMainMenu()" class="menu-button">Volver al menú principal</button>
+    </div>
+</body>
+</html>

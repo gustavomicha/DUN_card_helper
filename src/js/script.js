@@ -277,6 +277,20 @@ function openHechizosPage() {
     document.getElementById("languageButton").style.display = "none";
     document.getElementById('hechizosFrame').src = 'src/html/spells_ES.html';
     document.getElementById('hechizosPage').style.display = 'block';
+    document.getElementById('craftingPage').style.display = 'none';
+}
+
+function openCraftingPage() {
+    document.getElementById('mainMenu').style.display = 'none';
+    document.getElementById('encuentrosSubmenu').style.display = 'none';
+    document.getElementById('mobiliarioSubmenu').style.display = 'none';
+    document.getElementById("acompaniantesSubmenu").style.display = "none";
+    document.getElementById('itemsSubmenu').style.display = 'none';
+    document.getElementById('infoButton').style.display = 'none';
+    document.getElementById("languageButton").style.display = "none";
+    document.getElementById('hechizosPage').style.display = 'none';
+    document.getElementById('craftingFrame').src = 'src/html/crafting.html';
+    document.getElementById('craftingPage').style.display = 'block';
 }
 
 // Info Button
