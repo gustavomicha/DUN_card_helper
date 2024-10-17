@@ -48,6 +48,7 @@ button {
     width: 50%;
     max-width: 400px;
 }
+
 button:hover,
 button:focus {
     color: black;

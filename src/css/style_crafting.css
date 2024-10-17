@@ -2,45 +2,70 @@
     font-family: 'Macondo';
     src: url('../../assets/misc/Macondo-Regular.ttf') format('truetype');
 }
+/* Ensure the body fills the entire viewport */
 body {
     background-color: #000000;
     color: #d8d8d8;
     font-family: "Macondo", sans-serif;
     margin: 0;
     padding: 0;
+    width: 100vw; /* Viewport width */
+    height: 100vh; /* Viewport height */
 }
 
+body::before {
+    content: "";
+    position: fixed; /* Fix the pseudo-element to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/misc/back_crafting.jpg'); /* Your background image */
+    background-position: center;
+    background-size: min(60%, 600px) auto;;
+    background-repeat: no-repeat;
+    opacity: 0.7; 
+    z-index: -1;
+}
+
+/* Heading style */
 h1 {
     text-align: center;
-    font-size: 32px;
+    font-size: 4vw;
     margin-top: 20px;
 }
 
+/* Responsive select dropdown */
 select {
-    padding: 20px;
+    padding: 2vw;
     border-radius: 10px;
     font-family: "Arial", sans-serif;
-    font-size: 24px;
+    font-size: 2vw;
     display: block;
     margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 400px;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    width: 80%;
+    max-width: 500px;
 }
 
+/* Button styling */
 .menu-button {
-    background-color: #4a4949;
     border-radius: 10px;
+    background-color: #4a4949;
     color: white;
+    border: none;
     padding: 20px 40px;
     cursor: pointer;
     font-size: 24px;
     display: block;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 50%;
+    max-width: 400px;
 }
 
+/* Button hover effect */
 .menu-button:hover,
 .menu-button:focus {
     color: black;
@@ -48,48 +73,129 @@ select {
     cursor: pointer;
 }
 
-h1, button, select, option {
-    font-family: "Macondo", "Arial", sans-serif;
+.select-dropdown {
+    background-color: #ffffff; /* White background */
+    color: #4a4949; /* Dark text color for visibility */
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px 40px; /* Same padding as .menu-button */
+    font-size: 24px; /* Same font size as .menu-button */
+    font-family: "Macondo", sans-serif; /* Consistent font */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Consistent spacing */
+    width: 50%; /* Same width as .menu-button */
+    max-width: 400px; /* Same max-width as .menu-button */
+    appearance: none; /* Remove default arrow */
+    background-image: url('../../assets/icons/select-arrow.svg'); /* Custom arrow icon */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position arrow */
+    background-size: 20px; /* Size of the arrow icon */
 }
 
-/* Center the crafting output and ensure rows are aligned properly */
+/* Hide default arrow in IE and Edge */
+.select-dropdown::-ms-expand {
+    display: none;
+}
+
+/* Center the crafting output */
 #crafting-output {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 2vw;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    width: 100%;
 }
 
-/* Style for image rows */
+/* Ensure the crafting images and icons can scroll horizontally */
 #crafting-output div {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the content */
-    margin-bottom: 15px;
+    justify-content: center;
+    margin-bottom: 2vw;
+    max-width: 100%; /* Constrain row width */
+    justify-content: flex-start;
 }
 
-/* Smaller size for misc icons (like alquimista, esc_hechiceria, oro) */
+/* Style for misc icons */
 #crafting-output img.misc-icon {
-    width: 50px;
+    width: 8vw;
     height: auto;
+    max-width: 70px; /* Ensure misc icons don't get too big */
 }
 
 #crafting-output img.misc-icon-oro {
-    width: 25px;
+    width: 4vw;
     height: auto;
+    max-width: 45px; /* Ensure oro icons don't get too big */
 }
 
-
-/* Standard size for resource/result images */
+/* Style for resource/result images */
 #crafting-output img.resource-image {
-    width: 100px;
+    width: 15vw;
     height: auto;
+    max-width: 250px; /* Constrain image size for large screens */
 }
 
 /* Style for the + and = symbols */
 #crafting-output span.symbol {
-    font-size: 32px; /* Increase size for better visibility */
-    margin: 0 10px; /* Add spacing around the symbols */
+    font-size: 5vw;
+    margin: 0 1vw;
     color: white;
 }
+
+.oro-number {
+    font-size: 3vw; /* Adjust size based on viewport width */
+    margin-right: 0.5vw;
+    font-weight: bold; /* Make the number stand out */
+}
+
+/* Smaller size for oro icon */
+#crafting-output img.misc-icon-oro {
+    width: 4vw;
+    height: auto;
+    max-width: 45px; /* Ensure oro icons don't get too big */
+}
+
+
+/* Add media queries for smaller mobile devices */
+@media (max-width: 768px) {
+    /* Adjust sizes for mobile */
+    body {
+        background-position: center;
+        background-size: 80% auto;
+    }
+    h1 {
+        font-size: 5vw;
+    }
+    select {
+        font-size: 4vw;
+    }
+    .menu-button {
+        font-size: 4vw;
+        padding: 3vw 6vw;
+    }
+    #crafting-output img.misc-icon {
+        width: 12vw;
+        max-width: 40px; /* Keep misc icons constrained on mobile */
+    }
+    #crafting-output img.resource-image {
+        width: 30vw;
+        max-width: 120px; /* Adjust max size for mobile */
+    }
+    #crafting-output span.symbol {
+        font-size: 5vw;
+    }
+
+    .oro-number {
+            font-size: 5vw;
+    }
+    #crafting-output img.misc-icon-oro {
+            width: 6vw;
+            max-width: 35px;
+    }
+}
+

@@ -1,4 +1,3 @@
-// Example CSV data as an array of objects (or load it from a separate file)
 const craftingData = [{'recurso_original': 'assets/images/ESP/items/recursos/babosa_de_dragon_(27).jpg',
     'lugar': 'assets/misc/craft/alquimista.png',
     'recurso': 'assets/images/ESP/items/recursos/centinela.jpg',
@@ -249,21 +248,29 @@ function formatResourceName(resource) {
 
 
 // Utility function to create an element for oro with the number and image
+// Utility function to create an element for oro with the number and image
 function createOroElement(oro) {
     const oroContainer = document.createElement('div');
     oroContainer.style.display = 'flex';  // Display oro number and image side by side
+    oroContainer.style.alignItems = 'center'; // Center vertically
 
-    // Create the oro number
+    // Create the oro number with the oro-number class
     const oroText = document.createElement('span');
     oroText.textContent = oro;
+    oroText.classList.add('oro-number');  // Add class for oro number styling
     oroContainer.appendChild(oroText);
 
+    // Console log to ensure oro-number class is applied
+    console.log('Oro Number Element:', oroText);
+
     // Create the oro image
-    const oroImg = createImageElement('assets/misc/crafting/oro.jpg');
+    const oroImg = createImageElement('assets/misc/craft/oro.png', 'misc-icon-oro'); // Smaller icon for oro
     oroContainer.appendChild(oroImg);
 
     return oroContainer;
 }
+
+
 
 // Function that handles resource selection change
 function onResourceChange() {
@@ -344,30 +351,17 @@ function createImageElement(name, className = 'resource-image') {
     return img;
 }
 
-// Utility function to create an element for oro with the number and image
-function createOroElement(oro) {
-    const oroContainer = document.createElement('div');
-    oroContainer.style.display = 'flex';  // Display oro number and image side by side
-    oroContainer.style.alignItems = 'center'; // Center vertically
 
-    // Create the oro number
-    const oroText = document.createElement('span');
-    oroText.textContent = oro;
-    oroContainer.appendChild(oroText);
+// Run on page load
+document.addEventListener('DOMContentLoaded', function () {
+    populateResourceDropdown();  // Populate dropdown on load
+});
 
-    // Create the oro image
-    const oroImg = createImageElement('assets/misc/craft/oro.png', 'misc-icon-oro'); // Smaller icon for oro
-    oroContainer.appendChild(oroImg);
+// Run on page load
+document.addEventListener('DOMContentLoaded', function () {
+    populateResourceDropdown();  // Populate dropdown on load
+});
 
-    return oroContainer;
+function goToMainMenu() {
+    window.parent.location.href = "../../index.html";
 }
-
-// Run on page load
-document.addEventListener('DOMContentLoaded', function () {
-    populateResourceDropdown();  // Populate dropdown on load
-});
-
-// Run on page load
-document.addEventListener('DOMContentLoaded', function () {
-    populateResourceDropdown();  // Populate dropdown on load
-});
