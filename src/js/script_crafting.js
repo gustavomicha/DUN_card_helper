@@ -266,7 +266,6 @@ function createOroElement(oro) {
 }
 
 // Function that handles resource selection change
-// Function that handles resource selection change
 function onResourceChange() {
     const selectElement = document.getElementById('recursos-select');
     const selectedResource = selectElement.value;  // Get selected resource
@@ -283,26 +282,46 @@ function onResourceChange() {
         // Create a new row to hold images
         const imageRow = document.createElement('div');
 
-        // Add the images based on the row data
+        // Add the images based on the row data, with lugar at the first position
         const images = [
+            createImageElement(row.lugar, 'misc-icon'), // Smaller icon for place, now at the first position
             createImageElement(row.recurso_original),
-            createImageElement(row.lugar, 'misc-icon'), // Smaller icon for place
             createImageElement(row.recurso),
             createOroElement(row.oro), // Oro number + oro image
-            row.extra !== '-' ? createImageElement(row.extra, 'misc-icon') : null,  // Only show extra if it's not '-'
+            row.extra !== '-' ? createImageElement(row.extra, 'resource-image') : null,  // Only show extra if it's not '-'
             createImageElement(row.resultado)
         ];
 
-        // Append images with "+" and "=" symbols
+        // Append images with the ":" after "lugar", and "+" or "=" symbols in a structured manner
         images.forEach((img, index) => {
             if (img) {
                 imageRow.appendChild(img);
-                if (index < images.length - 3) {
-                    const plusSign = document.createElement('span');
-                    plusSign.textContent = ' + ';
-                    plusSign.className = 'symbol'; // Apply the styling to the symbol
-                    imageRow.appendChild(plusSign);
-                } else if (index === images.length - 3) {
+        
+                // Add ":" after the first (lugar) image
+                if (index === 0) {
+                    const colonSign = document.createElement('span');
+                    colonSign.textContent = ' : ';
+                    colonSign.className = 'symbol'; // Apply the styling to the symbol
+                    imageRow.appendChild(colonSign);
+                }
+                // Handle the "+" symbol for all images except the last two
+                else if (index < images.length - 2) {
+                    if (img === images[3] && row.extra === '-') {
+                        // Skip adding "+" after the 'extra' if it is a placeholder '-'
+                        const equalsSign = document.createElement('span');
+                        equalsSign.textContent = ' = ';
+                        equalsSign.className = 'symbol'; // Apply the styling to the symbol
+                        imageRow.appendChild(equalsSign);
+                    } else {
+                        const plusSign = document.createElement('span');
+                        plusSign.textContent = ' + ';
+                        plusSign.className = 'symbol'; // Apply the styling to the symbol
+                        imageRow.appendChild(plusSign);
+                    }
+                }
+        
+                // Add "=" symbol right before the last image
+                if (index === images.length - 2) {
                     const equalsSign = document.createElement('span');
                     equalsSign.textContent = ' = ';
                     equalsSign.className = 'symbol'; // Apply the styling to the symbol
@@ -316,6 +335,16 @@ function onResourceChange() {
     });
 }
 
+// Utility function to create an image element
+function createImageElement(name, className = 'resource-image') {
+    const img = document.createElement('img');
+    img.src = getImagePath(name);
+    img.alt = name;
+    img.className = className;  // Add a class name for styling
+    return img;
+}
+
+// Utility function to create an element for oro with the number and image
 function createOroElement(oro) {
     const oroContainer = document.createElement('div');
     oroContainer.style.display = 'flex';  // Display oro number and image side by side
@@ -333,14 +362,10 @@ function createOroElement(oro) {
     return oroContainer;
 }
 
-// Utility function to create an image element
-function createImageElement(name, className = 'resource-image') {
-    const img = document.createElement('img');
-    img.src = getImagePath(name);
-    img.alt = name;
-    img.className = className;  // Add a class name for styling
-    return img;
-}
+// Run on page load
+document.addEventListener('DOMContentLoaded', function () {
+    populateResourceDropdown();  // Populate dropdown on load
+});
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', function () {
