@@ -213,7 +213,8 @@ const craftingData = [{'recurso_original': 'assets/images/ESP/items/recursos/bab
     'recurso': 'assets/images/ESP/items/recursos/piedra_de_jade_nocturno_(22).jpg',
     'oro': 1,
     'extra': '-',
-    'resultado': 'assets/images/ESP/items/objetos_especiales_exp/oscuridad_embotellada.jpg'}]
+    'resultado': 'assets/images/ESP/items/objetos_especiales_exp/oscuridad_embotellada.jpg'}
+]
     ;
 
 
@@ -357,10 +358,6 @@ document.addEventListener('DOMContentLoaded', function () {
     populateResourceDropdown();  // Populate dropdown on load
 });
 
-// Run on page load
-document.addEventListener('DOMContentLoaded', function () {
-    populateResourceDropdown();  // Populate dropdown on load
-});
 
 function goToMainMenu() {
     window.parent.location.href = "../../index.html";
