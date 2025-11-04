@@ -2,7 +2,7 @@ import os
 import requests
 
 
-def card_downloader(base_url,start_num,end_num,destination_folder,english):
+def card_downloader(base_url, start_num, end_num, destination_folder, english):
     # Create the destination folder if it does not exist
     if not os.path.exists(destination_folder):
         os.makedirs(destination_folder)
@@ -20,7 +20,7 @@ def card_downloader(base_url,start_num,end_num,destination_folder,english):
             response.raise_for_status()  # Raise an error for bad status codes
 
             # Save the image
-            with open(os.path.join(destination_folder, f"{num}.jpg"), 'wb') as file:
+            with open(os.path.join(destination_folder, f"{num}.jpg"), "wb") as file:
                 file.write(response.content)
             print(f"Downloaded image {num}.jpg")
         except requests.exceptions.RequestException as e:
@@ -28,10 +28,12 @@ def card_downloader(base_url,start_num,end_num,destination_folder,english):
 
     print("Image download completed.")
 
+
 if __name__ == "__main__":
-    # base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/magias"
-    base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/mercenarios/"
-    start_num = 1
-    end_num = 50
-    destination_folder = "assets/images/ESP/downloaded/"
-    english = False
+    base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/equipo"
+    # base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/mercenarios/"
+    start_num = 264
+    end_num = 330
+    destination_folder = "assets/images/ENG/downloaded/items/"
+    english = True
+    card_downloader(base_url, start_num, end_num, destination_folder, english)
