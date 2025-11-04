@@ -1,0 +1,19 @@
+1. Rename and organize all spells. We need the following structure:
+Spells
+|
+|__Air
+|  |__choke.jpg
+|  |__magic_mist.jpg
+|  |__ ...etc...
+|
+|__Fire
+   |__burning_ground.jpg
+...etc...
+
+
+2. For items its a little bit more tricky. First of all we need to rename each card with their current name (so card 278.jpg should be renamed "special_shoulder_strap.jpg")
+But the tricky part is that some items are repeated in the actual decks, and we want to mimic that. So if any item is repeated, we should create copies of the iamge and label them following the card numbering in the actual card. For example, the "battle staff" has actually 2 copies numbered 69 and 70 (at least in the spanish version), so we should get file "264.jpg" (the file with the battle staff image) and create two files, "battle_staff_(69).jpg" and "battle_staff_(70).jpg".
+
+I can share some screenshots with the spanish labels and their numbers. I think the numbers should be the same.
+
+update: weapons is done, so I will remove it from the drive folder

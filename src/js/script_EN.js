@@ -1,4 +1,13 @@
-function populateImageDropdown(deck) {
+function filterResourcesByTerrain(terrain) {
+    if (terrain) {
+        populateImageDropdown('resources', terrain);
+    } else {
+        // If no terrain is selected, show all resources
+        populateImageDropdown('resources');
+    }
+}
+
+function populateImageDropdown(deck, terrain = null) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
 
     dropdown.innerHTML = ""; // Clear existing options
@@ -11,10 +20,34 @@ function populateImageDropdown(deck) {
     defaultOption.text = "Select card";
     dropdown.add(defaultOption);
 
-    images_EN[deck].forEach(function (image) {
+    var deckImages = images_EN[deck]; // Retrieve images from your card_names.js
+
+    if (includeExpansion && images_EN[`${deck}_exp`]) {
+        deckImages = deckImages.concat(images_EN[`${deck}_exp`]);
+    }
+
+    // Check if we need to filter by terrain
+    if (terrain && resourcesByTerrain[terrain]) {
+        // Filter images that match the terrain resources
+        deckImages = deckImages.filter(image => {
+            const imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
+            return resourcesByTerrain[terrain].some(resource => imageName.includes(resource));
+        });
+    }
+
+    // Sort deckImages array alphabetically
+    deckImages.sort(function (a, b) {
+        var nameA = a.toLowerCase();
+        var nameB = b.toLowerCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    });
+
+    deckImages.forEach(function (image) {
         var option = document.createElement("option");
         var imageName = image.split("/").pop().replace(/\.(png|jpg)$/i, '');
-        imageName = imageName.replace(/_/g, ' ');
+        imageName = imageName.replace(/_/g, ' ').replace(/\((\d+)\)/g, ' $1');
         imageName = capitalizeFirstLetter(imageName);
         option.text = imageName;
         option.value = image;
@@ -59,7 +92,7 @@ function capitalizeFirstLetter(string) {
 function changeRandomImage(deck) {
     var dropdown = document.getElementById(`imageDropdown_${deck}`);
     var validOptions = Array.from(dropdown.options).filter(option => !option.disabled);
-    
+
     if (validOptions.length > 0) {
         // Show the loading GIF container
         var loadingGifContainer = document.getElementById('loadingGifContainer');
@@ -93,7 +126,7 @@ function showEventsSubMenu() {
     document.getElementById("languageButton").style.display = "none";
 
     document.querySelectorAll('.deckPage').forEach(function (page) {
-         page.style.display = "none";
+        page.style.display = "none";
     });
 
     document.getElementById("eventsSubmenu").style.display = "block";
@@ -252,8 +285,60 @@ function openInfoWindow() {
         infoWindow.focus(); // If open, focus on the existing window
     } else {
         // If not open, open a new window with the specified text
-        infoWindow = window.open('src/html/info.html', '_blank', 'width=400,height=200');
+        infoWindow = window.open('src/html/info_EN.html', '_blank', 'width=400,height=200');
     }
+}
+
+function openCraftingPage() {
+    document.getElementById('mainMenu').style.display = 'none';
+    document.getElementById('eventsSubmenu').style.display = 'none';
+    document.getElementById('furnitureSubmenu').style.display = 'none';
+    document.getElementById("companionsSubmenu").style.display = "none";
+    document.getElementById('itemsSubmenu').style.display = 'none';
+    document.getElementById('infoButton').style.display = 'none';
+    document.getElementById("languageButton").style.display = "none";
+    document.getElementById('spellsPage').style.display = 'none';
+    document.getElementById('craftingFrame').src = 'src/html/crafting_EN.html';
+    document.getElementById('craftingPage').style.display = 'block';
+}
+
+// Expansion
+var includeExpansion = true;
+
+function toggleExpansion() {
+    var isChecked = document.getElementById("expansionCheckbox").checked;
+    localStorage.setItem("includeExpansion", isChecked);
+    includeExpansion = document.getElementById("expansionCheckbox").checked;
+
+    // Refresh all visible dropdowns to reflect the change immediately
+    refreshVisibleDropdowns();
+}
+
+function refreshVisibleDropdowns() {
+    // Get all deck pages
+    var deckPages = document.querySelectorAll('.deckPage');
+
+    // Find which deck page is currently visible
+    deckPages.forEach(function (deckPage) {
+        if (deckPage.style.display === 'block') {
+            // Extract deck name from the page id (e.g., "deckPage_weapons" -> "weapons")
+            var deckName = deckPage.id.replace('deckPage_', '');
+
+            // Check if this deck has a dropdown
+            var dropdown = document.getElementById(`imageDropdown_${deckName}`);
+            if (dropdown) {
+                // Repopulate the dropdown
+                if (deckName === 'resources') {
+                    // For resources, check if terrain filter is active
+                    var terrainSelect = document.getElementById('terrainSelect');
+                    var selectedTerrain = terrainSelect && terrainSelect.value !== terrainSelect.options[0].value ? terrainSelect.value : null;
+                    populateImageDropdown(deckName, selectedTerrain);
+                } else {
+                    populateImageDropdown(deckName);
+                }
+            }
+        }
+    });
 }
 
 // Switch to Spanish version

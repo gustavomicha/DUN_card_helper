@@ -302,7 +302,7 @@ function openInfoWindow() {
         infoWindow.focus(); // If open, focus on the existing window
     } else {
         // If not open, open a new window with the specified text
-        infoWindow = window.open('src/html/info.html', '_blank', 'width=400,height=200');
+        infoWindow = window.open('src/html/info_ES.html', '_blank', 'width=400,height=200');
     }
 }
 
@@ -313,6 +313,36 @@ function toggleExpansion() {
     var isChecked = document.getElementById("expansionCheckbox").checked;
     localStorage.setItem("includeExpansion", isChecked);
     includeExpansion = document.getElementById("expansionCheckbox").checked;
+    
+    // Refresh all visible dropdowns to reflect the change immediately
+    refreshVisibleDropdowns();
+}
+
+function refreshVisibleDropdowns() {
+    // Get all deck pages
+    var deckPages = document.querySelectorAll('.deckPage');
+    
+    // Find which deck page is currently visible
+    deckPages.forEach(function(deckPage) {
+        if (deckPage.style.display === 'block') {
+            // Extract deck name from the page id (e.g., "deckPage_armas" -> "armas")
+            var deckName = deckPage.id.replace('deckPage_', '');
+            
+            // Check if this deck has a dropdown
+            var dropdown = document.getElementById(`imageDropdown_${deckName}`);
+            if (dropdown) {
+                // Repopulate the dropdown
+                if (deckName === 'recursos') {
+                    // For recursos, check if terrain filter is active
+                    var terrenoSelect = document.getElementById('terrenoSelect');
+                    var selectedTerreno = terrenoSelect && terrenoSelect.value !== terrenoSelect.options[0].value ? terrenoSelect.value : null;
+                    populateImageDropdown(deckName, selectedTerreno);
+                } else {
+                    populateImageDropdown(deckName);
+                }
+            }
+        }
+    });
 }
 
 // Switch to English version
