@@ -250,6 +250,15 @@ const images_EN = {
     desert_exp: [
         'assets/images/ENG/events/desert_exp/Poisonus snakes.png', 'assets/images/ENG/events/desert_exp/Sand storm.png'
     ],
+    village_exp: [
+        'assets/images/ENG/events/village_exp/Curse_of_the_Outsider.png', 'assets/images/ENG/events/village_exp/Distrustful_Villagers.png', 'assets/images/ENG/events/village_exp/Festival.png', 'assets/images/ENG/events/village_exp/Wandering_Adventurer.png', 'assets/images/ENG/events/village_exp/Wrongful_Execution.png'
+    ],
+    city_exp: [
+        'assets/images/ENG/events/city_exp/Adventurous_Nobleman.png', 'assets/images/ENG/events/city_exp/Blue_Sorcerer.png', 'assets/images/ENG/events/city_exp/Distrustful_Merchant.png', 'assets/images/ENG/events/city_exp/Distrustful_Villagers.png', 'assets/images/ENG/events/city_exp/Shell_Game_Artist.png', 'assets/images/ENG/events/city_exp/Snitch.png', 'assets/images/ENG/events/city_exp/Street_Rascals.png', 'assets/images/ENG/events/city_exp/Troubled_Priest.png'
+    ],
+    castle_exp: [
+        'assets/images/ENG/events/castle_exp/Provisioned_or_Poisoned.png', 'assets/images/ENG/events/castle_exp/Strongman.png', 'assets/images/ENG/events/castle_exp/Vigilant_Soldiers.png', 'assets/images/ENG/events/castle_exp/Wandering_Mercenary.png'
+    ],
 };
 
 
