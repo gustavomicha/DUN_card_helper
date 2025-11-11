@@ -303,12 +303,22 @@ function openCraftingPage() {
 }
 
 // Expansion
-var includeExpansion = true;
+// Initialize from localStorage, default to true if not set
+var includeExpansion = localStorage.getItem("includeExpansion") !== "false";
+
+// Sync checkbox with stored value on page load
+window.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem("includeExpansion") === null) {
+        // First visit - set default to true
+        localStorage.setItem("includeExpansion", "true");
+    }
+    document.getElementById("expansionCheckbox").checked = includeExpansion;
+});
 
 function toggleExpansion() {
     var isChecked = document.getElementById("expansionCheckbox").checked;
     localStorage.setItem("includeExpansion", isChecked);
-    includeExpansion = document.getElementById("expansionCheckbox").checked;
+    includeExpansion = isChecked;
 
     // Refresh all visible dropdowns to reflect the change immediately
     refreshVisibleDropdowns();

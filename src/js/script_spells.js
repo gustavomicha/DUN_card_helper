@@ -1,5 +1,6 @@
 var counters = []; 
-var includeExpansion = localStorage.getItem("includeExpansion") === "true";
+// Initialize from localStorage, default to true if not set
+var includeExpansion = localStorage.getItem("includeExpansion") !== "false";
 var base_path_spell = "../../assets/images/ESP/hechizos/";
 var base_path_spell_exp = "../../assets/images/ESP/hechizos_exp/";
 var defaultImage = base_path_spell + '/default.png';
