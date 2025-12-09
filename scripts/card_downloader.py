@@ -30,10 +30,10 @@ def card_downloader(base_url, start_num, end_num, destination_folder, english):
 
 
 if __name__ == "__main__":
-    base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/mercenarios"
+    base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/equipo"
     # base_url = "https://worldofarasca.dungeonuniversalis.com/imagenes/mercenarios/"
-    start_num = 45
-    end_num = 50
+    start_num = 264
+    end_num = 269
     destination_folder = "assets/images/ENG/downloaded/items/"
     english = True
     card_downloader(base_url, start_num, end_num, destination_folder, english)
